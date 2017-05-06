@@ -1,0 +1,13 @@
+C:\Users\Adem\Desktop\MyPizza\MyPizza_UI\bin\Debug\MyPizza_UI.exe.config
+C:\Users\Adem\Desktop\MyPizza\MyPizza_UI\obj\Debug\MyPizza_UI.csprojResolveAssemblyReference.cache
+C:\Users\Adem\Desktop\MyPizza\MyPizza_UI\obj\Debug\MyPizza_UI.KorisnickaForma.resources
+C:\Users\Adem\Desktop\MyPizza\MyPizza_UI\obj\Debug\MyPizza_UI.Properties.Resources.resources
+C:\Users\Adem\Desktop\MyPizza\MyPizza_UI\obj\Debug\MyPizza_UI.csproj.GenerateResource.Cache
+C:\Users\Adem\Desktop\MyPizza\MyPizza_UI\bin\Debug\MyPizza_UI.exe
+C:\Users\Adem\Desktop\MyPizza\MyPizza_UI\bin\Debug\MyPizza_UI.pdb
+C:\Users\Adem\Desktop\MyPizza\MyPizza_UI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Adem\Desktop\MyPizza\MyPizza_UI\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Adem\Desktop\MyPizza\MyPizza_UI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Adem\Desktop\MyPizza\MyPizza_UI\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Adem\Desktop\MyPizza\MyPizza_UI\obj\Debug\MyPizza_UI.exe
+C:\Users\Adem\Desktop\MyPizza\MyPizza_UI\obj\Debug\MyPizza_UI.pdb
