@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MyPizzaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MyPizzaModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CijenePizza">
           <Key>
             <PropertyRef Name="CijenaPizzeId" />
@@ -12,7 +12,7 @@
           <Property Name="CijenaPizzeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Cijena" Type="float" Nullable="false" />
           <Property Name="Opis" Type="nvarchar" MaxLength="500" />
-          <Property Name="DatumIzmjene" Type="date" />
+          <Property Name="DatumIzmjene" Type="datetime" />
         </EntityType>
         <EntityType Name="DodatniSastojci">
           <Key>
@@ -41,7 +41,7 @@
           <Property Name="LozinkaSalt" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="BrojTelefona" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="DatumRegistracije" Type="date" Nullable="false" />
+          <Property Name="DatumRegistracije" Type="datetime" Nullable="false" />
           <Property Name="StatusKorisnikaId" Type="int" Nullable="false" />
           <Property Name="GradId" Type="int" Nullable="false" />
         </EntityType>
@@ -52,7 +52,7 @@
           <Property Name="KorisnickaUlogaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="KorisnikId" Type="int" Nullable="false" />
           <Property Name="UlogaKorisnikaId" Type="int" Nullable="false" />
-          <Property Name="DatumIzmjene" Type="date" Nullable="false" />
+          <Property Name="DatumIzmjene" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Narudzbe">
           <Key>
@@ -61,7 +61,7 @@
           <Property Name="NarudzbaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="KorisnikId" Type="int" Nullable="false" />
           <Property Name="StatusNarudzbeId" Type="int" Nullable="false" />
-          <Property Name="DatumNarudzbe" Type="date" Nullable="false" />
+          <Property Name="DatumNarudzbe" Type="datetime" Nullable="false" />
           <Property Name="OtkazanaNarudzba" Type="bit" />
         </EntityType>
         <EntityType Name="NarudzbePizze">
@@ -81,7 +81,7 @@
           <Property Name="OcjenaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PizzaId" Type="int" Nullable="false" />
           <Property Name="KorisnikId" Type="int" Nullable="false" />
-          <Property Name="DatumOcjene" Type="date" Nullable="false" />
+          <Property Name="DatumOcjene" Type="datetime" Nullable="false" />
           <Property Name="Ocjena" Type="float" Nullable="false" />
           <Property Name="Komentar" Type="nvarchar" MaxLength="500" />
         </EntityType>
@@ -101,7 +101,7 @@
             <PropertyRef Name="RacunId" />
           </Key>
           <Property Name="RacunId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Datum" Type="date" Nullable="false" />
+          <Property Name="Datum" Type="datetime" Nullable="false" />
           <Property Name="NarudzbaId" Type="int" Nullable="false" />
           <Property Name="KorisnikId" Type="int" Nullable="false" />
           <Property Name="CijenaSaPDV" Type="float" Nullable="false" />
@@ -137,7 +137,7 @@
           <Property Name="StatusPizzeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StatusPizze" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Opis" Type="nvarchar" MaxLength="500" />
-          <Property Name="DatumIzmjene" Type="date" />
+          <Property Name="DatumIzmjene" Type="datetime" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -163,8 +163,8 @@
           </Key>
           <Property Name="VelicinaPizzeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Velicina" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DatumIzmjene" Type="datetime" />
           <Property Name="Promjer" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="DatumIzmjene" Type="date" />
         </EntityType>
         <EntityType Name="VrstePizza">
           <Key>
@@ -173,8 +173,8 @@
           <Property Name="VrstaPizzeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Vrsta" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Opis" Type="nvarchar" MaxLength="700" />
-          <Property Name="DatumDodavanja" Type="date" Nullable="false" />
-          <Property Name="DatumIzmjene" Type="date" />
+          <Property Name="DatumDodavanja" Type="datetime" Nullable="false" />
+          <Property Name="DatumIzmjene" Type="datetime" />
           <Property Name="Slika" Type="varbinary(max)" />
           <Property Name="SlikaThumb" Type="varbinary(max)" />
         </EntityType>
@@ -434,7 +434,7 @@
           <Parameter Name="lozinkaSalt" Type="nvarchar" Mode="In" />
           <Parameter Name="email" Type="nvarchar" Mode="In" />
           <Parameter Name="brojTelefona" Type="nvarchar" Mode="In" />
-          <Parameter Name="datumRegistracije" Type="date" Mode="In" />
+          <Parameter Name="datumRegistracije" Type="datetime" Mode="In" />
           <Parameter Name="statusKorisnikaId" Type="int" Mode="In" />
           <Parameter Name="gradId" Type="int" Mode="In" />
         </Function>
@@ -444,13 +444,13 @@
         <Function Name="myPizza_KorisnickeUloge_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="korisnikId" Type="int" Mode="In" />
           <Parameter Name="ulogaKorisnikaId" Type="int" Mode="In" />
-          <Parameter Name="datumIzmjene" Type="date" Mode="In" />
+          <Parameter Name="datumIzmjene" Type="datetime" Mode="In" />
         </Function>
         <Function Name="myPizza_VrstePizza_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vrsta" Type="nvarchar" Mode="In" />
           <Parameter Name="opis" Type="nvarchar" Mode="In" />
-          <Parameter Name="datumDodavanja" Type="date" Mode="In" />
-          <Parameter Name="datumIzmjene" Type="date" Mode="In" />
+          <Parameter Name="datumDodavanja" Type="datetime" Mode="In" />
+          <Parameter Name="datumIzmjene" Type="datetime" Mode="In" />
           <Parameter Name="slika" Type="varbinary(max)" Mode="In" />
           <Parameter Name="slikaThumb" Type="varbinary(max)" Mode="In" />
         </Function>
@@ -458,7 +458,7 @@
           <Parameter Name="vrstaId" Type="int" Mode="In" />
           <Parameter Name="sastojakId" Type="int" Mode="In" />
         </Function>
-        <EntityContainer Name="MyPizzaModelStoreContainer">
+        <EntityContainer Name="MyPizzaModel1StoreContainer">
           <EntitySet Name="CijenePizza" EntityType="Self.CijenePizza" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DodatniSastojci" EntityType="Self.DodatniSastojci" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gradovi" EntityType="Self.Gradovi" Schema="dbo" store:Type="Tables" />
@@ -562,7 +562,7 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="MyPizzaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="MyPizzaModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CijenePizza">
           <Key>
             <PropertyRef Name="CijenaPizzeId" />
@@ -570,7 +570,7 @@
           <Property Name="CijenaPizzeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Cijena" Type="Double" Nullable="false" />
           <Property Name="Opis" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="DatumIzmjene" Type="DateTime" Precision="0" />
+          <Property Name="DatumIzmjene" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Pizze" Relationship="Self.FK_Pizze_CijenePizza" FromRole="CijenePizza" ToRole="Pizze" />
         </EntityType>
         <EntityType Name="DodatniSastojci">
@@ -603,7 +603,7 @@
           <Property Name="LozinkaSalt" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="BrojTelefona" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DatumRegistracije" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DatumRegistracije" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="StatusKorisnikaId" Type="Int32" Nullable="false" />
           <Property Name="GradId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Gradovi" Relationship="Self.FK_Korisnici_Gradovi" FromRole="Korisnici" ToRole="Gradovi" />
@@ -620,7 +620,7 @@
           <Property Name="KorisnickaUlogaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="KorisnikId" Type="Int32" Nullable="false" />
           <Property Name="UlogaKorisnikaId" Type="Int32" Nullable="false" />
-          <Property Name="DatumIzmjene" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DatumIzmjene" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Korisnici" Relationship="Self.FK_KorisnickeUloge_Korisnici" FromRole="KorisnickeUloge" ToRole="Korisnici" />
           <NavigationProperty Name="UlogeKorisnika" Relationship="Self.FK_KorisnickeUloge_UlogeKorisnika" FromRole="KorisnickeUloge" ToRole="UlogeKorisnika" />
         </EntityType>
@@ -631,7 +631,7 @@
           <Property Name="NarudzbaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="KorisnikId" Type="Int32" Nullable="false" />
           <Property Name="StatusNarudzbeId" Type="Int32" Nullable="false" />
-          <Property Name="DatumNarudzbe" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DatumNarudzbe" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="OtkazanaNarudzba" Type="Boolean" />
           <NavigationProperty Name="Korisnici" Relationship="Self.FK_Narudzbe_Korisnici" FromRole="Narudzbe" ToRole="Korisnici" />
           <NavigationProperty Name="StatusiNarudzbi" Relationship="Self.FK_Narudzbe_StatusiNarudzbi" FromRole="Narudzbe" ToRole="StatusiNarudzbi" />
@@ -658,7 +658,7 @@
           <Property Name="OcjenaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PizzaId" Type="Int32" Nullable="false" />
           <Property Name="KorisnikId" Type="Int32" Nullable="false" />
-          <Property Name="DatumOcjene" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DatumOcjene" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Ocjena" Type="Double" Nullable="false" />
           <Property Name="Komentar" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Korisnici" Relationship="Self.FK_Ocjene_Korisnici" FromRole="Ocjene" ToRole="Korisnici" />
@@ -686,7 +686,7 @@
             <PropertyRef Name="RacunId" />
           </Key>
           <Property Name="RacunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Datum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Datum" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="NarudzbaId" Type="Int32" Nullable="false" />
           <Property Name="KorisnikId" Type="Int32" Nullable="false" />
           <Property Name="CijenaSaPDV" Type="Double" Nullable="false" />
@@ -728,7 +728,7 @@
           <Property Name="StatusPizzeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StatusPizze" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Opis" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="DatumIzmjene" Type="DateTime" Precision="0" />
+          <Property Name="DatumIzmjene" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Pizze" Relationship="Self.FK_Pizze_StatusiPizza" FromRole="StatusiPizza" ToRole="Pizze" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -756,9 +756,9 @@
           </Key>
           <Property Name="VelicinaPizzeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Velicina" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DatumIzmjene" Type="DateTime" Precision="0" />
+          <Property Name="DatumIzmjene" Type="DateTime" Precision="3" />
+          <Property Name="Promjer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Pizze" Relationship="Self.FK_Pizze_VelicinePizza" FromRole="VelicinePizza" ToRole="Pizze" />
-          <Property Name="Promjer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="VrstePizza">
           <Key>
@@ -767,12 +767,12 @@
           <Property Name="VrstaPizzeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Vrsta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Opis" Type="String" MaxLength="700" FixedLength="false" Unicode="true" />
-          <Property Name="DatumDodavanja" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="DatumIzmjene" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Pizze" Relationship="Self.FK_Pizze_VrstePizza" FromRole="VrstePizza" ToRole="Pizze" />
-          <NavigationProperty Name="VrsteSastojci" Relationship="Self.FK_VrsteSastojci_VrstePizza" FromRole="VrstePizza" ToRole="VrsteSastojci" />
+          <Property Name="DatumDodavanja" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DatumIzmjene" Type="DateTime" Precision="3" />
           <Property Name="Slika" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="SlikaThumb" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Pizze" Relationship="Self.FK_Pizze_VrstePizza" FromRole="VrstePizza" ToRole="Pizze" />
+          <NavigationProperty Name="VrsteSastojci" Relationship="Self.FK_VrsteSastojci_VrstePizza" FromRole="VrstePizza" ToRole="VrsteSastojci" />
         </EntityType>
         <EntityType Name="VrsteSastojci">
           <Key>
@@ -1024,7 +1024,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MyPizzaEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MyPizzaEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CijenePizza" EntityType="Self.CijenePizza" />
           <EntitySet Name="DodatniSastojci" EntityType="Self.DodatniSastojci" />
           <EntitySet Name="Gradovi" EntityType="Self.Gradovi" />
@@ -1136,7 +1136,7 @@
             <Parameter Name="statusKorisnikaId" Mode="In" Type="Int32" />
             <Parameter Name="gradId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="myPizza_Korisnici_SelectByImePrezime" EntitySet="Korisnici" ReturnType="Collection(MyPizzaModel.Korisnici)">
+          <FunctionImport Name="myPizza_Korisnici_SelectByImePrezime" ReturnType="Collection(MyPizzaModel1.myPizza_Korisnici_SelectByImePrezime_Result)">
           <Parameter Name="imePrezime" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="myPizza_KorisnickeUloge_Insert">
@@ -1157,14 +1157,27 @@
             <Parameter Name="sastojakId" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="myPizza_Korisnici_SelectByImePrezime_Result">
+          <Property Type="Int32" Name="KorisnikId" Nullable="false" />
+          <Property Type="String" Name="Ime" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Prezime" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="KorisnickoIme" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LozinkaHash" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="LozinkaSalt" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="BrojTelefona" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="DatumRegistracije" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="StatusKorisnikaId" Nullable="false" />
+          <Property Type="Int32" Name="GradId" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MyPizzaModelStoreContainer" CdmEntityContainer="MyPizzaEntities">
+        <EntityContainerMapping StorageEntityContainer="MyPizzaModel1StoreContainer" CdmEntityContainer="MyPizzaEntities1">
           <EntitySetMapping Name="CijenePizza">
-            <EntityTypeMapping TypeName="MyPizzaModel.CijenePizza">
+            <EntityTypeMapping TypeName="MyPizzaModel1.CijenePizza">
               <MappingFragment StoreEntitySet="CijenePizza">
                 <ScalarProperty Name="CijenaPizzeId" ColumnName="CijenaPizzeId" />
                 <ScalarProperty Name="Cijena" ColumnName="Cijena" />
@@ -1174,7 +1187,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DodatniSastojci">
-            <EntityTypeMapping TypeName="MyPizzaModel.DodatniSastojci">
+            <EntityTypeMapping TypeName="MyPizzaModel1.DodatniSastojci">
               <MappingFragment StoreEntitySet="DodatniSastojci">
                 <ScalarProperty Name="DodatniSastojakId" ColumnName="DodatniSastojakId" />
                 <ScalarProperty Name="NarudzbaPizzaId" ColumnName="NarudzbaPizzaId" />
@@ -1183,7 +1196,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Gradovi">
-            <EntityTypeMapping TypeName="MyPizzaModel.Gradovi">
+            <EntityTypeMapping TypeName="MyPizzaModel1.Gradovi">
               <MappingFragment StoreEntitySet="Gradovi">
                 <ScalarProperty Name="GradId" ColumnName="GradId" />
                 <ScalarProperty Name="Grad" ColumnName="Grad" />
@@ -1191,7 +1204,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Korisnici">
-            <EntityTypeMapping TypeName="MyPizzaModel.Korisnici">
+            <EntityTypeMapping TypeName="MyPizzaModel1.Korisnici">
               <MappingFragment StoreEntitySet="Korisnici">
                 <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
                 <ScalarProperty Name="Ime" ColumnName="Ime" />
@@ -1208,7 +1221,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KorisnickeUloge">
-            <EntityTypeMapping TypeName="MyPizzaModel.KorisnickeUloge">
+            <EntityTypeMapping TypeName="MyPizzaModel1.KorisnickeUloge">
               <MappingFragment StoreEntitySet="KorisnickeUloge">
                 <ScalarProperty Name="KorisnickaUlogaId" ColumnName="KorisnickaUlogaId" />
                 <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
@@ -1218,7 +1231,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Narudzbe">
-            <EntityTypeMapping TypeName="MyPizzaModel.Narudzbe">
+            <EntityTypeMapping TypeName="MyPizzaModel1.Narudzbe">
               <MappingFragment StoreEntitySet="Narudzbe">
                 <ScalarProperty Name="NarudzbaId" ColumnName="NarudzbaId" />
                 <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
@@ -1229,7 +1242,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NarudzbePizze">
-            <EntityTypeMapping TypeName="MyPizzaModel.NarudzbePizze">
+            <EntityTypeMapping TypeName="MyPizzaModel1.NarudzbePizze">
               <MappingFragment StoreEntitySet="NarudzbePizze">
                 <ScalarProperty Name="NarudzbaPizzaId" ColumnName="NarudzbaPizzaId" />
                 <ScalarProperty Name="NarudzbaId" ColumnName="NarudzbaId" />
@@ -1240,7 +1253,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ocjene">
-            <EntityTypeMapping TypeName="MyPizzaModel.Ocjene">
+            <EntityTypeMapping TypeName="MyPizzaModel1.Ocjene">
               <MappingFragment StoreEntitySet="Ocjene">
                 <ScalarProperty Name="OcjenaId" ColumnName="OcjenaId" />
                 <ScalarProperty Name="PizzaId" ColumnName="PizzaId" />
@@ -1252,7 +1265,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pizze">
-            <EntityTypeMapping TypeName="MyPizzaModel.Pizze">
+            <EntityTypeMapping TypeName="MyPizzaModel1.Pizze">
               <MappingFragment StoreEntitySet="Pizze">
                 <ScalarProperty Name="PizzaId" ColumnName="PizzaId" />
                 <ScalarProperty Name="VrstaId" ColumnName="VrstaId" />
@@ -1264,7 +1277,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Racuni">
-            <EntityTypeMapping TypeName="MyPizzaModel.Racuni">
+            <EntityTypeMapping TypeName="MyPizzaModel1.Racuni">
               <MappingFragment StoreEntitySet="Racuni">
                 <ScalarProperty Name="RacunId" ColumnName="RacunId" />
                 <ScalarProperty Name="Datum" ColumnName="Datum" />
@@ -1276,7 +1289,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sastojci">
-            <EntityTypeMapping TypeName="MyPizzaModel.Sastojci">
+            <EntityTypeMapping TypeName="MyPizzaModel1.Sastojci">
               <MappingFragment StoreEntitySet="Sastojci">
                 <ScalarProperty Name="SastojakId" ColumnName="SastojakId" />
                 <ScalarProperty Name="Sastojak" ColumnName="Sastojak" />
@@ -1286,7 +1299,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StatusiKorisnika">
-            <EntityTypeMapping TypeName="MyPizzaModel.StatusiKorisnika">
+            <EntityTypeMapping TypeName="MyPizzaModel1.StatusiKorisnika">
               <MappingFragment StoreEntitySet="StatusiKorisnika">
                 <ScalarProperty Name="StatusKorisnikaId" ColumnName="StatusKorisnikaId" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
@@ -1294,7 +1307,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StatusiNarudzbi">
-            <EntityTypeMapping TypeName="MyPizzaModel.StatusiNarudzbi">
+            <EntityTypeMapping TypeName="MyPizzaModel1.StatusiNarudzbi">
               <MappingFragment StoreEntitySet="StatusiNarudzbi">
                 <ScalarProperty Name="StatusNarudzbeId" ColumnName="StatusNarudzbeId" />
                 <ScalarProperty Name="StatusNarudzbe" ColumnName="StatusNarudzbe" />
@@ -1302,7 +1315,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StatusiPizza">
-            <EntityTypeMapping TypeName="MyPizzaModel.StatusiPizza">
+            <EntityTypeMapping TypeName="MyPizzaModel1.StatusiPizza">
               <MappingFragment StoreEntitySet="StatusiPizza">
                 <ScalarProperty Name="StatusPizzeId" ColumnName="StatusPizzeId" />
                 <ScalarProperty Name="StatusPizze" ColumnName="StatusPizze" />
@@ -1312,7 +1325,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="MyPizzaModel.sysdiagrams">
+            <EntityTypeMapping TypeName="MyPizzaModel1.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1323,7 +1336,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UlogeKorisnika">
-            <EntityTypeMapping TypeName="MyPizzaModel.UlogeKorisnika">
+            <EntityTypeMapping TypeName="MyPizzaModel1.UlogeKorisnika">
               <MappingFragment StoreEntitySet="UlogeKorisnika">
                 <ScalarProperty Name="UlogaKorisnikaId" ColumnName="UlogaKorisnikaId" />
                 <ScalarProperty Name="Uloga" ColumnName="Uloga" />
@@ -1332,30 +1345,30 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VelicinePizza">
-            <EntityTypeMapping TypeName="MyPizzaModel.VelicinePizza">
+            <EntityTypeMapping TypeName="MyPizzaModel1.VelicinePizza">
               <MappingFragment StoreEntitySet="VelicinePizza">
-                <ScalarProperty Name="Promjer" ColumnName="Promjer" />
                 <ScalarProperty Name="VelicinaPizzeId" ColumnName="VelicinaPizzeId" />
                 <ScalarProperty Name="Velicina" ColumnName="Velicina" />
                 <ScalarProperty Name="DatumIzmjene" ColumnName="DatumIzmjene" />
+                <ScalarProperty Name="Promjer" ColumnName="Promjer" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VrstePizza">
-            <EntityTypeMapping TypeName="MyPizzaModel.VrstePizza">
+            <EntityTypeMapping TypeName="MyPizzaModel1.VrstePizza">
               <MappingFragment StoreEntitySet="VrstePizza">
-                <ScalarProperty Name="SlikaThumb" ColumnName="SlikaThumb" />
-                <ScalarProperty Name="Slika" ColumnName="Slika" />
                 <ScalarProperty Name="VrstaPizzeId" ColumnName="VrstaPizzeId" />
                 <ScalarProperty Name="Vrsta" ColumnName="Vrsta" />
                 <ScalarProperty Name="Opis" ColumnName="Opis" />
                 <ScalarProperty Name="DatumDodavanja" ColumnName="DatumDodavanja" />
                 <ScalarProperty Name="DatumIzmjene" ColumnName="DatumIzmjene" />
+                <ScalarProperty Name="Slika" ColumnName="Slika" />
+                <ScalarProperty Name="SlikaThumb" ColumnName="SlikaThumb" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VrsteSastojci">
-            <EntityTypeMapping TypeName="MyPizzaModel.VrsteSastojci">
+            <EntityTypeMapping TypeName="MyPizzaModel1.VrsteSastojci">
               <MappingFragment StoreEntitySet="VrsteSastojci">
                 <ScalarProperty Name="VrsteSastojciId" ColumnName="VrsteSastojciId" />
                 <ScalarProperty Name="VrstaId" ColumnName="VrstaId" />
@@ -1363,12 +1376,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="myPizza_Korisnici_Insert" FunctionName="MyPizzaModel.Store.myPizza_Korisnici_Insert" />
-          <FunctionImportMapping FunctionImportName="myPizza_Korisnici_SelectByImePrezime" FunctionName="MyPizzaModel.Store.myPizza_Korisnici_SelectByImePrezime">
+          <FunctionImportMapping FunctionImportName="myPizza_Korisnici_Insert" FunctionName="MyPizzaModel1.Store.myPizza_Korisnici_Insert" />
+          <FunctionImportMapping FunctionImportName="myPizza_Korisnici_SelectByImePrezime" FunctionName="MyPizzaModel1.Store.myPizza_Korisnici_SelectByImePrezime">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyPizzaModel1.myPizza_Korisnici_SelectByImePrezime_Result">
+                <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+                <ScalarProperty Name="LozinkaHash" ColumnName="LozinkaHash" />
+                <ScalarProperty Name="LozinkaSalt" ColumnName="LozinkaSalt" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
+                <ScalarProperty Name="DatumRegistracije" ColumnName="DatumRegistracije" />
+                <ScalarProperty Name="StatusKorisnikaId" ColumnName="StatusKorisnikaId" />
+                <ScalarProperty Name="GradId" ColumnName="GradId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="myPizza_KorisnickeUloge_Insert" FunctionName="MyPizzaModel.Store.myPizza_KorisnickeUloge_Insert" />
-          <FunctionImportMapping FunctionImportName="myPizza_VrstePizza_Insert" FunctionName="MyPizzaModel.Store.myPizza_VrstePizza_Insert" />
-          <FunctionImportMapping FunctionImportName="myPizza_VrsteSastojci_Insert" FunctionName="MyPizzaModel.Store.myPizza_VrsteSastojci_Insert" />
+          <FunctionImportMapping FunctionImportName="myPizza_KorisnickeUloge_Insert" FunctionName="MyPizzaModel1.Store.myPizza_KorisnickeUloge_Insert" />
+          <FunctionImportMapping FunctionImportName="myPizza_VrstePizza_Insert" FunctionName="MyPizzaModel1.Store.myPizza_VrstePizza_Insert" />
+          <FunctionImportMapping FunctionImportName="myPizza_VrsteSastojci_Insert" FunctionName="MyPizzaModel1.Store.myPizza_VrsteSastojci_Insert" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

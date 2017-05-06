@@ -14,7 +14,8 @@ namespace MyPizza_API.Controllers
 {
     public class GradoviController : ApiController
     {
-        private MyPizzaEntities db = new MyPizzaEntities();
+        //private MyPizzaEntities db = new MyPizzaEntities();
+        private MyPizzaEntities1 db = new MyPizzaEntities1();
 
         // GET: api/Gradovi
         public IQueryable<Gradovi> GetGradovi()

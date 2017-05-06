@@ -14,7 +14,8 @@ namespace MyPizza_API.Controllers
 {
     public class StatusiPizzaController : ApiController
     {
-        private MyPizzaEntities db = new MyPizzaEntities();
+        //private MyPizzaEntities db = new MyPizzaEntities();
+        private MyPizzaEntities1 db = new MyPizzaEntities1();
 
         // GET: api/StatusiPizza
         public IQueryable<StatusiPizza> GetStatusiPizza()

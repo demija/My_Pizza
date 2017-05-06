@@ -16,7 +16,8 @@ namespace MyPizza_API.Controllers
 {
     public class KorisniciController : ApiController
     {
-        private MyPizzaEntities db = new MyPizzaEntities();
+        //private MyPizzaEntities db = new MyPizzaEntities();
+        private MyPizzaEntities1 db = new MyPizzaEntities1();
 
         // GET: api/Korisnici
         public IQueryable<Korisnici> GetKorisnici()
@@ -26,7 +27,7 @@ namespace MyPizza_API.Controllers
 
         [HttpGet]
         [Route("api/Korisnici/SearchKorisnici/{name?}")]
-        public List<Korisnici> SearchKorisnici(string name = "")
+        public List<myPizza_Korisnici_SelectByImePrezime_Result> SearchKorisnici(string name = "")
         {
             return db.myPizza_Korisnici_SelectByImePrezime(name).ToList();
         }
@@ -110,7 +111,6 @@ namespace MyPizza_API.Controllers
             catch (EntityException ex)
             {
                 //throw new NotImplementedException();
-                
                 throw CreateHttpResponseException(Util.ExceptionHandler.HandleException(ex), HttpStatusCode.Conflict);
             }
 

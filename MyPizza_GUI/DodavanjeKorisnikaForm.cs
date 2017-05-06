@@ -74,7 +74,7 @@ namespace MyPizza_GUI
                 k.KorisnickoIme = korisnickoImeTextBox.Text;
                 k.LozinkaSalt = UIHelper.GenerateSalt();
                 k.LozinkaHash = UIHelper.GenerateHash(lozinkaTextBox.Text, k.LozinkaSalt);
-                k.GradId = Convert.ToInt32(gradComboBox.SelectedValue); //Convert.ToInt32("1");
+                k.GradId = Convert.ToInt32(gradComboBox.SelectedValue);
                 k.StatusKorisnikaId = Convert.ToInt32("1");
                 k.DatumRegistracije = DateTime.Now;
 
@@ -88,7 +88,7 @@ namespace MyPizza_GUI
                 }
                 else
                 {
-                    MessageBox.Show("Error: " + response.StatusCode + Environment.NewLine + "Message: " + response.ReasonPhrase);
+                    MessageBox.Show("GREŠKA - Error: " + response.StatusCode + Environment.NewLine + "Message: " + response.ReasonPhrase);
                 }
             }
         }

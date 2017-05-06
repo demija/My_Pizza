@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="MyPizzaModelStoreContainer" CdmEntityContainer="MyPizzaEntities">
+  <EntityContainerMapping StorageEntityContainer="MyPizzaModel1StoreContainer" CdmEntityContainer="MyPizzaEntities1">
     <EntitySetMapping Name="CijenePizza">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.CijenePizza)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.CijenePizza">
         <MappingFragment StoreEntitySet="CijenePizza">
           <ScalarProperty Name="CijenaPizzeId" ColumnName="CijenaPizzeId" />
           <ScalarProperty Name="Cijena" ColumnName="Cijena" />
@@ -12,7 +12,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DodatniSastojci">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.DodatniSastojci)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.DodatniSastojci">
         <MappingFragment StoreEntitySet="DodatniSastojci">
           <ScalarProperty Name="DodatniSastojakId" ColumnName="DodatniSastojakId" />
           <ScalarProperty Name="NarudzbaPizzaId" ColumnName="NarudzbaPizzaId" />
@@ -21,7 +21,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Gradovi">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.Gradovi)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.Gradovi">
         <MappingFragment StoreEntitySet="Gradovi">
           <ScalarProperty Name="GradId" ColumnName="GradId" />
           <ScalarProperty Name="Grad" ColumnName="Grad" />
@@ -29,7 +29,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Korisnici">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.Korisnici)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.Korisnici">
         <MappingFragment StoreEntitySet="Korisnici">
           <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
           <ScalarProperty Name="Ime" ColumnName="Ime" />
@@ -46,7 +46,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="KorisnickeUloge">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.KorisnickeUloge)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.KorisnickeUloge">
         <MappingFragment StoreEntitySet="KorisnickeUloge">
           <ScalarProperty Name="KorisnickaUlogaId" ColumnName="KorisnickaUlogaId" />
           <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
@@ -56,7 +56,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Narudzbe">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.Narudzbe)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.Narudzbe">
         <MappingFragment StoreEntitySet="Narudzbe">
           <ScalarProperty Name="NarudzbaId" ColumnName="NarudzbaId" />
           <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
@@ -67,7 +67,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NarudzbePizze">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.NarudzbePizze)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.NarudzbePizze">
         <MappingFragment StoreEntitySet="NarudzbePizze">
           <ScalarProperty Name="NarudzbaPizzaId" ColumnName="NarudzbaPizzaId" />
           <ScalarProperty Name="NarudzbaId" ColumnName="NarudzbaId" />
@@ -78,7 +78,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Ocjene">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.Ocjene)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.Ocjene">
         <MappingFragment StoreEntitySet="Ocjene">
           <ScalarProperty Name="OcjenaId" ColumnName="OcjenaId" />
           <ScalarProperty Name="PizzaId" ColumnName="PizzaId" />
@@ -90,7 +90,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pizze">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.Pizze)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.Pizze">
         <MappingFragment StoreEntitySet="Pizze">
           <ScalarProperty Name="PizzaId" ColumnName="PizzaId" />
           <ScalarProperty Name="VrstaId" ColumnName="VrstaId" />
@@ -102,7 +102,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Racuni">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.Racuni)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.Racuni">
         <MappingFragment StoreEntitySet="Racuni">
           <ScalarProperty Name="RacunId" ColumnName="RacunId" />
           <ScalarProperty Name="Datum" ColumnName="Datum" />
@@ -114,7 +114,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Sastojci">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.Sastojci)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.Sastojci">
         <MappingFragment StoreEntitySet="Sastojci">
           <ScalarProperty Name="SastojakId" ColumnName="SastojakId" />
           <ScalarProperty Name="Sastojak" ColumnName="Sastojak" />
@@ -124,7 +124,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="StatusiKorisnika">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.StatusiKorisnika)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.StatusiKorisnika">
         <MappingFragment StoreEntitySet="StatusiKorisnika">
           <ScalarProperty Name="StatusKorisnikaId" ColumnName="StatusKorisnikaId" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -132,7 +132,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="StatusiNarudzbi">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.StatusiNarudzbi)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.StatusiNarudzbi">
         <MappingFragment StoreEntitySet="StatusiNarudzbi">
           <ScalarProperty Name="StatusNarudzbeId" ColumnName="StatusNarudzbeId" />
           <ScalarProperty Name="StatusNarudzbe" ColumnName="StatusNarudzbe" />
@@ -140,7 +140,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="StatusiPizza">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.StatusiPizza)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.StatusiPizza">
         <MappingFragment StoreEntitySet="StatusiPizza">
           <ScalarProperty Name="StatusPizzeId" ColumnName="StatusPizzeId" />
           <ScalarProperty Name="StatusPizze" ColumnName="StatusPizze" />
@@ -150,18 +150,18 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.sysdiagrams)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UlogeKorisnika">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.UlogeKorisnika)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.UlogeKorisnika">
         <MappingFragment StoreEntitySet="UlogeKorisnika">
           <ScalarProperty Name="UlogaKorisnikaId" ColumnName="UlogaKorisnikaId" />
           <ScalarProperty Name="Uloga" ColumnName="Uloga" />
@@ -170,7 +170,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VelicinePizza">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.VelicinePizza)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.VelicinePizza">
         <MappingFragment StoreEntitySet="VelicinePizza">
           <ScalarProperty Name="VelicinaPizzeId" ColumnName="VelicinaPizzeId" />
           <ScalarProperty Name="Velicina" ColumnName="Velicina" />
@@ -180,7 +180,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VrstePizza">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.VrstePizza)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.VrstePizza">
         <MappingFragment StoreEntitySet="VrstePizza">
           <ScalarProperty Name="VrstaPizzeId" ColumnName="VrstaPizzeId" />
           <ScalarProperty Name="Vrsta" ColumnName="Vrsta" />
@@ -193,7 +193,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VrsteSastojci">
-      <EntityTypeMapping TypeName="IsTypeOf(MyPizzaModel.VrsteSastojci)">
+      <EntityTypeMapping TypeName="MyPizzaModel1.VrsteSastojci">
         <MappingFragment StoreEntitySet="VrsteSastojci">
           <ScalarProperty Name="VrsteSastojciId" ColumnName="VrsteSastojciId" />
           <ScalarProperty Name="VrstaId" ColumnName="VrstaId" />
@@ -201,5 +201,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="myPizza_Korisnici_Insert" FunctionName="MyPizzaModel1.Store.myPizza_Korisnici_Insert" />
+    <FunctionImportMapping FunctionImportName="myPizza_Korisnici_SelectByImePrezime" FunctionName="MyPizzaModel1.Store.myPizza_Korisnici_SelectByImePrezime">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MyPizzaModel1.myPizza_Korisnici_SelectByImePrezime_Result">
+          <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+          <ScalarProperty Name="LozinkaHash" ColumnName="LozinkaHash" />
+          <ScalarProperty Name="LozinkaSalt" ColumnName="LozinkaSalt" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
+          <ScalarProperty Name="DatumRegistracije" ColumnName="DatumRegistracije" />
+          <ScalarProperty Name="StatusKorisnikaId" ColumnName="StatusKorisnikaId" />
+          <ScalarProperty Name="GradId" ColumnName="GradId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="myPizza_KorisnickeUloge_Insert" FunctionName="MyPizzaModel1.Store.myPizza_KorisnickeUloge_Insert" />
+    <FunctionImportMapping FunctionImportName="myPizza_VrstePizza_Insert" FunctionName="MyPizzaModel1.Store.myPizza_VrstePizza_Insert" />
+    <FunctionImportMapping FunctionImportName="myPizza_VrsteSastojci_Insert" FunctionName="MyPizzaModel1.Store.myPizza_VrsteSastojci_Insert" />
   </EntityContainerMapping>
 </Mapping>

@@ -14,7 +14,8 @@ namespace MyPizza_API.Controllers
 {
     public class VelicinePizzaController : ApiController
     {
-        private MyPizzaEntities db = new MyPizzaEntities();
+        //private MyPizzaEntities db = new MyPizzaEntities();
+        private MyPizzaEntities1 db = new MyPizzaEntities1();
 
         // GET: api/VelicinePizza
         public IQueryable<VelicinePizza> GetVelicinePizza()

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f31a26677a7f44bd84eb5763678c804a" Name="Diagram1">
+        <EntityTypeShape EntityType="MyPizzaModel1.CijenePizza" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.DodatniSastojci" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.Gradovi" Width="1.5" PointX="1.5" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.Korisnici" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.KorisnickeUloge" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.Narudzbe" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.NarudzbePizze" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.Ocjene" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.Pizze" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.Racuni" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.Sastojci" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.StatusiKorisnika" Width="1.5" PointX="1.5" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.StatusiNarudzbi" Width="1.5" PointX="0.75" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.StatusiPizza" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.sysdiagrams" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.UlogeKorisnika" Width="1.5" PointX="0.75" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.VelicinePizza" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.VrstePizza" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.VrsteSastojci" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="MyPizzaModel1.FK_Pizze_CijenePizza" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_DodatniSastojci_NarudzbePizze" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_DodatniSastojci_Sastojci" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_Korisnici_Gradovi" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_Korisnici_StatusiKorisnika" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_KorisnickeUloge_Korisnici" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_Narudzbe_Korisnici" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_Ocjene_Korisnici" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_Racuni_Korisnici" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_KorisnickeUloge_UlogeKorisnika" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_Narudzbe_StatusiNarudzbi" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_NarudzbePizze_Narudzbe" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_Racuni_Narudzbe" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_NarudzbePizze_Pizze" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_Ocjene_Pizze" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_Pizze_StatusiPizza" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_Pizze_VelicinePizza" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_Pizze_VrstePizza" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_VrsteSastojci_Sastojci" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_VrsteSastojci_VrstePizza" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

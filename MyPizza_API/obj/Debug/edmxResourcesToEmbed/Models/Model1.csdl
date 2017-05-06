@@ -1,0 +1,610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyPizzaModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CijenePizza">
+    <Key>
+      <PropertyRef Name="CijenaPizzeId" />
+    </Key>
+    <Property Name="CijenaPizzeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cijena" Type="Double" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DatumIzmjene" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Pizze" Relationship="Self.FK_Pizze_CijenePizza" FromRole="CijenePizza" ToRole="Pizze" />
+  </EntityType>
+  <EntityType Name="DodatniSastojci">
+    <Key>
+      <PropertyRef Name="DodatniSastojakId" />
+    </Key>
+    <Property Name="DodatniSastojakId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NarudzbaPizzaId" Type="Int32" Nullable="false" />
+    <Property Name="SastojakId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="NarudzbePizze" Relationship="Self.FK_DodatniSastojci_NarudzbePizze" FromRole="DodatniSastojci" ToRole="NarudzbePizze" />
+    <NavigationProperty Name="Sastojci" Relationship="Self.FK_DodatniSastojci_Sastojci" FromRole="DodatniSastojci" ToRole="Sastojci" />
+  </EntityType>
+  <EntityType Name="Gradovi">
+    <Key>
+      <PropertyRef Name="GradId" />
+    </Key>
+    <Property Name="GradId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Grad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK_Korisnici_Gradovi" FromRole="Gradovi" ToRole="Korisnici" />
+  </EntityType>
+  <EntityType Name="Korisnici">
+    <Key>
+      <PropertyRef Name="KorisnikId" />
+    </Key>
+    <Property Name="KorisnikId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KorisnickoIme" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LozinkaHash" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LozinkaSalt" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrojTelefona" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DatumRegistracije" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StatusKorisnikaId" Type="Int32" Nullable="false" />
+    <Property Name="GradId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Gradovi" Relationship="Self.FK_Korisnici_Gradovi" FromRole="Korisnici" ToRole="Gradovi" />
+    <NavigationProperty Name="StatusiKorisnika" Relationship="Self.FK_Korisnici_StatusiKorisnika" FromRole="Korisnici" ToRole="StatusiKorisnika" />
+    <NavigationProperty Name="KorisnickeUloge" Relationship="Self.FK_KorisnickeUloge_Korisnici" FromRole="Korisnici" ToRole="KorisnickeUloge" />
+    <NavigationProperty Name="Narudzbe" Relationship="Self.FK_Narudzbe_Korisnici" FromRole="Korisnici" ToRole="Narudzbe" />
+    <NavigationProperty Name="Ocjene" Relationship="Self.FK_Ocjene_Korisnici" FromRole="Korisnici" ToRole="Ocjene" />
+    <NavigationProperty Name="Racuni" Relationship="Self.FK_Racuni_Korisnici" FromRole="Korisnici" ToRole="Racuni" />
+  </EntityType>
+  <EntityType Name="KorisnickeUloge">
+    <Key>
+      <PropertyRef Name="KorisnickaUlogaId" />
+    </Key>
+    <Property Name="KorisnickaUlogaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KorisnikId" Type="Int32" Nullable="false" />
+    <Property Name="UlogaKorisnikaId" Type="Int32" Nullable="false" />
+    <Property Name="DatumIzmjene" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK_KorisnickeUloge_Korisnici" FromRole="KorisnickeUloge" ToRole="Korisnici" />
+    <NavigationProperty Name="UlogeKorisnika" Relationship="Self.FK_KorisnickeUloge_UlogeKorisnika" FromRole="KorisnickeUloge" ToRole="UlogeKorisnika" />
+  </EntityType>
+  <EntityType Name="Narudzbe">
+    <Key>
+      <PropertyRef Name="NarudzbaId" />
+    </Key>
+    <Property Name="NarudzbaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KorisnikId" Type="Int32" Nullable="false" />
+    <Property Name="StatusNarudzbeId" Type="Int32" Nullable="false" />
+    <Property Name="DatumNarudzbe" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OtkazanaNarudzba" Type="Boolean" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK_Narudzbe_Korisnici" FromRole="Narudzbe" ToRole="Korisnici" />
+    <NavigationProperty Name="StatusiNarudzbi" Relationship="Self.FK_Narudzbe_StatusiNarudzbi" FromRole="Narudzbe" ToRole="StatusiNarudzbi" />
+    <NavigationProperty Name="NarudzbePizze" Relationship="Self.FK_NarudzbePizze_Narudzbe" FromRole="Narudzbe" ToRole="NarudzbePizze" />
+    <NavigationProperty Name="Racuni" Relationship="Self.FK_Racuni_Narudzbe" FromRole="Narudzbe" ToRole="Racuni" />
+  </EntityType>
+  <EntityType Name="NarudzbePizze">
+    <Key>
+      <PropertyRef Name="NarudzbaPizzaId" />
+    </Key>
+    <Property Name="NarudzbaPizzaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NarudzbaId" Type="Int32" Nullable="false" />
+    <Property Name="PizzaId" Type="Int32" Nullable="false" />
+    <Property Name="Kolicina" Type="Int32" Nullable="false" />
+    <Property Name="Cijena" Type="Double" />
+    <NavigationProperty Name="DodatniSastojci" Relationship="Self.FK_DodatniSastojci_NarudzbePizze" FromRole="NarudzbePizze" ToRole="DodatniSastojci" />
+    <NavigationProperty Name="Narudzbe" Relationship="Self.FK_NarudzbePizze_Narudzbe" FromRole="NarudzbePizze" ToRole="Narudzbe" />
+    <NavigationProperty Name="Pizze" Relationship="Self.FK_NarudzbePizze_Pizze" FromRole="NarudzbePizze" ToRole="Pizze" />
+  </EntityType>
+  <EntityType Name="Ocjene">
+    <Key>
+      <PropertyRef Name="OcjenaId" />
+    </Key>
+    <Property Name="OcjenaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PizzaId" Type="Int32" Nullable="false" />
+    <Property Name="KorisnikId" Type="Int32" Nullable="false" />
+    <Property Name="DatumOcjene" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Ocjena" Type="Double" Nullable="false" />
+    <Property Name="Komentar" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK_Ocjene_Korisnici" FromRole="Ocjene" ToRole="Korisnici" />
+    <NavigationProperty Name="Pizze" Relationship="Self.FK_Ocjene_Pizze" FromRole="Ocjene" ToRole="Pizze" />
+  </EntityType>
+  <EntityType Name="Pizze">
+    <Key>
+      <PropertyRef Name="PizzaId" />
+    </Key>
+    <Property Name="PizzaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VrstaId" Type="Int32" Nullable="false" />
+    <Property Name="VelicinaId" Type="Int32" Nullable="false" />
+    <Property Name="StatusPizzeId" Type="Int32" Nullable="false" />
+    <Property Name="CijenaId" Type="Int32" Nullable="false" />
+    <Property Name="Cijena" Type="Double" />
+    <NavigationProperty Name="CijenePizza" Relationship="Self.FK_Pizze_CijenePizza" FromRole="Pizze" ToRole="CijenePizza" />
+    <NavigationProperty Name="NarudzbePizze" Relationship="Self.FK_NarudzbePizze_Pizze" FromRole="Pizze" ToRole="NarudzbePizze" />
+    <NavigationProperty Name="Ocjene" Relationship="Self.FK_Ocjene_Pizze" FromRole="Pizze" ToRole="Ocjene" />
+    <NavigationProperty Name="StatusiPizza" Relationship="Self.FK_Pizze_StatusiPizza" FromRole="Pizze" ToRole="StatusiPizza" />
+    <NavigationProperty Name="VelicinePizza" Relationship="Self.FK_Pizze_VelicinePizza" FromRole="Pizze" ToRole="VelicinePizza" />
+    <NavigationProperty Name="VrstePizza" Relationship="Self.FK_Pizze_VrstePizza" FromRole="Pizze" ToRole="VrstePizza" />
+  </EntityType>
+  <EntityType Name="Racuni">
+    <Key>
+      <PropertyRef Name="RacunId" />
+    </Key>
+    <Property Name="RacunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Datum" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NarudzbaId" Type="Int32" Nullable="false" />
+    <Property Name="KorisnikId" Type="Int32" Nullable="false" />
+    <Property Name="CijenaSaPDV" Type="Double" Nullable="false" />
+    <Property Name="CijenaBezPDV" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK_Racuni_Korisnici" FromRole="Racuni" ToRole="Korisnici" />
+    <NavigationProperty Name="Narudzbe" Relationship="Self.FK_Racuni_Narudzbe" FromRole="Racuni" ToRole="Narudzbe" />
+  </EntityType>
+  <EntityType Name="Sastojci">
+    <Key>
+      <PropertyRef Name="SastojakId" />
+    </Key>
+    <Property Name="SastojakId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sastojak" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BaznaCijena" Type="Double" Nullable="false" />
+    <Property Name="DodatnaCijena" Type="Double" Nullable="false" />
+    <NavigationProperty Name="DodatniSastojci" Relationship="Self.FK_DodatniSastojci_Sastojci" FromRole="Sastojci" ToRole="DodatniSastojci" />
+    <NavigationProperty Name="VrsteSastojci" Relationship="Self.FK_VrsteSastojci_Sastojci" FromRole="Sastojci" ToRole="VrsteSastojci" />
+  </EntityType>
+  <EntityType Name="StatusiKorisnika">
+    <Key>
+      <PropertyRef Name="StatusKorisnikaId" />
+    </Key>
+    <Property Name="StatusKorisnikaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Korisnici" Relationship="Self.FK_Korisnici_StatusiKorisnika" FromRole="StatusiKorisnika" ToRole="Korisnici" />
+  </EntityType>
+  <EntityType Name="StatusiNarudzbi">
+    <Key>
+      <PropertyRef Name="StatusNarudzbeId" />
+    </Key>
+    <Property Name="StatusNarudzbeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusNarudzbe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Narudzbe" Relationship="Self.FK_Narudzbe_StatusiNarudzbi" FromRole="StatusiNarudzbi" ToRole="Narudzbe" />
+  </EntityType>
+  <EntityType Name="StatusiPizza">
+    <Key>
+      <PropertyRef Name="StatusPizzeId" />
+    </Key>
+    <Property Name="StatusPizzeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusPizze" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DatumIzmjene" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Pizze" Relationship="Self.FK_Pizze_StatusiPizza" FromRole="StatusiPizza" ToRole="Pizze" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UlogeKorisnika">
+    <Key>
+      <PropertyRef Name="UlogaKorisnikaId" />
+    </Key>
+    <Property Name="UlogaKorisnikaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Uloga" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KorisnickeUloge" Relationship="Self.FK_KorisnickeUloge_UlogeKorisnika" FromRole="UlogeKorisnika" ToRole="KorisnickeUloge" />
+  </EntityType>
+  <EntityType Name="VelicinePizza">
+    <Key>
+      <PropertyRef Name="VelicinaPizzeId" />
+    </Key>
+    <Property Name="VelicinaPizzeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Velicina" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DatumIzmjene" Type="DateTime" Precision="3" />
+    <Property Name="Promjer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Pizze" Relationship="Self.FK_Pizze_VelicinePizza" FromRole="VelicinePizza" ToRole="Pizze" />
+  </EntityType>
+  <EntityType Name="VrstePizza">
+    <Key>
+      <PropertyRef Name="VrstaPizzeId" />
+    </Key>
+    <Property Name="VrstaPizzeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Vrsta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="700" FixedLength="false" Unicode="true" />
+    <Property Name="DatumDodavanja" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DatumIzmjene" Type="DateTime" Precision="3" />
+    <Property Name="Slika" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="SlikaThumb" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Pizze" Relationship="Self.FK_Pizze_VrstePizza" FromRole="VrstePizza" ToRole="Pizze" />
+    <NavigationProperty Name="VrsteSastojci" Relationship="Self.FK_VrsteSastojci_VrstePizza" FromRole="VrstePizza" ToRole="VrsteSastojci" />
+  </EntityType>
+  <EntityType Name="VrsteSastojci">
+    <Key>
+      <PropertyRef Name="VrsteSastojciId" />
+    </Key>
+    <Property Name="VrsteSastojciId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VrstaId" Type="Int32" Nullable="false" />
+    <Property Name="SastojakId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Sastojci" Relationship="Self.FK_VrsteSastojci_Sastojci" FromRole="VrsteSastojci" ToRole="Sastojci" />
+    <NavigationProperty Name="VrstePizza" Relationship="Self.FK_VrsteSastojci_VrstePizza" FromRole="VrsteSastojci" ToRole="VrstePizza" />
+  </EntityType>
+  <Association Name="FK_Pizze_CijenePizza">
+    <End Role="CijenePizza" Type="Self.CijenePizza" Multiplicity="1" />
+    <End Role="Pizze" Type="Self.Pizze" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CijenePizza">
+        <PropertyRef Name="CijenaPizzeId" />
+      </Principal>
+      <Dependent Role="Pizze">
+        <PropertyRef Name="CijenaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DodatniSastojci_NarudzbePizze">
+    <End Role="NarudzbePizze" Type="Self.NarudzbePizze" Multiplicity="1" />
+    <End Role="DodatniSastojci" Type="Self.DodatniSastojci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NarudzbePizze">
+        <PropertyRef Name="NarudzbaPizzaId" />
+      </Principal>
+      <Dependent Role="DodatniSastojci">
+        <PropertyRef Name="NarudzbaPizzaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DodatniSastojci_Sastojci">
+    <End Role="Sastojci" Type="Self.Sastojci" Multiplicity="1" />
+    <End Role="DodatniSastojci" Type="Self.DodatniSastojci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sastojci">
+        <PropertyRef Name="SastojakId" />
+      </Principal>
+      <Dependent Role="DodatniSastojci">
+        <PropertyRef Name="SastojakId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Korisnici_Gradovi">
+    <End Role="Gradovi" Type="Self.Gradovi" Multiplicity="1" />
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gradovi">
+        <PropertyRef Name="GradId" />
+      </Principal>
+      <Dependent Role="Korisnici">
+        <PropertyRef Name="GradId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Korisnici_StatusiKorisnika">
+    <End Role="StatusiKorisnika" Type="Self.StatusiKorisnika" Multiplicity="1" />
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusiKorisnika">
+        <PropertyRef Name="StatusKorisnikaId" />
+      </Principal>
+      <Dependent Role="Korisnici">
+        <PropertyRef Name="StatusKorisnikaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KorisnickeUloge_Korisnici">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="1" />
+    <End Role="KorisnickeUloge" Type="Self.KorisnickeUloge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="KorisnikId" />
+      </Principal>
+      <Dependent Role="KorisnickeUloge">
+        <PropertyRef Name="KorisnikId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Narudzbe_Korisnici">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="1" />
+    <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="KorisnikId" />
+      </Principal>
+      <Dependent Role="Narudzbe">
+        <PropertyRef Name="KorisnikId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ocjene_Korisnici">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="1" />
+    <End Role="Ocjene" Type="Self.Ocjene" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="KorisnikId" />
+      </Principal>
+      <Dependent Role="Ocjene">
+        <PropertyRef Name="KorisnikId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Racuni_Korisnici">
+    <End Role="Korisnici" Type="Self.Korisnici" Multiplicity="1" />
+    <End Role="Racuni" Type="Self.Racuni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="KorisnikId" />
+      </Principal>
+      <Dependent Role="Racuni">
+        <PropertyRef Name="KorisnikId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KorisnickeUloge_UlogeKorisnika">
+    <End Role="UlogeKorisnika" Type="Self.UlogeKorisnika" Multiplicity="1" />
+    <End Role="KorisnickeUloge" Type="Self.KorisnickeUloge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UlogeKorisnika">
+        <PropertyRef Name="UlogaKorisnikaId" />
+      </Principal>
+      <Dependent Role="KorisnickeUloge">
+        <PropertyRef Name="UlogaKorisnikaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Narudzbe_StatusiNarudzbi">
+    <End Role="StatusiNarudzbi" Type="Self.StatusiNarudzbi" Multiplicity="1" />
+    <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusiNarudzbi">
+        <PropertyRef Name="StatusNarudzbeId" />
+      </Principal>
+      <Dependent Role="Narudzbe">
+        <PropertyRef Name="StatusNarudzbeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NarudzbePizze_Narudzbe">
+    <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="1" />
+    <End Role="NarudzbePizze" Type="Self.NarudzbePizze" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Narudzbe">
+        <PropertyRef Name="NarudzbaId" />
+      </Principal>
+      <Dependent Role="NarudzbePizze">
+        <PropertyRef Name="NarudzbaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Racuni_Narudzbe">
+    <End Role="Narudzbe" Type="Self.Narudzbe" Multiplicity="1" />
+    <End Role="Racuni" Type="Self.Racuni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Narudzbe">
+        <PropertyRef Name="NarudzbaId" />
+      </Principal>
+      <Dependent Role="Racuni">
+        <PropertyRef Name="NarudzbaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NarudzbePizze_Pizze">
+    <End Role="Pizze" Type="Self.Pizze" Multiplicity="1" />
+    <End Role="NarudzbePizze" Type="Self.NarudzbePizze" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pizze">
+        <PropertyRef Name="PizzaId" />
+      </Principal>
+      <Dependent Role="NarudzbePizze">
+        <PropertyRef Name="PizzaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ocjene_Pizze">
+    <End Role="Pizze" Type="Self.Pizze" Multiplicity="1" />
+    <End Role="Ocjene" Type="Self.Ocjene" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pizze">
+        <PropertyRef Name="PizzaId" />
+      </Principal>
+      <Dependent Role="Ocjene">
+        <PropertyRef Name="PizzaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pizze_StatusiPizza">
+    <End Role="StatusiPizza" Type="Self.StatusiPizza" Multiplicity="1" />
+    <End Role="Pizze" Type="Self.Pizze" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusiPizza">
+        <PropertyRef Name="StatusPizzeId" />
+      </Principal>
+      <Dependent Role="Pizze">
+        <PropertyRef Name="StatusPizzeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pizze_VelicinePizza">
+    <End Role="VelicinePizza" Type="Self.VelicinePizza" Multiplicity="1" />
+    <End Role="Pizze" Type="Self.Pizze" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VelicinePizza">
+        <PropertyRef Name="VelicinaPizzeId" />
+      </Principal>
+      <Dependent Role="Pizze">
+        <PropertyRef Name="VelicinaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pizze_VrstePizza">
+    <End Role="VrstePizza" Type="Self.VrstePizza" Multiplicity="1" />
+    <End Role="Pizze" Type="Self.Pizze" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VrstePizza">
+        <PropertyRef Name="VrstaPizzeId" />
+      </Principal>
+      <Dependent Role="Pizze">
+        <PropertyRef Name="VrstaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VrsteSastojci_Sastojci">
+    <End Role="Sastojci" Type="Self.Sastojci" Multiplicity="1" />
+    <End Role="VrsteSastojci" Type="Self.VrsteSastojci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sastojci">
+        <PropertyRef Name="SastojakId" />
+      </Principal>
+      <Dependent Role="VrsteSastojci">
+        <PropertyRef Name="SastojakId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VrsteSastojci_VrstePizza">
+    <End Role="VrstePizza" Type="Self.VrstePizza" Multiplicity="1" />
+    <End Role="VrsteSastojci" Type="Self.VrsteSastojci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VrstePizza">
+        <PropertyRef Name="VrstaPizzeId" />
+      </Principal>
+      <Dependent Role="VrsteSastojci">
+        <PropertyRef Name="VrstaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MyPizzaEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CijenePizza" EntityType="Self.CijenePizza" />
+    <EntitySet Name="DodatniSastojci" EntityType="Self.DodatniSastojci" />
+    <EntitySet Name="Gradovi" EntityType="Self.Gradovi" />
+    <EntitySet Name="Korisnici" EntityType="Self.Korisnici" />
+    <EntitySet Name="KorisnickeUloge" EntityType="Self.KorisnickeUloge" />
+    <EntitySet Name="Narudzbe" EntityType="Self.Narudzbe" />
+    <EntitySet Name="NarudzbePizze" EntityType="Self.NarudzbePizze" />
+    <EntitySet Name="Ocjene" EntityType="Self.Ocjene" />
+    <EntitySet Name="Pizze" EntityType="Self.Pizze" />
+    <EntitySet Name="Racuni" EntityType="Self.Racuni" />
+    <EntitySet Name="Sastojci" EntityType="Self.Sastojci" />
+    <EntitySet Name="StatusiKorisnika" EntityType="Self.StatusiKorisnika" />
+    <EntitySet Name="StatusiNarudzbi" EntityType="Self.StatusiNarudzbi" />
+    <EntitySet Name="StatusiPizza" EntityType="Self.StatusiPizza" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="UlogeKorisnika" EntityType="Self.UlogeKorisnika" />
+    <EntitySet Name="VelicinePizza" EntityType="Self.VelicinePizza" />
+    <EntitySet Name="VrstePizza" EntityType="Self.VrstePizza" />
+    <EntitySet Name="VrsteSastojci" EntityType="Self.VrsteSastojci" />
+    <AssociationSet Name="FK_Pizze_CijenePizza" Association="Self.FK_Pizze_CijenePizza">
+      <End Role="CijenePizza" EntitySet="CijenePizza" />
+      <End Role="Pizze" EntitySet="Pizze" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DodatniSastojci_NarudzbePizze" Association="Self.FK_DodatniSastojci_NarudzbePizze">
+      <End Role="NarudzbePizze" EntitySet="NarudzbePizze" />
+      <End Role="DodatniSastojci" EntitySet="DodatniSastojci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DodatniSastojci_Sastojci" Association="Self.FK_DodatniSastojci_Sastojci">
+      <End Role="Sastojci" EntitySet="Sastojci" />
+      <End Role="DodatniSastojci" EntitySet="DodatniSastojci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Korisnici_Gradovi" Association="Self.FK_Korisnici_Gradovi">
+      <End Role="Gradovi" EntitySet="Gradovi" />
+      <End Role="Korisnici" EntitySet="Korisnici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Korisnici_StatusiKorisnika" Association="Self.FK_Korisnici_StatusiKorisnika">
+      <End Role="StatusiKorisnika" EntitySet="StatusiKorisnika" />
+      <End Role="Korisnici" EntitySet="Korisnici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KorisnickeUloge_Korisnici" Association="Self.FK_KorisnickeUloge_Korisnici">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="KorisnickeUloge" EntitySet="KorisnickeUloge" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Narudzbe_Korisnici" Association="Self.FK_Narudzbe_Korisnici">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Narudzbe" EntitySet="Narudzbe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ocjene_Korisnici" Association="Self.FK_Ocjene_Korisnici">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Ocjene" EntitySet="Ocjene" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Racuni_Korisnici" Association="Self.FK_Racuni_Korisnici">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Racuni" EntitySet="Racuni" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KorisnickeUloge_UlogeKorisnika" Association="Self.FK_KorisnickeUloge_UlogeKorisnika">
+      <End Role="UlogeKorisnika" EntitySet="UlogeKorisnika" />
+      <End Role="KorisnickeUloge" EntitySet="KorisnickeUloge" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Narudzbe_StatusiNarudzbi" Association="Self.FK_Narudzbe_StatusiNarudzbi">
+      <End Role="StatusiNarudzbi" EntitySet="StatusiNarudzbi" />
+      <End Role="Narudzbe" EntitySet="Narudzbe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NarudzbePizze_Narudzbe" Association="Self.FK_NarudzbePizze_Narudzbe">
+      <End Role="Narudzbe" EntitySet="Narudzbe" />
+      <End Role="NarudzbePizze" EntitySet="NarudzbePizze" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Racuni_Narudzbe" Association="Self.FK_Racuni_Narudzbe">
+      <End Role="Narudzbe" EntitySet="Narudzbe" />
+      <End Role="Racuni" EntitySet="Racuni" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NarudzbePizze_Pizze" Association="Self.FK_NarudzbePizze_Pizze">
+      <End Role="Pizze" EntitySet="Pizze" />
+      <End Role="NarudzbePizze" EntitySet="NarudzbePizze" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ocjene_Pizze" Association="Self.FK_Ocjene_Pizze">
+      <End Role="Pizze" EntitySet="Pizze" />
+      <End Role="Ocjene" EntitySet="Ocjene" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pizze_StatusiPizza" Association="Self.FK_Pizze_StatusiPizza">
+      <End Role="StatusiPizza" EntitySet="StatusiPizza" />
+      <End Role="Pizze" EntitySet="Pizze" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pizze_VelicinePizza" Association="Self.FK_Pizze_VelicinePizza">
+      <End Role="VelicinePizza" EntitySet="VelicinePizza" />
+      <End Role="Pizze" EntitySet="Pizze" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pizze_VrstePizza" Association="Self.FK_Pizze_VrstePizza">
+      <End Role="VrstePizza" EntitySet="VrstePizza" />
+      <End Role="Pizze" EntitySet="Pizze" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VrsteSastojci_Sastojci" Association="Self.FK_VrsteSastojci_Sastojci">
+      <End Role="Sastojci" EntitySet="Sastojci" />
+      <End Role="VrsteSastojci" EntitySet="VrsteSastojci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VrsteSastojci_VrstePizza" Association="Self.FK_VrsteSastojci_VrstePizza">
+      <End Role="VrstePizza" EntitySet="VrstePizza" />
+      <End Role="VrsteSastojci" EntitySet="VrsteSastojci" />
+    </AssociationSet>
+    <FunctionImport Name="myPizza_Korisnici_Insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="ime" Mode="In" Type="String" />
+      <Parameter Name="prezime" Mode="In" Type="String" />
+      <Parameter Name="korisnickoIme" Mode="In" Type="String" />
+      <Parameter Name="lozinkaHash" Mode="In" Type="String" />
+      <Parameter Name="lozinkaSalt" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="brojTelefona" Mode="In" Type="String" />
+      <Parameter Name="datumRegistracije" Mode="In" Type="DateTime" />
+      <Parameter Name="statusKorisnikaId" Mode="In" Type="Int32" />
+      <Parameter Name="gradId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="myPizza_Korisnici_SelectByImePrezime" ReturnType="Collection(MyPizzaModel1.myPizza_Korisnici_SelectByImePrezime_Result)">
+      <Parameter Name="imePrezime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="myPizza_KorisnickeUloge_Insert">
+      <Parameter Name="korisnikId" Mode="In" Type="Int32" />
+      <Parameter Name="ulogaKorisnikaId" Mode="In" Type="Int32" />
+      <Parameter Name="datumIzmjene" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="myPizza_VrstePizza_Insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="vrsta" Mode="In" Type="String" />
+      <Parameter Name="opis" Mode="In" Type="String" />
+      <Parameter Name="datumDodavanja" Mode="In" Type="DateTime" />
+      <Parameter Name="datumIzmjene" Mode="In" Type="DateTime" />
+      <Parameter Name="slika" Mode="In" Type="Binary" />
+      <Parameter Name="slikaThumb" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="myPizza_VrsteSastojci_Insert">
+      <Parameter Name="vrstaId" Mode="In" Type="Int32" />
+      <Parameter Name="sastojakId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="myPizza_Korisnici_SelectByImePrezime_Result">
+    <Property Type="Int32" Name="KorisnikId" Nullable="false" />
+    <Property Type="String" Name="Ime" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Prezime" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="KorisnickoIme" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="LozinkaHash" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="LozinkaSalt" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="BrojTelefona" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="DatumRegistracije" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="StatusKorisnikaId" Nullable="false" />
+    <Property Type="Int32" Name="GradId" Nullable="false" />
+  </ComplexType>
+</Schema>

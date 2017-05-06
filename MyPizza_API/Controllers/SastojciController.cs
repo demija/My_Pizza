@@ -14,7 +14,8 @@ namespace MyPizza_API.Controllers
 {
     public class SastojciController : ApiController
     {
-        private MyPizzaEntities db = new MyPizzaEntities();
+        //private MyPizzaEntities db = new MyPizzaEntities();
+        private MyPizzaEntities1 db = new MyPizzaEntities1();
 
         // GET: api/Sastojci
         public IQueryable<Sastojci> GetSastojci()

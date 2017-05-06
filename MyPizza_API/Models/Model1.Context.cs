@@ -15,10 +15,10 @@ namespace MyPizza_API.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class MyPizzaEntities : DbContext
+    public partial class MyPizzaEntities1 : DbContext
     {
-        public MyPizzaEntities()
-            : base("name=MyPizzaEntities")
+        public MyPizzaEntities1()
+            : base("name=MyPizzaEntities1")
         {
             Configuration.ProxyCreationEnabled = false;
         }
@@ -93,22 +93,13 @@ namespace MyPizza_API.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("myPizza_Korisnici_Insert", imeParameter, prezimeParameter, korisnickoImeParameter, lozinkaHashParameter, lozinkaSaltParameter, emailParameter, brojTelefonaParameter, datumRegistracijeParameter, statusKorisnikaIdParameter, gradIdParameter);
         }
     
-        public virtual ObjectResult<Korisnici> myPizza_Korisnici_SelectByImePrezime(string imePrezime)
+        public virtual ObjectResult<myPizza_Korisnici_SelectByImePrezime_Result> myPizza_Korisnici_SelectByImePrezime(string imePrezime)
         {
             var imePrezimeParameter = imePrezime != null ?
                 new ObjectParameter("imePrezime", imePrezime) :
                 new ObjectParameter("imePrezime", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Korisnici>("myPizza_Korisnici_SelectByImePrezime", imePrezimeParameter);
-        }
-    
-        public virtual ObjectResult<Korisnici> myPizza_Korisnici_SelectByImePrezime(string imePrezime, MergeOption mergeOption)
-        {
-            var imePrezimeParameter = imePrezime != null ?
-                new ObjectParameter("imePrezime", imePrezime) :
-                new ObjectParameter("imePrezime", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Korisnici>("myPizza_Korisnici_SelectByImePrezime", mergeOption, imePrezimeParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_Korisnici_SelectByImePrezime_Result>("myPizza_Korisnici_SelectByImePrezime", imePrezimeParameter);
         }
     
         public virtual int myPizza_KorisnickeUloge_Insert(Nullable<int> korisnikId, Nullable<int> ulogaKorisnikaId, Nullable<System.DateTime> datumIzmjene)

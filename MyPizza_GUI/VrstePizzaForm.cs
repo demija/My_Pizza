@@ -77,7 +77,6 @@ namespace MyPizza_GUI
                     else
                     {
                         //minimalne dimenzije slike ako je slika manja!!!
-
                         //sve staviti u try catch blok ako uploadan file nije slika
                     }
                 }
