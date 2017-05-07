@@ -66,7 +66,6 @@ C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\bin\Debug\System.W
 C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\bin\Debug\EntityFramework.dll
 C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\bin\Debug\System.Web.Http.WebHost.dll
 C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\bin\Debug\MyPizza_API.pdb
-C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\bin\Debug\MyPizza_API.dll.config
 C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\bin\Debug\Newtonsoft.Json.xml
 C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\bin\Debug\System.Web.Http.xml

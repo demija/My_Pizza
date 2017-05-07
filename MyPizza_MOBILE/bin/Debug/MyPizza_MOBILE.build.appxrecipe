@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>GABELA-PC</Machine>
+    <WindowsUser>gabel</WindowsUser>
+    <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
+    <TargetOsVersion>6.3</TargetOsVersion>
+    <TargetOsDescription>Windows Phone 8.1</TargetOsDescription>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>87685df0-3392-4a4c-a528-25951e01e6f0</PackageIdentityName>
+    <PackageIdentityPublisher>CN=gabel</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\obj\Debug\</IntermediateOutputPath>
+    <RemoteDeploymentType></RemoteDeploymentType>
+    <PackageRegistrationPath></PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\MyPizza_MOBILE.exe">
+      <PackagePath>MyPizza_MOBILE.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\MyPizza_MOBILE.exe.config">
+      <PackagePath>MyPizza_MOBILE.exe.config</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_PCL\bin\Debug\MyPizza_PCL.dll">
+      <PackagePath>MyPizza_PCL.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\packages\Newtonsoft.Json.6.0.2\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\packages\PCLCrypto.2.0.147\lib\portable-win81+wpa81\PCLCrypto.dll">
+      <PackagePath>PCLCrypto.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\packages\PInvoke.BCrypt.0.3.2\lib\portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10\PInvoke.BCrypt.dll">
+      <PackagePath>PInvoke.BCrypt.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\packages\PInvoke.Kernel32.0.3.2\lib\portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10\PInvoke.Kernel32.dll">
+      <PackagePath>PInvoke.Kernel32.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\packages\PInvoke.NCrypt.0.3.2\lib\portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10\PInvoke.NCrypt.dll">
+      <PackagePath>PInvoke.NCrypt.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\packages\PInvoke.Windows.Core.0.3.2\lib\portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10\PInvoke.Windows.Core.dll">
+      <PackagePath>PInvoke.Windows.Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\packages\shim.2.0.1\lib\portable-win81+wpa81\Shim.dll">
+      <PackagePath>Shim.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\packages\Microsoft.Net.Http.2.2.22\lib\wpa81\System.Net.Http.Extensions.dll">
+      <PackagePath>System.Net.Http.Extensions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\portable-wp8+netcore45+net45+wp81+wpa81\System.Net.Http.Formatting.dll">
+      <PackagePath>System.Net.Http.Formatting.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\packages\Microsoft.Net.Http.2.2.22\lib\wpa81\System.Net.Http.Primitives.dll">
+      <PackagePath>System.Net.Http.Primitives.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\packages\Validation.2.2.8\lib\dotnet\Validation.dll">
+      <PackagePath>Validation.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\packages\WebApiRestService.WebApiClient.1.1\lib\portable-net45+win+wpa81+wp80\WebApiRestService.WebApiClient.dll">
+      <PackagePath>WebApiRestService.WebApiClient.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\Assets\Logo.scale-240.png">
+      <PackagePath>Assets\Logo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\Assets\SmallLogo.scale-240.png">
+      <PackagePath>Assets\SmallLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\Assets\SplashScreen.scale-240.png">
+      <PackagePath>Assets\SplashScreen.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\Assets\Square71x71Logo.scale-240.png">
+      <PackagePath>Assets\Square71x71Logo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\Assets\StoreLogo.scale-240.png">
+      <PackagePath>Assets\StoreLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\Assets\WideLogo.scale-240.png">
+      <PackagePath>Assets\WideLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\MyPizza_MOBILE.xr.xml">
+      <PackagePath>MyPizza_MOBILE.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\LoginPage.xbf">
+      <PackagePath>LoginPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\RegistrationPage.xbf">
+      <PackagePath>RegistrationPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
