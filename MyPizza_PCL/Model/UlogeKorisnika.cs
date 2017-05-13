@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyPizza_PCL.Models
+namespace MyPizza_PCL.Model
 {
     using System;
     using System.Collections.Generic;

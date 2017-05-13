@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using MyPizza_PCL.Util;
-using MyPizza_PCL.Models;
+using MyPizza_PCL.Model;
 using System.Net.Http;
 using Windows.UI.Popups;
 

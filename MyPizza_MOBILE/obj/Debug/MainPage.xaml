@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        
+        <Button x:ConnectionId='1' Content="Poizvodi"                      />
     </Grid>
 </Page>
 
