@@ -106,7 +106,7 @@ namespace MyPizza_API.Controllers
             try
             {
                 korisnici.KorisnikId = Convert.ToInt32(db.myPizza_Korisnici_Insert(korisnici.Ime, korisnici.Prezime, korisnici.KorisnickoIme, korisnici.LozinkaHash, korisnici.LozinkaSalt,
-                        korisnici.Email, korisnici.BrojTelefona, korisnici.DatumRegistracije, korisnici.StatusKorisnikaId, korisnici.GradId).FirstOrDefault());
+                        korisnici.Email, korisnici.BrojTelefona, korisnici.DatumRegistracije, korisnici.StatusKorisnikaId, korisnici.GradId, korisnici.Ulica).FirstOrDefault());
             }
             catch (EntityException ex)
             {

@@ -51,6 +51,8 @@
             this.gradComboBox = new System.Windows.Forms.ComboBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.noviKorisnikGroupBox = new System.Windows.Forms.GroupBox();
+            this.ulicaTextBox = new System.Windows.Forms.TextBox();
+            this.ulicaLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.noviKorisnikGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -180,7 +182,7 @@
             // ulogeLabel
             // 
             this.ulogeLabel.AutoSize = true;
-            this.ulogeLabel.Location = new System.Drawing.Point(6, 230);
+            this.ulogeLabel.Location = new System.Drawing.Point(6, 257);
             this.ulogeLabel.Name = "ulogeLabel";
             this.ulogeLabel.Size = new System.Drawing.Size(38, 13);
             this.ulogeLabel.TabIndex = 0;
@@ -198,14 +200,14 @@
             // ulogeCheckedListBox
             // 
             this.ulogeCheckedListBox.FormattingEnabled = true;
-            this.ulogeCheckedListBox.Location = new System.Drawing.Point(107, 230);
+            this.ulogeCheckedListBox.Location = new System.Drawing.Point(107, 257);
             this.ulogeCheckedListBox.Name = "ulogeCheckedListBox";
             this.ulogeCheckedListBox.Size = new System.Drawing.Size(160, 94);
             this.ulogeCheckedListBox.TabIndex = 9;
             // 
             // odustaniButton
             // 
-            this.odustaniButton.Location = new System.Drawing.Point(192, 330);
+            this.odustaniButton.Location = new System.Drawing.Point(192, 357);
             this.odustaniButton.Name = "odustaniButton";
             this.odustaniButton.Size = new System.Drawing.Size(75, 23);
             this.odustaniButton.TabIndex = 11;
@@ -215,7 +217,7 @@
             // 
             // dodajButton
             // 
-            this.dodajButton.Location = new System.Drawing.Point(107, 330);
+            this.dodajButton.Location = new System.Drawing.Point(107, 357);
             this.dodajButton.Name = "dodajButton";
             this.dodajButton.Size = new System.Drawing.Size(75, 23);
             this.dodajButton.TabIndex = 10;
@@ -238,6 +240,8 @@
             // 
             // noviKorisnikGroupBox
             // 
+            this.noviKorisnikGroupBox.Controls.Add(this.ulicaLabel);
+            this.noviKorisnikGroupBox.Controls.Add(this.ulicaTextBox);
             this.noviKorisnikGroupBox.Controls.Add(this.imeLabel);
             this.noviKorisnikGroupBox.Controls.Add(this.gradComboBox);
             this.noviKorisnikGroupBox.Controls.Add(this.imeTextBox);
@@ -260,16 +264,33 @@
             this.noviKorisnikGroupBox.Controls.Add(this.emailLabel);
             this.noviKorisnikGroupBox.Location = new System.Drawing.Point(12, 12);
             this.noviKorisnikGroupBox.Name = "noviKorisnikGroupBox";
-            this.noviKorisnikGroupBox.Size = new System.Drawing.Size(280, 365);
+            this.noviKorisnikGroupBox.Size = new System.Drawing.Size(287, 392);
             this.noviKorisnikGroupBox.TabIndex = 12;
             this.noviKorisnikGroupBox.TabStop = false;
             this.noviKorisnikGroupBox.Text = "Novi korisnik";
+            // 
+            // ulicaTextBox
+            // 
+            this.ulicaTextBox.Location = new System.Drawing.Point(107, 231);
+            this.ulicaTextBox.Name = "ulicaTextBox";
+            this.ulicaTextBox.Size = new System.Drawing.Size(160, 20);
+            this.ulicaTextBox.TabIndex = 12;
+            this.ulicaTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ulicaTextBox_Validating);
+            // 
+            // ulicaLabel
+            // 
+            this.ulicaLabel.AutoSize = true;
+            this.ulicaLabel.Location = new System.Drawing.Point(6, 234);
+            this.ulicaLabel.Name = "ulicaLabel";
+            this.ulicaLabel.Size = new System.Drawing.Size(34, 13);
+            this.ulicaLabel.TabIndex = 13;
+            this.ulicaLabel.Text = "Ulica:";
             // 
             // DodavanjeKorisnikaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(305, 388);
+            this.ClientSize = new System.Drawing.Size(311, 413);
             this.Controls.Add(this.noviKorisnikGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -309,5 +330,7 @@
         private System.Windows.Forms.ComboBox gradComboBox;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.GroupBox noviKorisnikGroupBox;
+        private System.Windows.Forms.Label ulicaLabel;
+        private System.Windows.Forms.TextBox ulicaTextBox;
     }
 }

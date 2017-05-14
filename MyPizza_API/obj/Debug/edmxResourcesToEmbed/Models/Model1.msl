@@ -31,6 +31,7 @@
     <EntitySetMapping Name="Korisnici">
       <EntityTypeMapping TypeName="MyPizzaModel1.Korisnici">
         <MappingFragment StoreEntitySet="Korisnici">
+          <ScalarProperty Name="Ulica" ColumnName="Ulica" />
           <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
           <ScalarProperty Name="Ime" ColumnName="Ime" />
           <ScalarProperty Name="Prezime" ColumnName="Prezime" />
@@ -58,6 +59,7 @@
     <EntitySetMapping Name="Narudzbe">
       <EntityTypeMapping TypeName="MyPizzaModel1.Narudzbe">
         <MappingFragment StoreEntitySet="Narudzbe">
+          <ScalarProperty Name="AdresaZaDostavu" ColumnName="AdresaZaDostavu" />
           <ScalarProperty Name="NarudzbaId" ColumnName="NarudzbaId" />
           <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
           <ScalarProperty Name="StatusNarudzbeId" ColumnName="StatusNarudzbeId" />

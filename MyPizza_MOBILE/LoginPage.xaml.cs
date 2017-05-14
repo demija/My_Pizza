@@ -54,13 +54,11 @@ namespace MyPizza_MOBILE
 
                     if (UIHelper.GenerateHash(lozinkaInput.Password, k.LozinkaSalt) == k.LozinkaHash)
                     {
-                        MessageDialog msg = new MessageDialog("Dobro došli " + k.Ime + " " + k.Prezime);
-                        await msg.ShowAsync();
+                        Global.prijavljeniKorisnik = k;
                         Frame.Navigate(typeof(MainPage));
 
-                        /*Global.prijavljeniKorisnik = k;
-                        this.DialogResult = DialogResult.OK;
-                        this.Close();*/
+                        MessageDialog msg = new MessageDialog("Dobro došli " + k.Ime + " " + k.Prezime);
+                        await msg.ShowAsync();
                     }
                     else
                     {
@@ -73,7 +71,8 @@ namespace MyPizza_MOBILE
                     MessageDialog msg = new MessageDialog("Problem u komunikaciji!");
                     await msg.ShowAsync();
                 }
-            } else
+            }
+            else
             {
                 MessageDialog msg = new MessageDialog("Potrebno unijeti korisničko ime i lozinku!");
                 await msg.ShowAsync();

@@ -22,8 +22,8 @@
         <EntityTypeShape EntityType="MyPizzaModel1.sysdiagrams" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MyPizzaModel1.UlogeKorisnika" Width="1.5" PointX="0.75" PointY="28.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MyPizzaModel1.VelicinePizza" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyPizzaModel1.VrstePizza" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyPizzaModel1.VrsteSastojci" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.VrstePizza" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyPizzaModel1.VrsteSastojci" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
         <AssociationConnector Association="MyPizzaModel1.FK_Pizze_CijenePizza" ManuallyRouted="false" />
         <AssociationConnector Association="MyPizzaModel1.FK_DodatniSastojci_NarudzbePizze" ManuallyRouted="false" />
         <AssociationConnector Association="MyPizzaModel1.FK_DodatniSastojci_Sastojci" ManuallyRouted="false" />

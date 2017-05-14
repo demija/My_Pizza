@@ -75,6 +75,7 @@ namespace MyPizza_GUI
                 k.LozinkaSalt = UIHelper.GenerateSalt();
                 k.LozinkaHash = UIHelper.GenerateHash(lozinkaTextBox.Text, k.LozinkaSalt);
                 k.GradId = Convert.ToInt32(gradComboBox.SelectedValue);
+                k.Ulica = ulicaTextBox.Text;
                 k.StatusKorisnikaId = Convert.ToInt32("1");
                 k.DatumRegistracije = DateTime.Now;
 
@@ -196,6 +197,19 @@ namespace MyPizza_GUI
             else
             {
                 errorProvider.SetError(brojTelefonaTextBox, "");
+            }
+        }
+
+        private void ulicaTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(ulicaTextBox.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(ulicaTextBox, Global.GetMessage("req"));
+            }
+            else
+            {
+                errorProvider.SetError(ulicaTextBox, "");
             }
         }
     }

@@ -54,7 +54,8 @@ namespace MyPizza_MOBILE.Products
 
         private void svePizzeList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Frame.Navigate(typeof(ProductDetailsPage), ((VrstePizza)e.ClickedItem).VrstaPizzeId);
+            //Frame.Navigate(typeof(ProductDetailsPage), ((VrstePizza)e.ClickedItem).VrstaPizzeId);
+            Frame.Navigate(typeof(ProductDetailsPage), ((VrstePizza)e.ClickedItem));
         }
     }
 }

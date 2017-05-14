@@ -8,8 +8,23 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBlock Name="proizvodIdLabel"></TextBlock>
-    </Grid>
+    <ScrollViewer>
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="250"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image Name="pizzaSlika" Grid.Row="0" Stretch="UniformToFill"></Image>
+                <TextBlock Name="pizzaVrstaLabel1" Grid.Row="0" Foreground="Black" FontSize="36" Style="{StaticResource MessageDialogTitleStyle}" Margin="20,15,0,0">
+                    <TextBlock.RenderTransform>
+                        <TranslateTransform X="1" Y="1" />
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <TextBlock Name="pizzaVrstaLabel2" Grid.Row="0" Foreground="Coral" FontSize="36" Style="{StaticResource MessageDialogTitleStyle}" Margin="20,15,0,0"></TextBlock>
+            </Grid>
+            <TextBlock Name="pizzaOpisLabel" Style="{StaticResource MessageDialogContentStyle}" Margin="10,0"></TextBlock>
+        </StackPanel>
+    </ScrollViewer>
 </Page>
 

@@ -39,6 +39,7 @@
     <Property Name="DatumRegistracije" Type="datetime" Nullable="false" />
     <Property Name="StatusKorisnikaId" Type="int" Nullable="false" />
     <Property Name="GradId" Type="int" Nullable="false" />
+    <Property Name="Ulica" Type="nvarchar" MaxLength="500" Nullable="false" />
   </EntityType>
   <EntityType Name="KorisnickeUloge">
     <Key>
@@ -58,6 +59,7 @@
     <Property Name="StatusNarudzbeId" Type="int" Nullable="false" />
     <Property Name="DatumNarudzbe" Type="datetime" Nullable="false" />
     <Property Name="OtkazanaNarudzba" Type="bit" />
+    <Property Name="AdresaZaDostavu" Type="nvarchar" MaxLength="500" Nullable="false" />
   </EntityType>
   <EntityType Name="NarudzbePizze">
     <Key>
@@ -432,6 +434,7 @@
     <Parameter Name="datumRegistracije" Type="datetime" Mode="In" />
     <Parameter Name="statusKorisnikaId" Type="int" Mode="In" />
     <Parameter Name="gradId" Type="int" Mode="In" />
+    <Parameter Name="ulica" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="myPizza_Korisnici_SelectByImePrezime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="imePrezime" Type="nvarchar" Mode="In" />

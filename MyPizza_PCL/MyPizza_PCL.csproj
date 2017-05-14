@@ -37,6 +37,8 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Model\Gradovi.cs" />
     <Compile Include="Model\Korisnici.cs" />
+    <Compile Include="Model\Narudzbe.cs" />
+    <Compile Include="Model\NarudzbePizze.cs" />
     <Compile Include="Model\UlogeKorisnika.cs" />
     <Compile Include="Model\VrstePizza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

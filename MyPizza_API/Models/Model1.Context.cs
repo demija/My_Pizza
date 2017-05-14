@@ -48,7 +48,7 @@ namespace MyPizza_API.Models
         public virtual DbSet<VrstePizza> VrstePizza { get; set; }
         public virtual DbSet<VrsteSastojci> VrsteSastojci { get; set; }
     
-        public virtual ObjectResult<Nullable<decimal>> myPizza_Korisnici_Insert(string ime, string prezime, string korisnickoIme, string lozinkaHash, string lozinkaSalt, string email, string brojTelefona, Nullable<System.DateTime> datumRegistracije, Nullable<int> statusKorisnikaId, Nullable<int> gradId)
+        public virtual ObjectResult<Nullable<decimal>> myPizza_Korisnici_Insert(string ime, string prezime, string korisnickoIme, string lozinkaHash, string lozinkaSalt, string email, string brojTelefona, Nullable<System.DateTime> datumRegistracije, Nullable<int> statusKorisnikaId, Nullable<int> gradId, string ulica)
         {
             var imeParameter = ime != null ?
                 new ObjectParameter("ime", ime) :
@@ -90,7 +90,11 @@ namespace MyPizza_API.Models
                 new ObjectParameter("gradId", gradId) :
                 new ObjectParameter("gradId", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("myPizza_Korisnici_Insert", imeParameter, prezimeParameter, korisnickoImeParameter, lozinkaHashParameter, lozinkaSaltParameter, emailParameter, brojTelefonaParameter, datumRegistracijeParameter, statusKorisnikaIdParameter, gradIdParameter);
+            var ulicaParameter = ulica != null ?
+                new ObjectParameter("ulica", ulica) :
+                new ObjectParameter("ulica", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("myPizza_Korisnici_Insert", imeParameter, prezimeParameter, korisnickoImeParameter, lozinkaHashParameter, lozinkaSaltParameter, emailParameter, brojTelefonaParameter, datumRegistracijeParameter, statusKorisnikaIdParameter, gradIdParameter, ulicaParameter);
         }
     
         public virtual ObjectResult<myPizza_Korisnici_SelectByImePrezime_Result> myPizza_Korisnici_SelectByImePrezime(string imePrezime)

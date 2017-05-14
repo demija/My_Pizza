@@ -49,6 +49,7 @@
     <NavigationProperty Name="Narudzbe" Relationship="Self.FK_Narudzbe_Korisnici" FromRole="Korisnici" ToRole="Narudzbe" />
     <NavigationProperty Name="Ocjene" Relationship="Self.FK_Ocjene_Korisnici" FromRole="Korisnici" ToRole="Ocjene" />
     <NavigationProperty Name="Racuni" Relationship="Self.FK_Racuni_Korisnici" FromRole="Korisnici" ToRole="Racuni" />
+    <Property Name="Ulica" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="KorisnickeUloge">
     <Key>
@@ -74,6 +75,7 @@
     <NavigationProperty Name="StatusiNarudzbi" Relationship="Self.FK_Narudzbe_StatusiNarudzbi" FromRole="Narudzbe" ToRole="StatusiNarudzbi" />
     <NavigationProperty Name="NarudzbePizze" Relationship="Self.FK_NarudzbePizze_Narudzbe" FromRole="Narudzbe" ToRole="NarudzbePizze" />
     <NavigationProperty Name="Racuni" Relationship="Self.FK_Racuni_Narudzbe" FromRole="Narudzbe" ToRole="Racuni" />
+    <Property Name="AdresaZaDostavu" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="NarudzbePizze">
     <Key>
@@ -572,6 +574,7 @@
       <Parameter Name="datumRegistracije" Mode="In" Type="DateTime" />
       <Parameter Name="statusKorisnikaId" Mode="In" Type="Int32" />
       <Parameter Name="gradId" Mode="In" Type="Int32" />
+      <Parameter Name="ulica" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="myPizza_Korisnici_SelectByImePrezime" ReturnType="Collection(MyPizzaModel1.myPizza_Korisnici_SelectByImePrezime_Result)">
       <Parameter Name="imePrezime" Mode="In" Type="String" />

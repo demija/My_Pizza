@@ -11,7 +11,6 @@
     <ScrollViewer>
         <StackPanel Margin="10,0">
             <TextBlock Text="My Pizza" FontSize="34" HorizontalAlignment="Left"></TextBlock>
-            <TextBlock Text="Pizze u ponudi" FontSize="18" HorizontalAlignment="Left"></TextBlock>
             <ListView x:ConnectionId='1' Name="svePizzeList" IsItemClickEnabled="True"                                   >
                 <ListView.ItemTemplate>
                     <DataTemplate>

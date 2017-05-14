@@ -44,6 +44,7 @@
           <Property Name="DatumRegistracije" Type="datetime" Nullable="false" />
           <Property Name="StatusKorisnikaId" Type="int" Nullable="false" />
           <Property Name="GradId" Type="int" Nullable="false" />
+          <Property Name="Ulica" Type="nvarchar" MaxLength="500" Nullable="false" />
         </EntityType>
         <EntityType Name="KorisnickeUloge">
           <Key>
@@ -63,6 +64,7 @@
           <Property Name="StatusNarudzbeId" Type="int" Nullable="false" />
           <Property Name="DatumNarudzbe" Type="datetime" Nullable="false" />
           <Property Name="OtkazanaNarudzba" Type="bit" />
+          <Property Name="AdresaZaDostavu" Type="nvarchar" MaxLength="500" Nullable="false" />
         </EntityType>
         <EntityType Name="NarudzbePizze">
           <Key>
@@ -437,6 +439,7 @@
           <Parameter Name="datumRegistracije" Type="datetime" Mode="In" />
           <Parameter Name="statusKorisnikaId" Type="int" Mode="In" />
           <Parameter Name="gradId" Type="int" Mode="In" />
+          <Parameter Name="ulica" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="myPizza_Korisnici_SelectByImePrezime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="imePrezime" Type="nvarchar" Mode="In" />
@@ -612,6 +615,7 @@
           <NavigationProperty Name="Narudzbe" Relationship="Self.FK_Narudzbe_Korisnici" FromRole="Korisnici" ToRole="Narudzbe" />
           <NavigationProperty Name="Ocjene" Relationship="Self.FK_Ocjene_Korisnici" FromRole="Korisnici" ToRole="Ocjene" />
           <NavigationProperty Name="Racuni" Relationship="Self.FK_Racuni_Korisnici" FromRole="Korisnici" ToRole="Racuni" />
+          <Property Name="Ulica" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="KorisnickeUloge">
           <Key>
@@ -637,6 +641,7 @@
           <NavigationProperty Name="StatusiNarudzbi" Relationship="Self.FK_Narudzbe_StatusiNarudzbi" FromRole="Narudzbe" ToRole="StatusiNarudzbi" />
           <NavigationProperty Name="NarudzbePizze" Relationship="Self.FK_NarudzbePizze_Narudzbe" FromRole="Narudzbe" ToRole="NarudzbePizze" />
           <NavigationProperty Name="Racuni" Relationship="Self.FK_Racuni_Narudzbe" FromRole="Narudzbe" ToRole="Racuni" />
+          <Property Name="AdresaZaDostavu" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="NarudzbePizze">
           <Key>
@@ -1135,6 +1140,7 @@
             <Parameter Name="datumRegistracije" Mode="In" Type="DateTime" />
             <Parameter Name="statusKorisnikaId" Mode="In" Type="Int32" />
             <Parameter Name="gradId" Mode="In" Type="Int32" />
+            <Parameter Name="ulica" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="myPizza_Korisnici_SelectByImePrezime" ReturnType="Collection(MyPizzaModel1.myPizza_Korisnici_SelectByImePrezime_Result)">
           <Parameter Name="imePrezime" Mode="In" Type="String" />
@@ -1206,6 +1212,7 @@
           <EntitySetMapping Name="Korisnici">
             <EntityTypeMapping TypeName="MyPizzaModel1.Korisnici">
               <MappingFragment StoreEntitySet="Korisnici">
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
                 <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
                 <ScalarProperty Name="Ime" ColumnName="Ime" />
                 <ScalarProperty Name="Prezime" ColumnName="Prezime" />
@@ -1233,6 +1240,7 @@
           <EntitySetMapping Name="Narudzbe">
             <EntityTypeMapping TypeName="MyPizzaModel1.Narudzbe">
               <MappingFragment StoreEntitySet="Narudzbe">
+                <ScalarProperty Name="AdresaZaDostavu" ColumnName="AdresaZaDostavu" />
                 <ScalarProperty Name="NarudzbaId" ColumnName="NarudzbaId" />
                 <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
                 <ScalarProperty Name="StatusNarudzbeId" ColumnName="StatusNarudzbeId" />

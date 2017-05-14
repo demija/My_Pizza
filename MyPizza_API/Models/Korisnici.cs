@@ -34,6 +34,7 @@ namespace MyPizza_API.Models
         public System.DateTime DatumRegistracije { get; set; }
         public int StatusKorisnikaId { get; set; }
         public int GradId { get; set; }
+        public string Ulica { get; set; }
     
         public virtual Gradovi Gradovi { get; set; }
         public virtual StatusiKorisnika StatusiKorisnika { get; set; }
