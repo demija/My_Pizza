@@ -83,12 +83,13 @@
       <RootProperty Name="Y" />
     </RootType>
     <RootType FullName="MyPizza_MOBILE.Products.AllProductsPage" />
-    <RootType FullName="MyPizza_MOBILE.Products.ProductDetailsPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="Name" />
       <RootProperty Name="Header" />
       <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="Margin" />
     </RootType>
+    <RootType FullName="MyPizza_MOBILE.Products.ProductDetailsPage" />
     <RootType FullName="MyPizza_MOBILE.RegistrationPage" />
   </Roots.RootTypes>
 </Roots>

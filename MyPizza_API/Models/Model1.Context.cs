@@ -164,5 +164,24 @@ namespace MyPizza_API.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("myPizza_VrsteSastojci_Insert", vrstaIdParameter, sastojakIdParameter);
         }
+    
+        public virtual ObjectResult<VrstePizza> myPizza_GetAktivnePizze()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VrstePizza>("myPizza_GetAktivnePizze");
+        }
+    
+        public virtual ObjectResult<VrstePizza> myPizza_GetAktivnePizze(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VrstePizza>("myPizza_GetAktivnePizze", mergeOption);
+        }
+    
+        public virtual ObjectResult<myPizza_GetVelPizza_Result> myPizza_GetVelPizza(Nullable<int> vrstaPizzeID)
+        {
+            var vrstaPizzeIDParameter = vrstaPizzeID.HasValue ?
+                new ObjectParameter("vrstaPizzeID", vrstaPizzeID) :
+                new ObjectParameter("vrstaPizzeID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_GetVelPizza_Result>("myPizza_GetVelPizza", vrstaPizzeIDParameter);
+        }
     }
 }

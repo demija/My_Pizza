@@ -423,6 +423,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="myPizza_GetAktivnePizze" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="myPizza_GetVelPizza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vrstaPizzeID" Type="int" Mode="In" />
+  </Function>
   <Function Name="myPizza_Korisnici_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ime" Type="nvarchar" Mode="In" />
     <Parameter Name="prezime" Type="nvarchar" Mode="In" />

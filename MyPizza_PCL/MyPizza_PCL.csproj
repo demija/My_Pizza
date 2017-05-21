@@ -40,6 +40,7 @@
     <Compile Include="Model\Narudzbe.cs" />
     <Compile Include="Model\NarudzbePizze.cs" />
     <Compile Include="Model\UlogeKorisnika.cs" />
+    <Compile Include="Model\VelPizza.cs" />
     <Compile Include="Model\VrstePizza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\UIHelper.cs" />

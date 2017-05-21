@@ -1,8 +1,10 @@
 ﻿using MyPizza_PCL.Model;
+using MyPizza_PCL.Util;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -24,6 +26,8 @@ namespace MyPizza_MOBILE.Products
     /// </summary>
     public sealed partial class ProductDetailsPage : Page
     {
+        WebAPIHelper vrstePizzaService = new WebAPIHelper("http://localhost:50337/", "api/VrstePizza");
+
         public ProductDetailsPage()
         {
             this.InitializeComponent();
@@ -47,6 +51,19 @@ namespace MyPizza_MOBILE.Products
 
             pizzaOpisLabel.Text = v.Opis;
             pizzaSlika.Source = image;
+
+            BindVelicine(v.VrstaPizzeId);
+        }
+
+        private void BindVelicine(int vrstaPizzeId)
+        {
+            HttpResponseMessage response = vrstePizzaService.GetActionResponse("VelPizze", vrstaPizzeId.ToString());
+
+            if (response.IsSuccessStatusCode)
+            {
+                velicinaComboBox.ItemsSource = response.Content.ReadAsAsync<List<VelPizza>>().Result;
+                velicinaComboBox.DisplayMemberPath = "Velicina";
+            }
         }
     }
 }

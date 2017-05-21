@@ -25,6 +25,20 @@ namespace MyPizza_API.Controllers
             return db.VrstePizza;
         }
 
+        [HttpGet]
+        [Route("api/VrstePizza/AktivnePizze")]
+        public List<VrstePizza> AktivnePizze()
+        {
+            return db.myPizza_GetAktivnePizze().ToList();
+        }
+
+        [HttpGet]
+        [Route("api/VrstePizza/VelPizze/{vrstaPizzeId}")]
+        public List<myPizza_GetVelPizza_Result> VelPizze(int vrstaPizzeId)
+        {
+            return db.myPizza_GetVelPizza(vrstaPizzeId).ToList();
+        }
+
         // GET: api/VrstePizza/5
         [ResponseType(typeof(VrstePizza))]
         public IHttpActionResult GetVrstePizza(int id)

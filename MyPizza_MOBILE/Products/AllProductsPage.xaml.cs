@@ -44,7 +44,8 @@ namespace MyPizza_MOBILE.Products
 
         private void BindVrstePizza()
         {
-            HttpResponseMessage response = vrstePizzaService.GetResponse();
+            //HttpResponseMessage response = vrstePizzaService.GetResponse();
+            HttpResponseMessage response = vrstePizzaService.GetResponse("AktivnePizze");
 
             if (response.IsSuccessStatusCode)
             {

@@ -596,6 +596,10 @@
       <Parameter Name="vrstaId" Mode="In" Type="Int32" />
       <Parameter Name="sastojakId" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="myPizza_GetAktivnePizze" EntitySet="VrstePizza" ReturnType="Collection(MyPizzaModel1.VrstePizza)" />
+    <FunctionImport Name="myPizza_GetVelPizza" ReturnType="Collection(MyPizzaModel1.myPizza_GetVelPizza_Result)">
+      <Parameter Name="vrstaPizzeID" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="myPizza_Korisnici_SelectByImePrezime_Result">
     <Property Type="Int32" Name="KorisnikId" Nullable="false" />
@@ -609,5 +613,10 @@
     <Property Type="DateTime" Name="DatumRegistracije" Nullable="false" Precision="23" />
     <Property Type="Int32" Name="StatusKorisnikaId" Nullable="false" />
     <Property Type="Int32" Name="GradId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="myPizza_GetVelPizza_Result">
+    <Property Type="Int32" Name="VelicinaPizzeId" Nullable="false" />
+    <Property Type="String" Name="Velicina" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Promjer" Nullable="false" MaxLength="50" />
   </ComplexType>
 </Schema>

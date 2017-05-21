@@ -12,7 +12,7 @@
         <StackPanel>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="250"></RowDefinition>
+                    <RowDefinition Height="300"></RowDefinition>
                 </Grid.RowDefinitions>
 
                 <Image Name="pizzaSlika" Grid.Row="0" Stretch="UniformToFill"></Image>
@@ -23,7 +23,8 @@
                 </TextBlock>
                 <TextBlock Name="pizzaVrstaLabel2" Grid.Row="0" Foreground="Coral" FontSize="36" Style="{StaticResource MessageDialogTitleStyle}" Margin="20,15,0,0"></TextBlock>
             </Grid>
-            <TextBlock Name="pizzaOpisLabel" Style="{StaticResource MessageDialogContentStyle}" Margin="10,0"></TextBlock>
+            <TextBlock Name="pizzaOpisLabel" Style="{StaticResource MessageDialogContentStyle}" Margin="10,5"></TextBlock>
+            <ComboBox Name="velicinaComboBox" Header="Veličina" PlaceholderText="Odaberi veličinu" Margin="10,5"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

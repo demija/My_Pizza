@@ -224,5 +224,15 @@
     <FunctionImportMapping FunctionImportName="myPizza_KorisnickeUloge_Insert" FunctionName="MyPizzaModel1.Store.myPizza_KorisnickeUloge_Insert" />
     <FunctionImportMapping FunctionImportName="myPizza_VrstePizza_Insert" FunctionName="MyPizzaModel1.Store.myPizza_VrstePizza_Insert" />
     <FunctionImportMapping FunctionImportName="myPizza_VrsteSastojci_Insert" FunctionName="MyPizzaModel1.Store.myPizza_VrsteSastojci_Insert" />
+    <FunctionImportMapping FunctionImportName="myPizza_GetAktivnePizze" FunctionName="MyPizzaModel1.Store.myPizza_GetAktivnePizze" />
+    <FunctionImportMapping FunctionImportName="myPizza_GetVelPizza" FunctionName="MyPizzaModel1.Store.myPizza_GetVelPizza">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MyPizzaModel1.myPizza_GetVelPizza_Result">
+          <ScalarProperty Name="VelicinaPizzeId" ColumnName="VelicinaPizzeId" />
+          <ScalarProperty Name="Velicina" ColumnName="Velicina" />
+          <ScalarProperty Name="Promjer" ColumnName="Promjer" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

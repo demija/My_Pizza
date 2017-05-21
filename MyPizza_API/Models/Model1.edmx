@@ -428,6 +428,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="myPizza_GetAktivnePizze" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="myPizza_GetVelPizza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vrstaPizzeID" Type="int" Mode="In" />
+        </Function>
         <Function Name="myPizza_Korisnici_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ime" Type="nvarchar" Mode="In" />
           <Parameter Name="prezime" Type="nvarchar" Mode="In" />
@@ -1162,6 +1166,10 @@
             <Parameter Name="vrstaId" Mode="In" Type="Int32" />
             <Parameter Name="sastojakId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="myPizza_GetAktivnePizze" EntitySet="VrstePizza" ReturnType="Collection(MyPizzaModel1.VrstePizza)" />
+          <FunctionImport Name="myPizza_GetVelPizza" ReturnType="Collection(MyPizzaModel1.myPizza_GetVelPizza_Result)">
+            <Parameter Name="vrstaPizzeID" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="myPizza_Korisnici_SelectByImePrezime_Result">
           <Property Type="Int32" Name="KorisnikId" Nullable="false" />
@@ -1175,6 +1183,11 @@
           <Property Type="DateTime" Name="DatumRegistracije" Nullable="false" Precision="23" />
           <Property Type="Int32" Name="StatusKorisnikaId" Nullable="false" />
           <Property Type="Int32" Name="GradId" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="myPizza_GetVelPizza_Result">
+          <Property Type="Int32" Name="VelicinaPizzeId" Nullable="false" />
+          <Property Type="String" Name="Velicina" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Promjer" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1405,6 +1418,17 @@
           <FunctionImportMapping FunctionImportName="myPizza_KorisnickeUloge_Insert" FunctionName="MyPizzaModel1.Store.myPizza_KorisnickeUloge_Insert" />
           <FunctionImportMapping FunctionImportName="myPizza_VrstePizza_Insert" FunctionName="MyPizzaModel1.Store.myPizza_VrstePizza_Insert" />
           <FunctionImportMapping FunctionImportName="myPizza_VrsteSastojci_Insert" FunctionName="MyPizzaModel1.Store.myPizza_VrsteSastojci_Insert" />
+          <FunctionImportMapping FunctionImportName="myPizza_GetAktivnePizze" FunctionName="MyPizzaModel1.Store.myPizza_GetAktivnePizze">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="myPizza_GetVelPizza" FunctionName="MyPizzaModel1.Store.myPizza_GetVelPizza">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyPizzaModel1.myPizza_GetVelPizza_Result">
+                <ScalarProperty Name="VelicinaPizzeId" ColumnName="VelicinaPizzeId" />
+                <ScalarProperty Name="Velicina" ColumnName="Velicina" />
+                <ScalarProperty Name="Promjer" ColumnName="Promjer" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
