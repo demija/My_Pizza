@@ -82,12 +82,12 @@
     <EntitySetMapping Name="Ocjene">
       <EntityTypeMapping TypeName="MyPizzaModel1.Ocjene">
         <MappingFragment StoreEntitySet="Ocjene">
+          <ScalarProperty Name="NeSvidjaSe" ColumnName="NeSvidjaSe" />
+          <ScalarProperty Name="SvidjaSe" ColumnName="SvidjaSe" />
           <ScalarProperty Name="OcjenaId" ColumnName="OcjenaId" />
           <ScalarProperty Name="PizzaId" ColumnName="PizzaId" />
           <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
           <ScalarProperty Name="DatumOcjene" ColumnName="DatumOcjene" />
-          <ScalarProperty Name="Ocjena" ColumnName="Ocjena" />
-          <ScalarProperty Name="Komentar" ColumnName="Komentar" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

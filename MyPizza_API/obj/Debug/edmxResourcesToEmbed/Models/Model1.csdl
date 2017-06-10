@@ -98,10 +98,10 @@
     <Property Name="PizzaId" Type="Int32" Nullable="false" />
     <Property Name="KorisnikId" Type="Int32" Nullable="false" />
     <Property Name="DatumOcjene" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Ocjena" Type="Double" Nullable="false" />
-    <Property Name="Komentar" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Korisnici" Relationship="Self.FK_Ocjene_Korisnici" FromRole="Ocjene" ToRole="Korisnici" />
     <NavigationProperty Name="Pizze" Relationship="Self.FK_Ocjene_Pizze" FromRole="Ocjene" ToRole="Pizze" />
+    <Property Name="SvidjaSe" Type="Boolean" Nullable="false" />
+    <Property Name="NeSvidjaSe" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Pizze">
     <Key>

@@ -31,6 +31,8 @@ namespace MyPizza_MOBILE.Products
         public ProductDetailsPage()
         {
             this.InitializeComponent();
+
+            kolicinaTextBox.Visibility = Visibility.Collapsed;
         }
 
         /// <summary>
@@ -63,6 +65,16 @@ namespace MyPizza_MOBILE.Products
             {
                 velicinaComboBox.ItemsSource = response.Content.ReadAsAsync<List<VelPizza>>().Result;
                 velicinaComboBox.DisplayMemberPath = "Velicina";
+            }
+        }
+
+        private void kolicinaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (((ComboBoxItem)kolicinaComboBox.SelectedItem).Content.ToString() == "Drugo")
+            {
+                kolicinaTextBox.Visibility = Visibility.Visible;
+                kolicinaTextBox.Focus(FocusState.Keyboard);
+                kolicinaComboBox.Visibility = Visibility.Collapsed;
             }
         }
     }

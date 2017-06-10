@@ -19,6 +19,7 @@
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="Children" />
       <RootProperty Name="Resources" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
     </RootType>
@@ -38,11 +39,13 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="RenderTransform" />
       <RootProperty Name="Name" />
+      <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Name" />
       <RootProperty Name="Header" />
       <RootProperty Name="InputScope" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
       <RootProperty Name="Name" />
@@ -88,6 +91,16 @@
       <RootProperty Name="Header" />
       <RootProperty Name="PlaceholderText" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Items" />
+      <RootEvent Name="SelectionChanged" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.AppBarToggleButton">
+      <RootProperty Name="Name" />
+      <RootProperty Name="Icon" />
+      <RootProperty Name="HorizontalAlignment" />
     </RootType>
     <RootType FullName="MyPizza_MOBILE.Products.ProductDetailsPage" />
     <RootType FullName="MyPizza_MOBILE.RegistrationPage" />

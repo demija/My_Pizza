@@ -14,7 +14,6 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="300"></RowDefinition>
                 </Grid.RowDefinitions>
-
                 <Image Name="pizzaSlika" Grid.Row="0" Stretch="UniformToFill"></Image>
                 <TextBlock Name="pizzaVrstaLabel1" Grid.Row="0" Foreground="Black" FontSize="36" Style="{StaticResource MessageDialogTitleStyle}" Margin="20,15,0,0">
                     <TextBlock.RenderTransform>
@@ -24,7 +23,28 @@
                 <TextBlock Name="pizzaVrstaLabel2" Grid.Row="0" Foreground="Coral" FontSize="36" Style="{StaticResource MessageDialogTitleStyle}" Margin="20,15,0,0"></TextBlock>
             </Grid>
             <TextBlock Name="pizzaOpisLabel" Style="{StaticResource MessageDialogContentStyle}" Margin="10,5"></TextBlock>
+            <Grid>
+                <Grid HorizontalAlignment="Left">
+                    <AppBarToggleButton Name="likeButton" Icon="Like" HorizontalAlignment="Left"/>
+                    <TextBlock Text="5" Style="{StaticResource MessageDialogContentStyle}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                </Grid>
+                <Grid HorizontalAlignment="Right">
+                    <TextBlock Text="1" Style="{StaticResource MessageDialogContentStyle}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <AppBarToggleButton Name="dislikeButton" Icon="Dislike" HorizontalAlignment="Right"/>
+                </Grid>
+            </Grid>
             <ComboBox Name="velicinaComboBox" Header="Veličina" PlaceholderText="Odaberi veličinu" Margin="10,5"/>
+            <ComboBox x:ConnectionId='1' Name="kolicinaComboBox" Header="Količina" PlaceholderText="Odaberi količinu" Margin="10,5"                                                     >
+                <ComboBoxItem>1</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>3</ComboBoxItem>
+                <ComboBoxItem>Drugo</ComboBoxItem>
+            </ComboBox>
+            <TextBox Name="kolicinaTextBox" Header="Količina" InputScope="Number" Margin="10,5"/>
+            <Grid>
+                <Button Name="dodajUKorpuButton" Content="Dodaj u korpu" HorizontalAlignment="Left"/>
+                <Button Name="zavrsiKupovinuButton" Content="Zavrsi kupovinu" HorizontalAlignment="Right"/>
+            </Grid>
         </StackPanel>
     </ScrollViewer>
 </Page>

@@ -84,8 +84,8 @@
           <Property Name="PizzaId" Type="int" Nullable="false" />
           <Property Name="KorisnikId" Type="int" Nullable="false" />
           <Property Name="DatumOcjene" Type="datetime" Nullable="false" />
-          <Property Name="Ocjena" Type="float" Nullable="false" />
-          <Property Name="Komentar" Type="nvarchar" MaxLength="500" />
+          <Property Name="SvidjaSe" Type="bit" Nullable="false" />
+          <Property Name="NeSvidjaSe" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Pizze">
           <Key>
@@ -668,10 +668,10 @@
           <Property Name="PizzaId" Type="Int32" Nullable="false" />
           <Property Name="KorisnikId" Type="Int32" Nullable="false" />
           <Property Name="DatumOcjene" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Ocjena" Type="Double" Nullable="false" />
-          <Property Name="Komentar" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Korisnici" Relationship="Self.FK_Ocjene_Korisnici" FromRole="Ocjene" ToRole="Korisnici" />
           <NavigationProperty Name="Pizze" Relationship="Self.FK_Ocjene_Pizze" FromRole="Ocjene" ToRole="Pizze" />
+          <Property Name="SvidjaSe" Type="Boolean" Nullable="false" />
+          <Property Name="NeSvidjaSe" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Pizze">
           <Key>
@@ -1168,7 +1168,7 @@
           </FunctionImport>
           <FunctionImport Name="myPizza_GetAktivnePizze" EntitySet="VrstePizza" ReturnType="Collection(MyPizzaModel1.VrstePizza)" />
           <FunctionImport Name="myPizza_GetVelPizza" ReturnType="Collection(MyPizzaModel1.myPizza_GetVelPizza_Result)">
-            <Parameter Name="vrstaPizzeID" Mode="In" Type="Int32" />
+          <Parameter Name="vrstaPizzeID" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="myPizza_Korisnici_SelectByImePrezime_Result">
@@ -1188,6 +1188,7 @@
           <Property Type="Int32" Name="VelicinaPizzeId" Nullable="false" />
           <Property Type="String" Name="Velicina" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Promjer" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="Cijena" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1276,13 +1277,13 @@
           <EntitySetMapping Name="Ocjene">
             <EntityTypeMapping TypeName="MyPizzaModel1.Ocjene">
               <MappingFragment StoreEntitySet="Ocjene">
+                <ScalarProperty Name="NeSvidjaSe" ColumnName="NeSvidjaSe" />
+                <ScalarProperty Name="SvidjaSe" ColumnName="SvidjaSe" />
                 <ScalarProperty Name="OcjenaId" ColumnName="OcjenaId" />
                 <ScalarProperty Name="PizzaId" ColumnName="PizzaId" />
                 <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
                 <ScalarProperty Name="DatumOcjene" ColumnName="DatumOcjene" />
-                <ScalarProperty Name="Ocjena" ColumnName="Ocjena" />
-                <ScalarProperty Name="Komentar" ColumnName="Komentar" />
-              </MappingFragment>
+                </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pizze">
@@ -1426,6 +1427,7 @@
                 <ScalarProperty Name="VelicinaPizzeId" ColumnName="VelicinaPizzeId" />
                 <ScalarProperty Name="Velicina" ColumnName="Velicina" />
                 <ScalarProperty Name="Promjer" ColumnName="Promjer" />
+                <ScalarProperty Name="Cijena" ColumnName="Cijena" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

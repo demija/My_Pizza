@@ -79,8 +79,8 @@
     <Property Name="PizzaId" Type="int" Nullable="false" />
     <Property Name="KorisnikId" Type="int" Nullable="false" />
     <Property Name="DatumOcjene" Type="datetime" Nullable="false" />
-    <Property Name="Ocjena" Type="float" Nullable="false" />
-    <Property Name="Komentar" Type="nvarchar" MaxLength="500" />
+    <Property Name="SvidjaSe" Type="bit" Nullable="false" />
+    <Property Name="NeSvidjaSe" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Pizze">
     <Key>
