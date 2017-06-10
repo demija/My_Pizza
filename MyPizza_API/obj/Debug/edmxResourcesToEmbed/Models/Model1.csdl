@@ -618,5 +618,6 @@
     <Property Type="Int32" Name="VelicinaPizzeId" Nullable="false" />
     <Property Type="String" Name="Velicina" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Promjer" Nullable="false" MaxLength="50" />
+    <Property Type="Double" Name="Cijena" Nullable="false" />
   </ComplexType>
 </Schema>

@@ -27,12 +27,14 @@ namespace MyPizza_MOBILE.Products
     public sealed partial class ProductDetailsPage : Page
     {
         WebAPIHelper vrstePizzaService = new WebAPIHelper("http://localhost:50337/", "api/VrstePizza");
+        List<VelPizza> velPizza;
+        int kolicinaPizza = 1;
 
         public ProductDetailsPage()
         {
             this.InitializeComponent();
 
-            kolicinaTextBox.Visibility = Visibility.Collapsed;
+            prikaziCijenu();
         }
 
         /// <summary>
@@ -63,19 +65,50 @@ namespace MyPizza_MOBILE.Products
 
             if (response.IsSuccessStatusCode)
             {
-                velicinaComboBox.ItemsSource = response.Content.ReadAsAsync<List<VelPizza>>().Result;
+                velPizza = response.Content.ReadAsAsync<List<VelPizza>>().Result;
+                velicinaComboBox.ItemsSource = velPizza;
                 velicinaComboBox.DisplayMemberPath = "Velicina";
+            }
+
+            //formirajCijenu();
+        }
+
+        private void velicinaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            formirajCijenu();
+        }
+
+        private void dodajKolicinu_Click(object sender, RoutedEventArgs e)
+        {
+            ++kolicinaPizza;
+
+            formirajCijenu();
+        }
+
+        private void oduzmiKolicinu_Click(object sender, RoutedEventArgs e)
+        {
+            if(kolicinaPizza > 1)
+            {
+                --kolicinaPizza;
+            }
+
+            formirajCijenu();
+        }
+
+        private void formirajCijenu()
+        {
+            prikaziCijenu();
+
+            if (velicinaComboBox.SelectedIndex != -1)
+            {
+                VelPizza pizza = (VelPizza)velicinaComboBox.SelectedItem;
+                CijenaIznos.Text = (pizza.Cijena * kolicinaPizza).ToString() + " KM";
             }
         }
 
-        private void kolicinaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void prikaziCijenu()
         {
-            if (((ComboBoxItem)kolicinaComboBox.SelectedItem).Content.ToString() == "Drugo")
-            {
-                kolicinaTextBox.Visibility = Visibility.Visible;
-                kolicinaTextBox.Focus(FocusState.Keyboard);
-                kolicinaComboBox.Visibility = Visibility.Collapsed;
-            }
+            kolicnaOpis.Text = kolicinaPizza.ToString();
         }
     }
 }
