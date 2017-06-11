@@ -36,6 +36,13 @@ namespace MyPizza_API.Controllers
             return Ok(sastojci);
         }
 
+        [HttpGet]
+        [Route("api/Sastojci/VrstaSastojci/{vrstaPizzeId}")]
+        public List<Sastojci> VrstaSastojci(int vrstaPizzeId)
+        {
+            return db.myPizza_GetSastojciForVrsta(vrstaPizzeId).ToList();
+        }
+
         // PUT: api/Sastojci/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutSastojci(int id, Sastojci sastojci)

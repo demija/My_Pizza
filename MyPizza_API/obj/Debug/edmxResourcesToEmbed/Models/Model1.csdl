@@ -598,6 +598,9 @@
     <FunctionImport Name="myPizza_GetOcjeneForVrsta" ReturnType="Collection(MyPizzaModel1.myPizza_GetOcjeneForVrsta_Result)">
       <Parameter Name="vrstaPizzeId" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="myPizza_GetSastojciForVrsta" EntitySet="Sastojci" ReturnType="Collection(MyPizzaModel1.Sastojci)">
+      <Parameter Name="vrstaId" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="myPizza_Korisnici_SelectByImePrezime_Result">
     <Property Type="Int32" Name="KorisnikId" Nullable="false" />

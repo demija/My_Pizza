@@ -29,11 +29,18 @@ namespace MyPizza_MOBILE.Products
     {
         WebAPIHelper vrstePizzaService = new WebAPIHelper("http://localhost:50337/", "api/VrstePizza");
         WebAPIHelper ocjeneService = new WebAPIHelper("http://localhost:50337/", "api/Ocjene");
+        WebAPIHelper sastojciService = new WebAPIHelper("http://localhost:50337/", "api/Sastojci");
+
         List<VelPizza> velPizza;
         List<Ocjene> listaOcjena;
+        List<Sastojci> sviSastojci;
+        List<Sastojci> odabraniSastojci;
+
         VrstePizza v;
         Ocjene o;
         Korisnici k = Global.prijavljeniKorisnik;
+
+        float cijena = 0;
         int kolicinaPizza = 1;
         int likesNumber = 0;
         int dislikeNumber = 0;
@@ -72,8 +79,23 @@ namespace MyPizza_MOBILE.Products
 
             BindVelicine(v.VrstaPizzeId);
             BindOcjene(v.VrstaPizzeId);
+            BindSastojci(v.VrstaPizzeId);
 
             FormirajCijenu();
+        }
+
+        private void BindSastojci(int vrstaPizzeId)
+        {
+            HttpResponseMessage response = sastojciService.GetActionResponse("VrstaSastojci", vrstaPizzeId.ToString());
+
+            if (response.IsSuccessStatusCode)
+            {
+                sviSastojci = response.Content.ReadAsAsync<List<Sastojci>>().Result;
+                selectedindeks.Text = sviSastojci.Count.ToString();
+
+                dodatniSastojciListView.ItemsSource = sviSastojci;
+                dodatniSastojciListView.DisplayMemberPath = "Sastojak";
+            }
         }
 
         private void BindVelicine(int vrstaPizzeId)
@@ -142,16 +164,32 @@ namespace MyPizza_MOBILE.Products
 
         private void FormirajCijenu()
         {
-            PrikaziCijenu();
+            if (odabraniSastojci == null)
+            {
+                odabraniSastojci = new List<Sastojci>();
+            }
+
+            PrikaziKolicinu();
 
             if (velicinaComboBox.SelectedIndex != -1)
             {
                 VelPizza pizza = (VelPizza)velicinaComboBox.SelectedItem;
-                CijenaIznos.Text = (pizza.Cijena * kolicinaPizza).ToString() + " KM";
+
+                cijena = pizza.Cijena;
+
+                if (odabraniSastojci.Count > 0)
+                {
+                    for (int i = 0; i < odabraniSastojci.Count; i++)
+                    {
+                        cijena += (float)odabraniSastojci[i].DodatnaCijena;
+                    }
+                }
+                
+                CijenaIznos.Text = (cijena * kolicinaPizza).ToString() + " KM";
             }
         }
 
-        private void PrikaziCijenu()
+        private void PrikaziKolicinu()
         {
             kolicnaOpis.Text = kolicinaPizza.ToString();
         }
@@ -225,6 +263,29 @@ namespace MyPizza_MOBILE.Products
             if (o.SvidjaSe || o.NeSvidjaSe)
             {
                 HttpResponseMessage response = ocjeneService.PostResponse(o);
+            }
+        }
+
+        private void dodatniSastojciListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dodatniSastojciListView.SelectedItems != null)
+            {
+                odabraniSastojci = new List<Sastojci>();
+
+                for (int i = 0; i < dodatniSastojciListView.SelectedItems.Count; i++)
+                {
+                    Sastojci s = new Sastojci();
+                    s = (Sastojci)dodatniSastojciListView.SelectedItems[i];
+
+                    if (odabraniSastojci.IndexOf(s) == -1)
+                    {
+                        odabraniSastojci.Add(s);
+                    }
+                }
+
+                FormirajCijenu();
+
+                selectedindeks.Text = odabraniSastojci.Count.ToString();
             }
         }
     }

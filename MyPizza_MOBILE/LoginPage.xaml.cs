@@ -56,7 +56,7 @@ namespace MyPizza_MOBILE
                     if (UIHelper.GenerateHash(lozinkaInput.Password, k.LozinkaSalt) == k.LozinkaHash)
                     {
                         Global.prijavljeniKorisnik = k;
-                        Frame.Navigate(typeof(AllProductsPage));
+                        Frame.Navigate(typeof(MainPage));
 
                         MessageDialog msg = new MessageDialog("Dobro došli " + k.Ime + " " + k.Prezime + "!");
                         await msg.ShowAsync();

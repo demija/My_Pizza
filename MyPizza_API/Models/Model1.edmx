@@ -432,6 +432,9 @@
         <Function Name="myPizza_GetOcjeneForVrsta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vrstaPizzeId" Type="int" Mode="In" />
         </Function>
+        <Function Name="myPizza_GetSastojciForVrsta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vrstaId" Type="int" Mode="In" />
+        </Function>
         <Function Name="myPizza_GetVelPizza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vrstaPizzeID" Type="int" Mode="In" />
         </Function>
@@ -1176,7 +1179,10 @@
             <End Role="Ocjene" EntitySet="Ocjene" />
           </AssociationSet>
           <FunctionImport Name="myPizza_GetOcjeneForVrsta" ReturnType="Collection(MyPizzaModel1.myPizza_GetOcjeneForVrsta_Result)">
-            <Parameter Name="vrstaPizzeId" Mode="In" Type="Int32" />
+          <Parameter Name="vrstaPizzeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="myPizza_GetSastojciForVrsta" EntitySet="Sastojci" ReturnType="Collection(MyPizzaModel1.Sastojci)">
+            <Parameter Name="vrstaId" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="myPizza_Korisnici_SelectByImePrezime_Result">
@@ -1469,6 +1475,8 @@
                 <ScalarProperty Name="NeSvidjaSe" ColumnName="NeSvidjaSe" />
               </ComplexTypeMapping>
             </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="myPizza_GetSastojciForVrsta" FunctionName="MyPizzaModel1.Store.myPizza_GetSastojciForVrsta">
           </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>

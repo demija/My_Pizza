@@ -247,5 +247,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="myPizza_GetSastojciForVrsta" FunctionName="MyPizzaModel1.Store.myPizza_GetSastojciForVrsta" />
   </EntityContainerMapping>
 </Mapping>

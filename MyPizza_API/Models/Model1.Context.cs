@@ -293,6 +293,30 @@ public partial class MyPizzaEntities1 : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_GetOcjeneForVrsta_Result>("myPizza_GetOcjeneForVrsta", vrstaPizzeIdParameter);
     }
 
+
+    public virtual ObjectResult<Sastojci> myPizza_GetSastojciForVrsta(Nullable<int> vrstaId)
+    {
+
+        var vrstaIdParameter = vrstaId.HasValue ?
+            new ObjectParameter("vrstaId", vrstaId) :
+            new ObjectParameter("vrstaId", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Sastojci>("myPizza_GetSastojciForVrsta", vrstaIdParameter);
+    }
+
+
+    public virtual ObjectResult<Sastojci> myPizza_GetSastojciForVrsta(Nullable<int> vrstaId, MergeOption mergeOption)
+    {
+
+        var vrstaIdParameter = vrstaId.HasValue ?
+            new ObjectParameter("vrstaId", vrstaId) :
+            new ObjectParameter("vrstaId", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Sastojci>("myPizza_GetSastojciForVrsta", mergeOption, vrstaIdParameter);
+    }
+
 }
 
 }
