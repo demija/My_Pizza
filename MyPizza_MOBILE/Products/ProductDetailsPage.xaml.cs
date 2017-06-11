@@ -27,14 +27,22 @@ namespace MyPizza_MOBILE.Products
     public sealed partial class ProductDetailsPage : Page
     {
         WebAPIHelper vrstePizzaService = new WebAPIHelper("http://localhost:50337/", "api/VrstePizza");
+        WebAPIHelper ocjeneService = new WebAPIHelper("http://localhost:50337/", "api/Ocjene");
         List<VelPizza> velPizza;
+        List<Ocjene> listaOcjena;
+        VrstePizza v;
+        Ocjene o;
+        Korisnici k = Global.prijavljeniKorisnik;
         int kolicinaPizza = 1;
+        int likesNumber = 0;
+        int dislikeNumber = 0;
 
         public ProductDetailsPage()
         {
             this.InitializeComponent();
 
-            prikaziCijenu();
+            LikeCount.Text = likesNumber.ToString();
+            DislikeCount.Text = dislikeNumber.ToString();
         }
 
         /// <summary>
@@ -44,7 +52,7 @@ namespace MyPizza_MOBILE.Products
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            VrstePizza v = (VrstePizza)e.Parameter;
+            v = (VrstePizza)e.Parameter;
 
             MemoryStream ms = new MemoryStream(v.Slika);
             BitmapImage image = new BitmapImage();
@@ -57,6 +65,20 @@ namespace MyPizza_MOBILE.Products
             pizzaSlika.Source = image;
 
             BindVelicine(v.VrstaPizzeId);
+            BindOcjene(v.VrstaPizzeId);
+
+            formirajCijenu();
+        }
+
+        private void BindOcjene(int vrstaPizzeId)
+        {
+            HttpResponseMessage response = ocjeneService.GetActionResponse("OcjeneVrsta", vrstaPizzeId.ToString());
+
+            if (response.IsSuccessStatusCode)
+            {
+                listaOcjena = response.Content.ReadAsAsync<List<Ocjene>>().Result;
+                selectedindeks.Text = listaOcjena.Count.ToString();
+            }
         }
 
         private void BindVelicine(int vrstaPizzeId)
@@ -69,8 +91,6 @@ namespace MyPizza_MOBILE.Products
                 velicinaComboBox.ItemsSource = velPizza;
                 velicinaComboBox.DisplayMemberPath = "Velicina";
             }
-
-            //formirajCijenu();
         }
 
         private void velicinaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -109,6 +129,69 @@ namespace MyPizza_MOBILE.Products
         private void prikaziCijenu()
         {
             kolicnaOpis.Text = kolicinaPizza.ToString();
+        }
+
+        private void dodajUKorpuButton_Click(object sender, RoutedEventArgs e)
+        {
+            upisiOcjene();
+        }
+
+        private void likeButton_Click(object sender, RoutedEventArgs e)
+        {
+            createInstanceOcjene();
+
+            if (likeButton.IsChecked == true)
+            {
+                o.SvidjaSe = true;
+                ++likesNumber;
+                LikeCount.Text = likesNumber.ToString();
+            }
+            else
+            {
+                o.SvidjaSe = false;
+                --likesNumber;
+                LikeCount.Text = likesNumber.ToString();
+            }
+        }
+
+        private void dislikeButton_Click(object sender, RoutedEventArgs e)
+        {
+            createInstanceOcjene();
+
+            if (dislikeButton.IsChecked == true)
+            {
+                o.NeSvidjaSe = true;
+                ++dislikeNumber;
+                DislikeCount.Text = dislikeNumber.ToString();
+            }
+            else
+            {
+                o.NeSvidjaSe = false;
+                --dislikeNumber;
+                DislikeCount.Text = dislikeNumber.ToString();
+            }
+        }
+
+        public void createInstanceOcjene()
+        {
+            if (o == null)
+            {
+                o = new Ocjene();
+            }
+        }
+
+        public void upisiOcjene()
+        {
+            createInstanceOcjene();
+
+            o.KorisnikId = k.KorisnikId;
+            o.DatumOcjene = DateTime.Now;
+            o.VrstaPizzeId = v.VrstaPizzeId;
+
+            if (o.SvidjaSe || o.NeSvidjaSe)
+            {
+                HttpResponseMessage response = ocjeneService.PostResponse(o);
+            }
         }
     }
 }

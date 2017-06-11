@@ -95,13 +95,13 @@
       <PropertyRef Name="OcjenaId" />
     </Key>
     <Property Name="OcjenaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PizzaId" Type="Int32" Nullable="false" />
     <Property Name="KorisnikId" Type="Int32" Nullable="false" />
     <Property Name="DatumOcjene" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Korisnici" Relationship="Self.FK_Ocjene_Korisnici" FromRole="Ocjene" ToRole="Korisnici" />
-    <NavigationProperty Name="Pizze" Relationship="Self.FK_Ocjene_Pizze" FromRole="Ocjene" ToRole="Pizze" />
     <Property Name="SvidjaSe" Type="Boolean" Nullable="false" />
     <Property Name="NeSvidjaSe" Type="Boolean" Nullable="false" />
+    <Property Name="VrstaPizzeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="VrstePizza" Relationship="MyPizzaModel1.FK_Ocjene_VrstePizza1" FromRole="Ocjene" ToRole="VrstePizza" />
   </EntityType>
   <EntityType Name="Pizze">
     <Key>
@@ -115,7 +115,6 @@
     <Property Name="Cijena" Type="Double" />
     <NavigationProperty Name="CijenePizza" Relationship="Self.FK_Pizze_CijenePizza" FromRole="Pizze" ToRole="CijenePizza" />
     <NavigationProperty Name="NarudzbePizze" Relationship="Self.FK_NarudzbePizze_Pizze" FromRole="Pizze" ToRole="NarudzbePizze" />
-    <NavigationProperty Name="Ocjene" Relationship="Self.FK_Ocjene_Pizze" FromRole="Pizze" ToRole="Ocjene" />
     <NavigationProperty Name="StatusiPizza" Relationship="Self.FK_Pizze_StatusiPizza" FromRole="Pizze" ToRole="StatusiPizza" />
     <NavigationProperty Name="VelicinePizza" Relationship="Self.FK_Pizze_VelicinePizza" FromRole="Pizze" ToRole="VelicinePizza" />
     <NavigationProperty Name="VrstePizza" Relationship="Self.FK_Pizze_VrstePizza" FromRole="Pizze" ToRole="VrstePizza" />
@@ -212,6 +211,7 @@
     <Property Name="SlikaThumb" Type="Binary" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="Pizze" Relationship="Self.FK_Pizze_VrstePizza" FromRole="VrstePizza" ToRole="Pizze" />
     <NavigationProperty Name="VrsteSastojci" Relationship="Self.FK_VrsteSastojci_VrstePizza" FromRole="VrstePizza" ToRole="VrsteSastojci" />
+    <NavigationProperty Name="Ocjene" Relationship="MyPizzaModel1.FK_Ocjene_VrstePizza1" FromRole="VrstePizza" ToRole="Ocjene" />
   </EntityType>
   <EntityType Name="VrsteSastojci">
     <Key>
@@ -391,18 +391,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Ocjene_Pizze">
-    <End Role="Pizze" Type="Self.Pizze" Multiplicity="1" />
-    <End Role="Ocjene" Type="Self.Ocjene" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Pizze">
-        <PropertyRef Name="PizzaId" />
-      </Principal>
-      <Dependent Role="Ocjene">
-        <PropertyRef Name="PizzaId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Pizze_StatusiPizza">
     <End Role="StatusiPizza" Type="Self.StatusiPizza" Multiplicity="1" />
     <End Role="Pizze" Type="Self.Pizze" Multiplicity="*" />
@@ -539,10 +527,6 @@
       <End Role="Pizze" EntitySet="Pizze" />
       <End Role="NarudzbePizze" EntitySet="NarudzbePizze" />
     </AssociationSet>
-    <AssociationSet Name="FK_Ocjene_Pizze" Association="Self.FK_Ocjene_Pizze">
-      <End Role="Pizze" EntitySet="Pizze" />
-      <End Role="Ocjene" EntitySet="Ocjene" />
-    </AssociationSet>
     <AssociationSet Name="FK_Pizze_StatusiPizza" Association="Self.FK_Pizze_StatusiPizza">
       <End Role="StatusiPizza" EntitySet="StatusiPizza" />
       <End Role="Pizze" EntitySet="Pizze" />
@@ -600,6 +584,20 @@
     <FunctionImport Name="myPizza_GetVelPizza" ReturnType="Collection(MyPizzaModel1.myPizza_GetVelPizza_Result)">
       <Parameter Name="vrstaPizzeID" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="myPizza_Ocjene_LikeDislike">
+      <Parameter Name="vrstaPizzaId" Mode="In" Type="Int32" />
+      <Parameter Name="korisnikId" Mode="In" Type="Int32" />
+      <Parameter Name="datumOcjnene" Mode="In" Type="DateTime" />
+      <Parameter Name="svidja" Mode="In" Type="Boolean" />
+      <Parameter Name="neSvidja" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <AssociationSet Name="FK_Ocjene_VrstePizza1" Association="MyPizzaModel1.FK_Ocjene_VrstePizza1">
+      <End Role="VrstePizza" EntitySet="VrstePizza" />
+      <End Role="Ocjene" EntitySet="Ocjene" />
+    </AssociationSet>
+    <FunctionImport Name="myPizza_GetOcjeneForVrsta" ReturnType="Collection(MyPizzaModel1.myPizza_GetOcjeneForVrsta_Result)">
+      <Parameter Name="vrstaPizzeId" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="myPizza_Korisnici_SelectByImePrezime_Result">
     <Property Type="Int32" Name="KorisnikId" Nullable="false" />
@@ -619,5 +617,24 @@
     <Property Type="String" Name="Velicina" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Promjer" Nullable="false" MaxLength="50" />
     <Property Type="Double" Name="Cijena" Nullable="false" />
+  </ComplexType>
+  <Association Name="FK_Ocjene_VrstePizza1">
+    <End Type="MyPizzaModel1.VrstePizza" Role="VrstePizza" Multiplicity="1" />
+    <End Type="MyPizzaModel1.Ocjene" Role="Ocjene" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VrstePizza">
+        <PropertyRef Name="VrstaPizzeId" />
+      </Principal>
+      <Dependent Role="Ocjene">
+        <PropertyRef Name="VrstaPizzeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="myPizza_GetOcjeneForVrsta_Result">
+    <Property Type="Int32" Name="OcjenaId" Nullable="false" />
+    <Property Type="Int32" Name="KorisnikId" Nullable="false" />
+    <Property Type="DateTime" Name="DatumOcjene" Nullable="false" Precision="23" />
+    <Property Type="Boolean" Name="SvidjaSe" Nullable="false" />
+    <Property Type="Boolean" Name="NeSvidjaSe" Nullable="false" />
   </ComplexType>
 </Schema>

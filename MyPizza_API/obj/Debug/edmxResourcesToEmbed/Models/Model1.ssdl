@@ -76,7 +76,7 @@
       <PropertyRef Name="OcjenaId" />
     </Key>
     <Property Name="OcjenaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PizzaId" Type="int" Nullable="false" />
+    <Property Name="VrstaPizzeId" Type="int" Nullable="false" />
     <Property Name="KorisnikId" Type="int" Nullable="false" />
     <Property Name="DatumOcjene" Type="datetime" Nullable="false" />
     <Property Name="SvidjaSe" Type="bit" Nullable="false" />
@@ -315,15 +315,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Ocjene_Pizze">
-    <End Role="Pizze" Type="Self.Pizze" Multiplicity="1" />
+  <Association Name="FK_Ocjene_VrstePizza1">
+    <End Role="VrstePizza" Type="Self.VrstePizza" Multiplicity="1" />
     <End Role="Ocjene" Type="Self.Ocjene" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Pizze">
-        <PropertyRef Name="PizzaId" />
+      <Principal Role="VrstePizza">
+        <PropertyRef Name="VrstaPizzeId" />
       </Principal>
       <Dependent Role="Ocjene">
-        <PropertyRef Name="PizzaId" />
+        <PropertyRef Name="VrstaPizzeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -424,6 +424,9 @@
     </ReferentialConstraint>
   </Association>
   <Function Name="myPizza_GetAktivnePizze" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="myPizza_GetOcjeneForVrsta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vrstaPizzeId" Type="int" Mode="In" />
+  </Function>
   <Function Name="myPizza_GetVelPizza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="vrstaPizzeID" Type="int" Mode="In" />
   </Function>
@@ -447,6 +450,13 @@
     <Parameter Name="korisnikId" Type="int" Mode="In" />
     <Parameter Name="ulogaKorisnikaId" Type="int" Mode="In" />
     <Parameter Name="datumIzmjene" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="myPizza_Ocjene_LikeDislike" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="vrstaPizzaId" Type="int" Mode="In" />
+    <Parameter Name="korisnikId" Type="int" Mode="In" />
+    <Parameter Name="datumOcjnene" Type="datetime" Mode="In" />
+    <Parameter Name="svidja" Type="bit" Mode="In" />
+    <Parameter Name="neSvidja" Type="bit" Mode="In" />
   </Function>
   <Function Name="myPizza_VrstePizza_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="vrsta" Type="nvarchar" Mode="In" />
@@ -524,8 +534,8 @@
       <End Role="Korisnici" EntitySet="Korisnici" />
       <End Role="Ocjene" EntitySet="Ocjene" />
     </AssociationSet>
-    <AssociationSet Name="FK_Ocjene_Pizze" Association="Self.FK_Ocjene_Pizze">
-      <End Role="Pizze" EntitySet="Pizze" />
+    <AssociationSet Name="FK_Ocjene_VrstePizza1" Association="Self.FK_Ocjene_VrstePizza1">
+      <End Role="VrstePizza" EntitySet="VrstePizza" />
       <End Role="Ocjene" EntitySet="Ocjene" />
     </AssociationSet>
     <AssociationSet Name="FK_Pizze_CijenePizza" Association="Self.FK_Pizze_CijenePizza">

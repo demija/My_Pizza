@@ -1,7 +1,7 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\gabel\onedrive\documents\github\my_pizza\mypizza_mobile\obj\debug\intermediatexaml\mypizza_mobile.exe" HashGuid="ea3f6e26-2616-81e7-76fd-7ef190168db2" />
-    <ReferenceAssembly PathName="c:\users\gabel\onedrive\documents\github\my_pizza\mypizza_pcl\bin\debug\mypizza_pcl.dll" HashGuid="d4001a20-94a1-feff-d146-86ba7047335b" />
+    <LocalAssembly PathName="c:\users\gabel\onedrive\documents\github\my_pizza\mypizza_mobile\obj\debug\intermediatexaml\mypizza_mobile.exe" HashGuid="6773deab-2a3a-1d25-6a33-7d18aaf98e03" />
+    <ReferenceAssembly PathName="c:\users\gabel\onedrive\documents\github\my_pizza\mypizza_pcl\bin\debug\mypizza_pcl.dll" HashGuid="feb12840-d030-45ae-a903-29058cc25454" />
     <ReferenceAssembly PathName="c:\users\gabel\onedrive\documents\github\my_pizza\packages\newtonsoft.json.6.0.2\lib\portable-net45+wp80+win8+wpa81\newtonsoft.json.dll" HashGuid="9d7edd31-e823-430e-c3cf-22078730f8bb" />
     <ReferenceAssembly PathName="c:\users\gabel\onedrive\documents\github\my_pizza\packages\pclcrypto.2.0.147\lib\portable-win81+wpa81\pclcrypto.dll" HashGuid="7f5747d3-190f-2816-2f99-598f61e9ac14" />
     <ReferenceAssembly PathName="c:\users\gabel\onedrive\documents\github\my_pizza\packages\pinvoke.bcrypt.0.3.2\lib\portable-net45+win+wpa81+monoandroid10+xamarinios10+monotouch10\pinvoke.bcrypt.dll" HashGuid="a7871029-9cc4-65f0-a2f8-1d587110ebf2" />

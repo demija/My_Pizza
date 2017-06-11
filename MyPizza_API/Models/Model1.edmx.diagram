@@ -38,12 +38,12 @@
         <AssociationConnector Association="MyPizzaModel1.FK_NarudzbePizze_Narudzbe" ManuallyRouted="false" />
         <AssociationConnector Association="MyPizzaModel1.FK_Racuni_Narudzbe" ManuallyRouted="false" />
         <AssociationConnector Association="MyPizzaModel1.FK_NarudzbePizze_Pizze" ManuallyRouted="false" />
-        <AssociationConnector Association="MyPizzaModel1.FK_Ocjene_Pizze" ManuallyRouted="false" />
         <AssociationConnector Association="MyPizzaModel1.FK_Pizze_StatusiPizza" ManuallyRouted="false" />
         <AssociationConnector Association="MyPizzaModel1.FK_Pizze_VelicinePizza" ManuallyRouted="false" />
         <AssociationConnector Association="MyPizzaModel1.FK_Pizze_VrstePizza" ManuallyRouted="false" />
         <AssociationConnector Association="MyPizzaModel1.FK_VrsteSastojci_Sastojci" ManuallyRouted="false" />
         <AssociationConnector Association="MyPizzaModel1.FK_VrsteSastojci_VrstePizza" ManuallyRouted="false" />
+        <AssociationConnector Association="MyPizzaModel1.FK_Ocjene_VrstePizza1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

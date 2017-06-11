@@ -25,27 +25,27 @@
             <TextBlock Name="pizzaOpisLabel" Style="{StaticResource MessageDialogContentStyle}" Margin="10,5"></TextBlock>
             <Grid Margin="10,5">
                 <Grid HorizontalAlignment="Left">
-                    <AppBarToggleButton Name="likeButton" Icon="Like" HorizontalAlignment="Left"/>
-                    <TextBlock Text="5" FontSize="34" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="70,0,0,15"/>
+                    <AppBarToggleButton x:ConnectionId='6' Name="likeButton" Icon="Like" HorizontalAlignment="Left"                         />
+                    <TextBlock Name="LikeCount" FontSize="28" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="70,0,0,15"/>
                 </Grid>
                 <Grid HorizontalAlignment="Right">
-                    <TextBlock Text="1" FontSize="34" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,70,15"/>
-                    <AppBarToggleButton Name="dislikeButton" Icon="Dislike" HorizontalAlignment="Right"/>
+                    <TextBlock Name="DislikeCount" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,70,15"/>
+                    <AppBarToggleButton x:ConnectionId='5' Name="dislikeButton" Icon="Dislike" HorizontalAlignment="Right"                            />
                 </Grid>
             </Grid>
             <ComboBox x:ConnectionId='1' Name="velicinaComboBox" Header="Veličina" PlaceholderText="Odaberi veličinu" Margin="10,5"                                                     />
             <TextBlock Name="kolicinaLabel" Text="Količina" Style="{StaticResource ComboBoxPlaceholderTextBlockStyle}" Margin="10,5"></TextBlock>
             <Grid Margin="10,5">
-                <AppBarButton x:ConnectionId='2' Name="oduzmiKolicinu" Icon="Remove" HorizontalAlignment="Left"                             />
-                <TextBlock Name="kolicnaOpis" FontSize="36" HorizontalAlignment="Center" Margin="0,12,0,0"></TextBlock>
-                <AppBarButton x:ConnectionId='3' Name="dodajKolicinu" Icon="Add" HorizontalAlignment="Right"                            />
+                <AppBarButton x:ConnectionId='3' Name="oduzmiKolicinu" Icon="Remove" HorizontalAlignment="Left"                             />
+                <TextBlock Name="kolicnaOpis" FontSize="28" HorizontalAlignment="Center" Margin="0,15,0,0"></TextBlock>
+                <AppBarButton x:ConnectionId='4' Name="dodajKolicinu" Icon="Add" HorizontalAlignment="Right"                            />
             </Grid>
             <Grid Margin="10,5">
                 <TextBlock Name="CijenaLabel" Text="Cijena" Style="{StaticResource HeaderTextBlockStyle}" HorizontalAlignment="Left"></TextBlock>
                 <TextBlock Name="CijenaIznos" Style="{StaticResource HeaderTextBlockStyle}" HorizontalAlignment="Right"></TextBlock>
             </Grid>
             <Grid Margin="10,5">
-                <Button Name="dodajUKorpuButton" Content="Dodaj u korpu" HorizontalAlignment="Left"/>
+                <Button x:ConnectionId='2' Name="dodajUKorpuButton" Content="Dodaj u korpu" HorizontalAlignment="Left"                                />
                 <Button Name="zavrsiKupovinuButton" Content="Zavrsi kupovinu" HorizontalAlignment="Right"/>
             </Grid>
             <TextBlock Name="selectedindeks"></TextBlock>

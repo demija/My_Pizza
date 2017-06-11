@@ -13,9 +13,8 @@ namespace MyPizza_API.Models
 {
 
 using System;
-    using System.Collections.Generic;
     
-public partial class Ocjene
+public partial class myPizza_GetOcjeneForVrsta_Result
 {
 
     public int OcjenaId { get; set; }
@@ -27,14 +26,6 @@ public partial class Ocjene
     public bool SvidjaSe { get; set; }
 
     public bool NeSvidjaSe { get; set; }
-
-    public int VrstaPizzeId { get; set; }
-
-
-
-    public virtual Korisnici Korisnici { get; set; }
-
-    public virtual VrstePizza VrstePizza { get; set; }
 
 }
 

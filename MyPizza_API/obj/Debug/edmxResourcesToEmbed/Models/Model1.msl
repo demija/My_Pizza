@@ -82,10 +82,10 @@
     <EntitySetMapping Name="Ocjene">
       <EntityTypeMapping TypeName="MyPizzaModel1.Ocjene">
         <MappingFragment StoreEntitySet="Ocjene">
+          <ScalarProperty Name="VrstaPizzeId" ColumnName="VrstaPizzeId" />
           <ScalarProperty Name="NeSvidjaSe" ColumnName="NeSvidjaSe" />
           <ScalarProperty Name="SvidjaSe" ColumnName="SvidjaSe" />
           <ScalarProperty Name="OcjenaId" ColumnName="OcjenaId" />
-          <ScalarProperty Name="PizzaId" ColumnName="PizzaId" />
           <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
           <ScalarProperty Name="DatumOcjene" ColumnName="DatumOcjene" />
         </MappingFragment>
@@ -232,6 +232,18 @@
           <ScalarProperty Name="Velicina" ColumnName="Velicina" />
           <ScalarProperty Name="Promjer" ColumnName="Promjer" />
           <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="myPizza_Ocjene_LikeDislike" FunctionName="MyPizzaModel1.Store.myPizza_Ocjene_LikeDislike" />
+    <FunctionImportMapping FunctionImportName="myPizza_GetOcjeneForVrsta" FunctionName="MyPizzaModel1.Store.myPizza_GetOcjeneForVrsta">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MyPizzaModel1.myPizza_GetOcjeneForVrsta_Result">
+          <ScalarProperty Name="OcjenaId" ColumnName="OcjenaId" />
+          <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
+          <ScalarProperty Name="DatumOcjene" ColumnName="DatumOcjene" />
+          <ScalarProperty Name="SvidjaSe" ColumnName="SvidjaSe" />
+          <ScalarProperty Name="NeSvidjaSe" ColumnName="NeSvidjaSe" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

@@ -249,6 +249,50 @@ public partial class MyPizzaEntities1 : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_GetVelPizza_Result>("myPizza_GetVelPizza", vrstaPizzeIDParameter);
     }
 
+
+    public virtual int myPizza_Ocjene_LikeDislike(Nullable<int> vrstaPizzaId, Nullable<int> korisnikId, Nullable<System.DateTime> datumOcjnene, Nullable<bool> svidja, Nullable<bool> neSvidja)
+    {
+
+        var vrstaPizzaIdParameter = vrstaPizzaId.HasValue ?
+            new ObjectParameter("vrstaPizzaId", vrstaPizzaId) :
+            new ObjectParameter("vrstaPizzaId", typeof(int));
+
+
+        var korisnikIdParameter = korisnikId.HasValue ?
+            new ObjectParameter("korisnikId", korisnikId) :
+            new ObjectParameter("korisnikId", typeof(int));
+
+
+        var datumOcjneneParameter = datumOcjnene.HasValue ?
+            new ObjectParameter("datumOcjnene", datumOcjnene) :
+            new ObjectParameter("datumOcjnene", typeof(System.DateTime));
+
+
+        var svidjaParameter = svidja.HasValue ?
+            new ObjectParameter("svidja", svidja) :
+            new ObjectParameter("svidja", typeof(bool));
+
+
+        var neSvidjaParameter = neSvidja.HasValue ?
+            new ObjectParameter("neSvidja", neSvidja) :
+            new ObjectParameter("neSvidja", typeof(bool));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("myPizza_Ocjene_LikeDislike", vrstaPizzaIdParameter, korisnikIdParameter, datumOcjneneParameter, svidjaParameter, neSvidjaParameter);
+    }
+
+
+    public virtual ObjectResult<myPizza_GetOcjeneForVrsta_Result> myPizza_GetOcjeneForVrsta(Nullable<int> vrstaPizzeId)
+    {
+
+        var vrstaPizzeIdParameter = vrstaPizzeId.HasValue ?
+            new ObjectParameter("vrstaPizzeId", vrstaPizzeId) :
+            new ObjectParameter("vrstaPizzeId", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_GetOcjeneForVrsta_Result>("myPizza_GetOcjeneForVrsta", vrstaPizzeIdParameter);
+    }
+
 }
 
 }

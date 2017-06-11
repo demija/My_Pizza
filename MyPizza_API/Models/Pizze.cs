@@ -24,8 +24,6 @@ public partial class Pizze
 
         this.NarudzbePizze = new HashSet<NarudzbePizze>();
 
-        this.Ocjene = new HashSet<Ocjene>();
-
     }
 
 
@@ -48,10 +46,6 @@ public partial class Pizze
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
     public virtual ICollection<NarudzbePizze> NarudzbePizze { get; set; }
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-    public virtual ICollection<Ocjene> Ocjene { get; set; }
 
     public virtual StatusiPizza StatusiPizza { get; set; }
 
