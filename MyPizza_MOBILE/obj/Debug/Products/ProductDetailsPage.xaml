@@ -25,20 +25,20 @@
             <TextBlock Name="pizzaOpisLabel" Style="{StaticResource MessageDialogContentStyle}" Margin="10,5"></TextBlock>
             <Grid Margin="10,5">
                 <Grid HorizontalAlignment="Left">
-                    <AppBarToggleButton x:ConnectionId='6' Name="likeButton" Icon="Like" HorizontalAlignment="Left"                         />
+                    <AppBarToggleButton x:ConnectionId='7' Name="likeButton" Icon="Like" HorizontalAlignment="Left"                         />
                     <TextBlock Name="LikeCount" FontSize="28" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="70,0,0,15"/>
                 </Grid>
                 <Grid HorizontalAlignment="Right">
                     <TextBlock Name="DislikeCount" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,70,15"/>
-                    <AppBarToggleButton x:ConnectionId='5' Name="dislikeButton" Icon="Dislike" HorizontalAlignment="Right"                            />
+                    <AppBarToggleButton x:ConnectionId='6' Name="dislikeButton" Icon="Dislike" HorizontalAlignment="Right"                            />
                 </Grid>
             </Grid>
             <ComboBox x:ConnectionId='1' Name="velicinaComboBox" Header="Veličina" PlaceholderText="Odaberi veličinu" Margin="10,5"                                                     />
             <TextBlock Name="kolicinaLabel" Text="Količina" Style="{StaticResource ComboBoxPlaceholderTextBlockStyle}" Margin="10,5"></TextBlock>
             <Grid Margin="10,5">
-                <AppBarButton x:ConnectionId='3' Name="oduzmiKolicinu" Icon="Remove" HorizontalAlignment="Left"                             />
+                <AppBarButton x:ConnectionId='4' Name="oduzmiKolicinu" Icon="Remove" HorizontalAlignment="Left"                             />
                 <TextBlock Name="kolicnaOpis" FontSize="28" HorizontalAlignment="Center" Margin="0,15,0,0"></TextBlock>
-                <AppBarButton x:ConnectionId='4' Name="dodajKolicinu" Icon="Add" HorizontalAlignment="Right"                            />
+                <AppBarButton x:ConnectionId='5' Name="dodajKolicinu" Icon="Add" HorizontalAlignment="Right"                            />
             </Grid>
             <Grid Margin="10,5">
                 <TextBlock Name="CijenaLabel" Text="Cijena" Style="{StaticResource HeaderTextBlockStyle}" HorizontalAlignment="Left"></TextBlock>
@@ -46,7 +46,7 @@
             </Grid>
             <Grid Margin="10,5">
                 <Button x:ConnectionId='2' Name="dodajUKorpuButton" Content="Dodaj u korpu" HorizontalAlignment="Left"                                />
-                <Button Name="zavrsiKupovinuButton" Content="Zavrsi kupovinu" HorizontalAlignment="Right"/>
+                <Button x:ConnectionId='3' Name="zavrsiKupovinuButton" Content="Zavrsi kupovinu" HorizontalAlignment="Right"                                   />
             </Grid>
             <TextBlock Name="selectedindeks"></TextBlock>
         </StackPanel>

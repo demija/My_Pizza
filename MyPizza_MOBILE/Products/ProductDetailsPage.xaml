@@ -46,7 +46,7 @@
             </Grid>
             <Grid Margin="10,5">
                 <Button Name="dodajUKorpuButton" Content="Dodaj u korpu" HorizontalAlignment="Left" Click="dodajUKorpuButton_Click"/>
-                <Button Name="zavrsiKupovinuButton" Content="Zavrsi kupovinu" HorizontalAlignment="Right"/>
+                <Button Name="zavrsiKupovinuButton" Content="Zavrsi kupovinu" HorizontalAlignment="Right" Click="zavrsiKupovinuButton_Click"/>
             </Grid>
             <TextBlock Name="selectedindeks"></TextBlock>
         </StackPanel>

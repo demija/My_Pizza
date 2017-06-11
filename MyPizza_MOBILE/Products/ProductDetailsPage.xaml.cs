@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -41,6 +42,11 @@ namespace MyPizza_MOBILE.Products
         {
             this.InitializeComponent();
 
+            PrikaziOcjene();
+        }
+
+        private void PrikaziOcjene()
+        {
             LikeCount.Text = likesNumber.ToString();
             DislikeCount.Text = dislikeNumber.ToString();
         }
@@ -67,18 +73,7 @@ namespace MyPizza_MOBILE.Products
             BindVelicine(v.VrstaPizzeId);
             BindOcjene(v.VrstaPizzeId);
 
-            formirajCijenu();
-        }
-
-        private void BindOcjene(int vrstaPizzeId)
-        {
-            HttpResponseMessage response = ocjeneService.GetActionResponse("OcjeneVrsta", vrstaPizzeId.ToString());
-
-            if (response.IsSuccessStatusCode)
-            {
-                listaOcjena = response.Content.ReadAsAsync<List<Ocjene>>().Result;
-                selectedindeks.Text = listaOcjena.Count.ToString();
-            }
+            FormirajCijenu();
         }
 
         private void BindVelicine(int vrstaPizzeId)
@@ -93,16 +88,46 @@ namespace MyPizza_MOBILE.Products
             }
         }
 
+        private void BindOcjene(int vrstaPizzeId)
+        {
+            HttpResponseMessage response = ocjeneService.GetActionResponse("OcjeneVrsta", vrstaPizzeId.ToString());
+
+            if (response.IsSuccessStatusCode)
+            {
+                listaOcjena = response.Content.ReadAsAsync<List<Ocjene>>().Result;
+            }
+
+            IzracunajOcjene();
+        }
+
+        private void IzracunajOcjene()
+        {
+            for (int i = 0; i < listaOcjena.Count; i++)
+            {
+                if (listaOcjena[i].SvidjaSe)
+                {
+                    ++likesNumber;
+                }
+
+                if (listaOcjena[i].NeSvidjaSe)
+                {
+                    ++dislikeNumber;
+                }
+            }
+
+            PrikaziOcjene();
+        }
+
         private void velicinaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            formirajCijenu();
+            FormirajCijenu();
         }
 
         private void dodajKolicinu_Click(object sender, RoutedEventArgs e)
         {
             ++kolicinaPizza;
 
-            formirajCijenu();
+            FormirajCijenu();
         }
 
         private void oduzmiKolicinu_Click(object sender, RoutedEventArgs e)
@@ -112,12 +137,12 @@ namespace MyPizza_MOBILE.Products
                 --kolicinaPizza;
             }
 
-            formirajCijenu();
+            FormirajCijenu();
         }
 
-        private void formirajCijenu()
+        private void FormirajCijenu()
         {
-            prikaziCijenu();
+            PrikaziCijenu();
 
             if (velicinaComboBox.SelectedIndex != -1)
             {
@@ -126,19 +151,14 @@ namespace MyPizza_MOBILE.Products
             }
         }
 
-        private void prikaziCijenu()
+        private void PrikaziCijenu()
         {
             kolicnaOpis.Text = kolicinaPizza.ToString();
         }
 
-        private void dodajUKorpuButton_Click(object sender, RoutedEventArgs e)
-        {
-            upisiOcjene();
-        }
-
         private void likeButton_Click(object sender, RoutedEventArgs e)
         {
-            createInstanceOcjene();
+            CreateInstanceOcjene();
 
             if (likeButton.IsChecked == true)
             {
@@ -156,7 +176,7 @@ namespace MyPizza_MOBILE.Products
 
         private void dislikeButton_Click(object sender, RoutedEventArgs e)
         {
-            createInstanceOcjene();
+            CreateInstanceOcjene();
 
             if (dislikeButton.IsChecked == true)
             {
@@ -172,7 +192,7 @@ namespace MyPizza_MOBILE.Products
             }
         }
 
-        public void createInstanceOcjene()
+        public void CreateInstanceOcjene()
         {
             if (o == null)
             {
@@ -180,9 +200,23 @@ namespace MyPizza_MOBILE.Products
             }
         }
 
-        public void upisiOcjene()
+        private void dodajUKorpuButton_Click(object sender, RoutedEventArgs e)
         {
-            createInstanceOcjene();
+            UpisiOcjene();
+
+            Frame.Navigate(typeof(AllProductsPage));
+        }
+
+        private void zavrsiKupovinuButton_Click(object sender, RoutedEventArgs e)
+        {
+            UpisiOcjene();
+
+            Frame.Navigate(typeof(AllProductsPage));    //navigate to korpa !!!
+        }
+
+        public void UpisiOcjene()
+        {
+            CreateInstanceOcjene();
 
             o.KorisnikId = k.KorisnikId;
             o.DatumOcjene = DateTime.Now;
