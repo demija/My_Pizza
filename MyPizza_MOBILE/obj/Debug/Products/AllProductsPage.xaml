@@ -10,7 +10,43 @@
 
     <ScrollViewer>
         <StackPanel Margin="10,0">
-            <TextBlock Text="My Pizza" FontSize="34" HorizontalAlignment="Left"></TextBlock>
+            <Grid>
+                <TextBlock Text="My Pizza" FontSize="34" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,15"></TextBlock>
+                <TextBlock Text="0" Name="narudzbePizzaLabel" HorizontalAlignment="Center"></TextBlock>
+                <AppBarButton Name="korpaButton" Icon="Shop" HorizontalAlignment="Right" Margin="0,0,60,0"/>
+                <AppBarButton Name="menuButton" Icon="More" HorizontalAlignment="Right">
+                    <AppBarButton.Flyout>
+                        <Flyout>
+                            <ListView x:ConnectionId='2' Name="menuListView" Header="Opcije" FontSize="32" VerticalAlignment="Center" SelectionMode="Single" Margin="10,5"                                                 >
+                                <ListViewItem FontSize="24" Margin="10,5">
+                                    <Grid>
+                                        <AppBarButton Icon="Shop" HorizontalAlignment="Left" />
+                                        <TextBlock Text="Korpa" VerticalAlignment="Center" Margin="80,0,0,20" />
+                                    </Grid>
+                                </ListViewItem>
+                                <ListViewItem FontSize="24" Margin="10,5">
+                                    <Grid>
+                                        <AppBarButton Icon="Favorite" HorizontalAlignment="Left" />
+                                        <TextBlock Text="Preporučeni proizvodi" VerticalAlignment="Center" Margin="80,0,0,20" />
+                                    </Grid>
+                                </ListViewItem>
+                                <ListViewItem FontSize="24" Margin="10,5">
+                                    <Grid>
+                                        <AppBarButton Icon="Bullets" HorizontalAlignment="Left" />
+                                        <TextBlock Text="Arhiva narudžbi" VerticalAlignment="Center" Margin="80,0,0,20" />
+                                    </Grid>
+                                </ListViewItem>
+                                <ListViewItem FontSize="24" Margin="10,5">
+                                    <Grid>
+                                        <AppBarButton Icon="Cancel" HorizontalAlignment="Left" />
+                                        <TextBlock Text="Odjava" VerticalAlignment="Center" Margin="80,0,0,20" />
+                                    </Grid>
+                                </ListViewItem>
+                            </ListView>
+                        </Flyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
+            </Grid>
             <ListView x:ConnectionId='1' Name="svePizzeList" IsItemClickEnabled="True"                                   >
                 <ListView.ItemTemplate>
                     <DataTemplate>

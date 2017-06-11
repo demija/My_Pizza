@@ -232,6 +232,7 @@
           <ScalarProperty Name="Velicina" ColumnName="Velicina" />
           <ScalarProperty Name="Promjer" ColumnName="Promjer" />
           <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+          <ScalarProperty Name="PizzaId" ColumnName="PizzaId" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

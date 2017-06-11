@@ -25,6 +25,8 @@ public partial class myPizza_GetVelPizza_Result
 
     public double Cijena { get; set; }
 
+    public int PizzaId { get; set; }
+
 }
 
 }

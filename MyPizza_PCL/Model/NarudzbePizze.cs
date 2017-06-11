@@ -25,7 +25,9 @@ namespace MyPizza_PCL.Model
         public int PizzaId { get; set; }
         public int Kolicina { get; set; }
         public Nullable<double> Cijena { get; set; }
-    
+        
+        public List<Sastojci> DodatniSastojci { get; set; }
+
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         //public virtual ICollection<DodatniSastojci> DodatniSastojci { get; set; }
         public virtual Narudzbe Narudzbe { get; set; }

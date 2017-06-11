@@ -1182,7 +1182,7 @@
           <Parameter Name="vrstaPizzeId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="myPizza_GetSastojciForVrsta" EntitySet="Sastojci" ReturnType="Collection(MyPizzaModel1.Sastojci)">
-            <Parameter Name="vrstaId" Mode="In" Type="Int32" />
+          <Parameter Name="vrstaId" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="myPizza_Korisnici_SelectByImePrezime_Result">
@@ -1203,6 +1203,7 @@
           <Property Type="String" Name="Velicina" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Promjer" Nullable="false" MaxLength="50" />
           <Property Type="Double" Name="Cijena" Nullable="false" />
+          <Property Type="Int32" Name="PizzaId" Nullable="false" />
         </ComplexType>
         <Association Name="FK_Ocjene_VrstePizza1">
           <End Type="MyPizzaModel1.VrstePizza" Role="VrstePizza" Multiplicity="1" />
@@ -1461,6 +1462,7 @@
                 <ScalarProperty Name="Velicina" ColumnName="Velicina" />
                 <ScalarProperty Name="Promjer" ColumnName="Promjer" />
                 <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+                <ScalarProperty Name="PizzaId" ColumnName="PizzaId" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

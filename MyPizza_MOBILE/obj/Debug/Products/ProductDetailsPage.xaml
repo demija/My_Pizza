@@ -42,7 +42,6 @@
                     </Flyout>
                 </Button.Flyout>
             </Button>
-            <TextBlock Name="selectedindeks"></TextBlock>
             <TextBlock Name="kolicinaLabel" Text="Količina" Style="{StaticResource ComboBoxPlaceholderTextBlockStyle}" Margin="10,5"></TextBlock>
             <Grid Margin="10,5">
                 <AppBarButton x:ConnectionId='4' Name="oduzmiKolicinu" Icon="Remove" HorizontalAlignment="Left"                             />
@@ -57,6 +56,7 @@
                 <Button x:ConnectionId='2' Name="dodajUKorpuButton" Content="Dodaj u korpu" HorizontalAlignment="Left"                                />
                 <Button x:ConnectionId='3' Name="zavrsiKupovinuButton" Content="Zavrsi kupovinu" HorizontalAlignment="Right"                                   />
             </Grid>
+            <TextBlock Name="selectedindeks"></TextBlock>
         </StackPanel>
     </ScrollViewer>
 </Page>

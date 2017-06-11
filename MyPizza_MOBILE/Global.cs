@@ -10,6 +10,8 @@ namespace MyPizza_MOBILE
     public class Global
     {
         public static Korisnici prijavljeniKorisnik { get; set; }
-        public static Narudzbe aktivnaNarudzba { get; set; }
+        public static Narudzbe narudzba { get; set; }
+        public static List<NarudzbePizze> narudzbePizze { get; set; }
+        //public static Sastojci dodatniSastojci { get; set; }
     }
 }

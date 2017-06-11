@@ -40,10 +40,13 @@ namespace MyPizza_MOBILE.Products
         Ocjene o;
         Korisnici k = Global.prijavljeniKorisnik;
 
-        float cijena = 0;
+        //float cijena = 0;
         int kolicinaPizza = 1;
         int likesNumber = 0;
         int dislikeNumber = 0;
+
+        //
+        NarudzbePizze naPizza = new NarudzbePizze();
 
         public ProductDetailsPage()
         {
@@ -91,8 +94,6 @@ namespace MyPizza_MOBILE.Products
             if (response.IsSuccessStatusCode)
             {
                 sviSastojci = response.Content.ReadAsAsync<List<Sastojci>>().Result;
-                selectedindeks.Text = sviSastojci.Count.ToString();
-
                 dodatniSastojciListView.ItemsSource = sviSastojci;
                 dodatniSastojciListView.DisplayMemberPath = "Sastojak";
             }
@@ -173,19 +174,24 @@ namespace MyPizza_MOBILE.Products
 
             if (velicinaComboBox.SelectedIndex != -1)
             {
-                VelPizza pizza = (VelPizza)velicinaComboBox.SelectedItem;
+                VelPizza velPizza = (VelPizza)velicinaComboBox.SelectedItem;
 
-                cijena = pizza.Cijena;
+                //cijena = velPizza.Cijena;
+
+                //selectedindeks.Text = velicinaComboBox.SelectedIndex.ToString();                                      /////////////////////////////////////////
+
+                naPizza.PizzaId = velPizza.PizzaId;
+                naPizza.Cijena = velPizza.Cijena;
 
                 if (odabraniSastojci.Count > 0)
                 {
                     for (int i = 0; i < odabraniSastojci.Count; i++)
                     {
-                        cijena += (float)odabraniSastojci[i].DodatnaCijena;
+                        naPizza.Cijena += (float)odabraniSastojci[i].DodatnaCijena;
                     }
                 }
                 
-                CijenaIznos.Text = (cijena * kolicinaPizza).ToString() + " KM";
+                CijenaIznos.Text = (naPizza.Cijena * kolicinaPizza).ToString() + " KM";
             }
         }
 
@@ -230,26 +236,45 @@ namespace MyPizza_MOBILE.Products
             }
         }
 
-        public void CreateInstanceOcjene()
+        private async void dodajUKorpuButton_Click(object sender, RoutedEventArgs e)
         {
-            if (o == null)
+            if (velicinaComboBox.SelectedIndex == -1)
             {
-                o = new Ocjene();
+                MessageDialog msg = new MessageDialog("Odaberi veličinu!");
+                await msg.ShowAsync();
+            }
+            else
+            {
+                PizzaUKorpu();
+                Frame.Navigate(typeof(AllProductsPage));
             }
         }
 
-        private void dodajUKorpuButton_Click(object sender, RoutedEventArgs e)
+        private async void zavrsiKupovinuButton_Click(object sender, RoutedEventArgs e)
         {
-            UpisiOcjene();
-
-            Frame.Navigate(typeof(AllProductsPage));
+            if (velicinaComboBox.SelectedIndex == -1)
+            {
+                MessageDialog msg = new MessageDialog("Odaberi veličinu!");
+                await msg.ShowAsync();
+            }
+            else
+            {
+                PizzaUKorpu();
+                Frame.Navigate(typeof(AllProductsPage));               //navigate to korpa !!!
+            }
         }
 
-        private void zavrsiKupovinuButton_Click(object sender, RoutedEventArgs e)
+        private void PizzaUKorpu()
         {
+            MessageDialog msg = new MessageDialog("Pizza dodana u korpu!");
+            msg.ShowAsync();
+
             UpisiOcjene();
 
-            Frame.Navigate(typeof(AllProductsPage));    //navigate to korpa !!!
+            naPizza.Kolicina = kolicinaPizza;
+            naPizza.DodatniSastojci = odabraniSastojci;
+
+            Global.narudzbePizze.Add(naPizza);
         }
 
         public void UpisiOcjene()
@@ -263,6 +288,14 @@ namespace MyPizza_MOBILE.Products
             if (o.SvidjaSe || o.NeSvidjaSe)
             {
                 HttpResponseMessage response = ocjeneService.PostResponse(o);
+            }
+        }
+
+        public void CreateInstanceOcjene()
+        {
+            if (o == null)
+            {
+                o = new Ocjene();
             }
         }
 

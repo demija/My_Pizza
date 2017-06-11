@@ -38,8 +38,8 @@
       <RootProperty Name="Style" />
       <RootProperty Name="Margin" />
       <RootProperty Name="RenderTransform" />
-      <RootProperty Name="Name" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Name" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Name" />
@@ -72,6 +72,7 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="SelectionMode" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Items" />
       <RootEvent Name="ItemClick" />
       <RootEvent Name="SelectionChanged" />
     </RootType>
@@ -92,6 +93,22 @@
       <RootProperty Name="X" />
       <RootProperty Name="Y" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
+      <RootProperty Name="Name" />
+      <RootProperty Name="Icon" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Flyout" />
+      <RootEvent Name="Click" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Flyout">
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ListViewItem">
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Content" />
+    </RootType>
     <RootType FullName="MyPizza_MOBILE.Products.AllProductsPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="Name" />
@@ -99,15 +116,6 @@
       <RootProperty Name="PlaceholderText" />
       <RootProperty Name="Margin" />
       <RootEvent Name="SelectionChanged" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
-      <RootProperty Name="Name" />
-      <RootProperty Name="Icon" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootEvent Name="Click" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Flyout">
-      <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarToggleButton">
       <RootProperty Name="Name" />

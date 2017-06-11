@@ -620,6 +620,7 @@
     <Property Type="String" Name="Velicina" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Promjer" Nullable="false" MaxLength="50" />
     <Property Type="Double" Name="Cijena" Nullable="false" />
+    <Property Type="Int32" Name="PizzaId" Nullable="false" />
   </ComplexType>
   <Association Name="FK_Ocjene_VrstePizza1">
     <End Type="MyPizzaModel1.VrstePizza" Role="VrstePizza" Multiplicity="1" />
