@@ -59,6 +59,7 @@
     <EntitySetMapping Name="Narudzbe">
       <EntityTypeMapping TypeName="MyPizzaModel1.Narudzbe">
         <MappingFragment StoreEntitySet="Narudzbe">
+          <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
           <ScalarProperty Name="AdresaZaDostavu" ColumnName="AdresaZaDostavu" />
           <ScalarProperty Name="NarudzbaId" ColumnName="NarudzbaId" />
           <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
@@ -249,5 +250,9 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="myPizza_GetSastojciForVrsta" FunctionName="MyPizzaModel1.Store.myPizza_GetSastojciForVrsta" />
+    <FunctionImportMapping FunctionImportName="MyPizza_Narudzbe_Insert" FunctionName="MyPizzaModel1.Store.MyPizza_Narudzbe_Insert" />
+    <FunctionImportMapping FunctionImportName="myPizza_NarudzbePizze_Insert" FunctionName="MyPizzaModel1.Store.myPizza_NarudzbePizze_Insert" />
+    <FunctionImportMapping FunctionImportName="myPizza_DodatniSastojci_Insert" FunctionName="MyPizzaModel1.Store.myPizza_DodatniSastojci_Insert" />
+    <FunctionImportMapping FunctionImportName="myPizza_Racun_Insert" FunctionName="MyPizzaModel1.Store.myPizza_Racun_Insert" />
   </EntityContainerMapping>
 </Mapping>

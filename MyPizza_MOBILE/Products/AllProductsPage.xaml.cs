@@ -2,6 +2,7 @@
 using MyPizza_PCL.Util;
 using System.Collections.Generic;
 using System.Net.Http;
+using Windows.Phone.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -20,6 +21,16 @@ namespace MyPizza_MOBILE.Products
         public AllProductsPage()
         {
             this.InitializeComponent();
+
+            //
+            this.NavigationCacheMode = NavigationCacheMode.Required;
+            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+        }
+
+        private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
+        {
+            Frame.GoBack();
+            e.Handled = true;
         }
 
         /// <summary>
@@ -36,7 +47,6 @@ namespace MyPizza_MOBILE.Products
 
             BindVrstePizza();
 
-            ///////////////////////////////////////////////////
             if (Global.narudzbePizze.Count == 0)
             {
                 korpaButton.Visibility = Visibility.Collapsed;
@@ -45,9 +55,6 @@ namespace MyPizza_MOBILE.Products
             {
                 korpaButton.Visibility = Visibility.Visible;
             }
-
-            narudzbePizzaLabel.Text = Global.narudzbePizze.Count.ToString();
-            ///////////////////////////////////////////////////
         }
 
         private void BindVrstePizza()
@@ -67,10 +74,27 @@ namespace MyPizza_MOBILE.Products
 
         private void menuListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (menuListView.SelectedIndex == 3)
+            if (menuListView.SelectedIndex == 0)
+            {
+                Frame.Navigate(typeof(ShoppingCartPage));
+            }
+            else if (menuListView.SelectedIndex == 1)
+            {
+                Frame.Navigate(typeof(RecommendedProductsPage));
+            }
+            else if (menuListView.SelectedIndex == 2)
+            {
+                Frame.Navigate(typeof(OrdersPage));
+            }
+            else if (menuListView.SelectedIndex == 3)
             {
                 Application.Current.Exit();
             }
+        }
+
+        private void korpaButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ShoppingCartPage));
         }
     }
 }

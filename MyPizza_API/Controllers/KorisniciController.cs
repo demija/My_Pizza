@@ -16,7 +16,6 @@ namespace MyPizza_API.Controllers
 {
     public class KorisniciController : ApiController
     {
-        //private MyPizzaEntities db = new MyPizzaEntities();
         private MyPizzaEntities1 db = new MyPizzaEntities1();
 
         // GET: api/Korisnici
@@ -110,13 +109,15 @@ namespace MyPizza_API.Controllers
             }
             catch (EntityException ex)
             {
-                //throw new NotImplementedException();
                 throw CreateHttpResponseException(Util.ExceptionHandler.HandleException(ex), HttpStatusCode.Conflict);
             }
 
-            foreach (UlogeKorisnika u in korisnici.Uloge)
+            if (korisnici.Uloge != null)
             {
-                db.myPizza_KorisnickeUloge_Insert(korisnici.KorisnikId, u.UlogaKorisnikaId, DateTime.Now);
+                foreach (UlogeKorisnika u in korisnici.Uloge)
+                {
+                    db.myPizza_KorisnickeUloge_Insert(korisnici.KorisnikId, u.UlogaKorisnikaId, DateTime.Now);
+                }
             }
 
             return CreatedAtRoute("DefaultApi", new { id = korisnici.KorisnikId }, korisnici);

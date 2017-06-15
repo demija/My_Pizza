@@ -49,4 +49,3 @@ C:\Users\gabel\Downloads\My_Pizza-master\My_Pizza-master\MyPizza_PCL\obj\Debug\M
 C:\Users\gabel\Downloads\My_Pizza-master\My_Pizza-master\MyPizza_PCL\obj\Debug\MyPizza_PCL.csprojResolveAssemblyReference.cache
 C:\Users\gabel\Downloads\My_Pizza-master\My_Pizza-master\MyPizza_PCL\obj\Debug\MyPizza_PCL.dll
 C:\Users\gabel\Downloads\My_Pizza-master\My_Pizza-master\MyPizza_PCL\obj\Debug\MyPizza_PCL.pdb
-C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_PCL\obj\Debug\MyPizza_PCL.csprojResolveAssemblyReference.cache

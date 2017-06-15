@@ -6,6 +6,9 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Opis" />
     <RootPropertyPathName Name="Vrsta" />
+    <RootPropertyPathName Name="Kolicina" />
+    <RootPropertyPathName Name="Velicina" />
+    <RootPropertyPathName Name="dodajtniSastojciOpis" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
@@ -14,32 +17,21 @@
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.ThemeResourceExtension" />
-    <RootType FullName="Windows.UI.Xaml.Controls.Grid">
-      <RootProperty Name="Margin" />
-      <RootProperty Name="RowDefinitions" />
-      <RootProperty Name="Children" />
-      <RootProperty Name="Resources" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootMethod Name="GetRow" />
-      <RootMethod Name="SetRow" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
-      <RootProperty Name="Height" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
-      <RootProperty Name="Children" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Children" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="Style" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="RenderTransform" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Name" />
+      <RootProperty Name="Inlines" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Name" />
@@ -50,6 +42,18 @@
       <RootProperty Name="Name" />
       <RootProperty Name="Header" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Grid">
+      <RootProperty Name="Children" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Resources" />
+      <RootProperty Name="RowDefinitions" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="ColumnDefinitions" />
+      <RootMethod Name="GetRow" />
+      <RootMethod Name="SetRow" />
+      <RootMethod Name="GetColumn" />
+      <RootMethod Name="SetColumn" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Name" />
       <RootProperty Name="Content" />
@@ -59,9 +63,9 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="MyPizza_MOBILE.LoginPage" />
-    <RootType FullName="MyPizza_MOBILE.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
       <RootProperty Name="Content" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="Name" />
@@ -80,6 +84,9 @@
       <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="MyPizza_MOBILE.Products.ImageConverter" />
+    <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
+      <RootProperty Name="Height" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Source" />
       <RootProperty Name="Stretch" />
@@ -87,6 +94,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Converter" />
+      <RootProperty Name="Mode" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Media.TranslateTransform">
@@ -110,6 +118,7 @@
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="MyPizza_MOBILE.Products.AllProductsPage" />
+    <RootType FullName="MyPizza_MOBILE.Products.OrdersPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="Name" />
       <RootProperty Name="Header" />
@@ -124,6 +133,14 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="MyPizza_MOBILE.Products.ProductDetailsPage" />
+    <RootType FullName="MyPizza_MOBILE.Products.RecommendedProductsPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
+      <RootProperty Name="Width" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Documents.Run">
+      <RootProperty Name="Text" />
+    </RootType>
+    <RootType FullName="MyPizza_MOBILE.Products.ShoppingCartPage" />
     <RootType FullName="MyPizza_MOBILE.RegistrationPage" />
   </Roots.RootTypes>
 </Roots>

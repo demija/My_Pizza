@@ -23,7 +23,7 @@ public partial class myPizza_GetVelPizza_Result
 
     public string Promjer { get; set; }
 
-    public double Cijena { get; set; }
+    public decimal Cijena { get; set; }
 
     public int PizzaId { get; set; }
 

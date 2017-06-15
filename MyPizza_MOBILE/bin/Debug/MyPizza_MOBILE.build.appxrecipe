@@ -96,14 +96,20 @@
     <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\LoginPage.xbf">
       <PackagePath>LoginPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\MainPage.xbf">
-      <PackagePath>MainPage.xbf</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\Products\AllProductsPage.xbf">
       <PackagePath>Products\AllProductsPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\Products\OrdersPage.xbf">
+      <PackagePath>Products\OrdersPage.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\Products\ProductDetailsPage.xbf">
       <PackagePath>Products\ProductDetailsPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\Products\RecommendedProductsPage.xbf">
+      <PackagePath>Products\RecommendedProductsPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\Products\ShoppingCartPage.xbf">
+      <PackagePath>Products\ShoppingCartPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_MOBILE\bin\Debug\RegistrationPage.xbf">
       <PackagePath>RegistrationPage.xbf</PackagePath>

@@ -56,7 +56,7 @@ namespace MyPizza_GUI
                     temp = new CijenePizza();
                 }
 
-                temp.Cijena = double.Parse(cijenaTextBox.Text.Replace(".", ","));
+                temp.Cijena = decimal.Parse(cijenaTextBox.Text.Replace(".", ","));
                 temp.Opis = opisTextBox.Text;
                 temp.DatumIzmjene = DateTime.Now;
 

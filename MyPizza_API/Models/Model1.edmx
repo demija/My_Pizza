@@ -10,7 +10,7 @@
             <PropertyRef Name="CijenaPizzeId" />
           </Key>
           <Property Name="CijenaPizzeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Cijena" Type="float" Nullable="false" />
+          <Property Name="Cijena" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Opis" Type="nvarchar" MaxLength="500" />
           <Property Name="DatumIzmjene" Type="datetime" />
         </EntityType>
@@ -63,8 +63,9 @@
           <Property Name="KorisnikId" Type="int" Nullable="false" />
           <Property Name="StatusNarudzbeId" Type="int" Nullable="false" />
           <Property Name="DatumNarudzbe" Type="datetime" Nullable="false" />
-          <Property Name="OtkazanaNarudzba" Type="bit" />
+          <Property Name="OtkazanaNarudzba" Type="bit" Nullable="false" />
           <Property Name="AdresaZaDostavu" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="BrojTelefona" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="NarudzbePizze">
           <Key>
@@ -74,7 +75,7 @@
           <Property Name="NarudzbaId" Type="int" Nullable="false" />
           <Property Name="PizzaId" Type="int" Nullable="false" />
           <Property Name="Kolicina" Type="int" Nullable="false" />
-          <Property Name="Cijena" Type="float" />
+          <Property Name="Cijena" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="Ocjene">
           <Key>
@@ -106,8 +107,8 @@
           <Property Name="Datum" Type="datetime" Nullable="false" />
           <Property Name="NarudzbaId" Type="int" Nullable="false" />
           <Property Name="KorisnikId" Type="int" Nullable="false" />
-          <Property Name="CijenaSaPDV" Type="float" Nullable="false" />
-          <Property Name="CijenaBezPDV" Type="float" Nullable="false" />
+          <Property Name="CijenaSaPDV" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="CijenaBezPDV" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Sastojci">
           <Key>
@@ -115,8 +116,8 @@
           </Key>
           <Property Name="SastojakId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Sastojak" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="BaznaCijena" Type="float" Nullable="false" />
-          <Property Name="DodatnaCijena" Type="float" Nullable="false" />
+          <Property Name="BaznaCijena" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="DodatnaCijena" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="StatusiKorisnika">
           <Key>
@@ -428,6 +429,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="myPizza_DodatniSastojci_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="narudzbaPizzaId" Type="int" Mode="In" />
+          <Parameter Name="sastojakId" Type="int" Mode="In" />
+        </Function>
         <Function Name="myPizza_GetAktivnePizze" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="myPizza_GetOcjeneForVrsta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vrstaPizzeId" Type="int" Mode="In" />
@@ -459,12 +464,33 @@
           <Parameter Name="ulogaKorisnikaId" Type="int" Mode="In" />
           <Parameter Name="datumIzmjene" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="MyPizza_Narudzbe_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="korisnikId" Type="int" Mode="In" />
+          <Parameter Name="statusNarudzbeId" Type="int" Mode="In" />
+          <Parameter Name="datumNarudzbe" Type="datetime" Mode="In" />
+          <Parameter Name="otkazanaNarudzba" Type="bit" Mode="In" />
+          <Parameter Name="adresaZaDosavu" Type="nvarchar" Mode="In" />
+          <Parameter Name="brojTelefona" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="myPizza_NarudzbePizze_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="narudzbaId" Type="int" Mode="In" />
+          <Parameter Name="pizzaId" Type="int" Mode="In" />
+          <Parameter Name="kolicina" Type="int" Mode="In" />
+          <Parameter Name="cijena" Type="decimal" Mode="In" />
+        </Function>
         <Function Name="myPizza_Ocjene_LikeDislike" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vrstaPizzaId" Type="int" Mode="In" />
           <Parameter Name="korisnikId" Type="int" Mode="In" />
           <Parameter Name="datumOcjnene" Type="datetime" Mode="In" />
           <Parameter Name="svidja" Type="bit" Mode="In" />
           <Parameter Name="neSvidja" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="myPizza_Racun_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="datum" Type="datetime" Mode="In" />
+          <Parameter Name="narudzbaId" Type="int" Mode="In" />
+          <Parameter Name="korisnikId" Type="int" Mode="In" />
+          <Parameter Name="cijenaSaPdv" Type="decimal" Mode="In" />
+          <Parameter Name="cijenaBezPdv" Type="decimal" Mode="In" />
         </Function>
         <Function Name="myPizza_VrstePizza_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vrsta" Type="nvarchar" Mode="In" />
@@ -588,7 +614,7 @@
             <PropertyRef Name="CijenaPizzeId" />
           </Key>
           <Property Name="CijenaPizzeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Cijena" Type="Double" Nullable="false" />
+          <Property Name="Cijena" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <Property Name="Opis" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="DatumIzmjene" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Pizze" Relationship="Self.FK_Pizze_CijenePizza" FromRole="CijenePizza" ToRole="Pizze" />
@@ -653,12 +679,13 @@
           <Property Name="KorisnikId" Type="Int32" Nullable="false" />
           <Property Name="StatusNarudzbeId" Type="Int32" Nullable="false" />
           <Property Name="DatumNarudzbe" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="OtkazanaNarudzba" Type="Boolean" />
+          <Property Name="OtkazanaNarudzba" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Korisnici" Relationship="Self.FK_Narudzbe_Korisnici" FromRole="Narudzbe" ToRole="Korisnici" />
           <NavigationProperty Name="StatusiNarudzbi" Relationship="Self.FK_Narudzbe_StatusiNarudzbi" FromRole="Narudzbe" ToRole="StatusiNarudzbi" />
           <NavigationProperty Name="NarudzbePizze" Relationship="Self.FK_NarudzbePizze_Narudzbe" FromRole="Narudzbe" ToRole="NarudzbePizze" />
           <NavigationProperty Name="Racuni" Relationship="Self.FK_Racuni_Narudzbe" FromRole="Narudzbe" ToRole="Racuni" />
           <Property Name="AdresaZaDostavu" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="BrojTelefona" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="NarudzbePizze">
           <Key>
@@ -668,7 +695,7 @@
           <Property Name="NarudzbaId" Type="Int32" Nullable="false" />
           <Property Name="PizzaId" Type="Int32" Nullable="false" />
           <Property Name="Kolicina" Type="Int32" Nullable="false" />
-          <Property Name="Cijena" Type="Double" />
+          <Property Name="Cijena" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="DodatniSastojci" Relationship="Self.FK_DodatniSastojci_NarudzbePizze" FromRole="NarudzbePizze" ToRole="DodatniSastojci" />
           <NavigationProperty Name="Narudzbe" Relationship="Self.FK_NarudzbePizze_Narudzbe" FromRole="NarudzbePizze" ToRole="Narudzbe" />
           <NavigationProperty Name="Pizze" Relationship="Self.FK_NarudzbePizze_Pizze" FromRole="NarudzbePizze" ToRole="Pizze" />
@@ -710,8 +737,8 @@
           <Property Name="Datum" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="NarudzbaId" Type="Int32" Nullable="false" />
           <Property Name="KorisnikId" Type="Int32" Nullable="false" />
-          <Property Name="CijenaSaPDV" Type="Double" Nullable="false" />
-          <Property Name="CijenaBezPDV" Type="Double" Nullable="false" />
+          <Property Name="CijenaSaPDV" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="CijenaBezPDV" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <NavigationProperty Name="Korisnici" Relationship="Self.FK_Racuni_Korisnici" FromRole="Racuni" ToRole="Korisnici" />
           <NavigationProperty Name="Narudzbe" Relationship="Self.FK_Racuni_Narudzbe" FromRole="Racuni" ToRole="Narudzbe" />
         </EntityType>
@@ -721,8 +748,8 @@
           </Key>
           <Property Name="SastojakId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Sastojak" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="BaznaCijena" Type="Double" Nullable="false" />
-          <Property Name="DodatnaCijena" Type="Double" Nullable="false" />
+          <Property Name="BaznaCijena" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="DodatnaCijena" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <NavigationProperty Name="DodatniSastojci" Relationship="Self.FK_DodatniSastojci_Sastojci" FromRole="Sastojci" ToRole="DodatniSastojci" />
           <NavigationProperty Name="VrsteSastojci" Relationship="Self.FK_VrsteSastojci_Sastojci" FromRole="Sastojci" ToRole="VrsteSastojci" />
         </EntityType>
@@ -1184,6 +1211,31 @@
           <FunctionImport Name="myPizza_GetSastojciForVrsta" EntitySet="Sastojci" ReturnType="Collection(MyPizzaModel1.Sastojci)">
           <Parameter Name="vrstaId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="MyPizza_Narudzbe_Insert" ReturnType="Collection(Decimal)">
+            <Parameter Name="korisnikId" Mode="In" Type="Int32" />
+            <Parameter Name="statusNarudzbeId" Mode="In" Type="Int32" />
+            <Parameter Name="datumNarudzbe" Mode="In" Type="DateTime" />
+            <Parameter Name="otkazanaNarudzba" Mode="In" Type="Boolean" />
+            <Parameter Name="adresaZaDosavu" Mode="In" Type="String" />
+            <Parameter Name="brojTelefona" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="myPizza_NarudzbePizze_Insert" ReturnType="Collection(Decimal)">
+            <Parameter Name="narudzbaId" Mode="In" Type="Int32" />
+            <Parameter Name="pizzaId" Mode="In" Type="Int32" />
+            <Parameter Name="kolicina" Mode="In" Type="Int32" />
+            <Parameter Name="cijena" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="myPizza_DodatniSastojci_Insert">
+            <Parameter Name="narudzbaPizzaId" Mode="In" Type="Int32" />
+            <Parameter Name="sastojakId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="myPizza_Racun_Insert">
+            <Parameter Name="datum" Mode="In" Type="DateTime" />
+            <Parameter Name="narudzbaId" Mode="In" Type="Int32" />
+            <Parameter Name="korisnikId" Mode="In" Type="Int32" />
+            <Parameter Name="cijenaSaPdv" Mode="In" Type="Decimal" />
+            <Parameter Name="cijenaBezPdv" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="myPizza_Korisnici_SelectByImePrezime_Result">
           <Property Type="Int32" Name="KorisnikId" Nullable="false" />
@@ -1202,7 +1254,7 @@
           <Property Type="Int32" Name="VelicinaPizzeId" Nullable="false" />
           <Property Type="String" Name="Velicina" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Promjer" Nullable="false" MaxLength="50" />
-          <Property Type="Double" Name="Cijena" Nullable="false" />
+          <Property Type="Decimal" Name="Cijena" Nullable="false" Precision="18" Scale="2" />
           <Property Type="Int32" Name="PizzaId" Nullable="false" />
         </ComplexType>
         <Association Name="FK_Ocjene_VrstePizza1">
@@ -1288,6 +1340,7 @@
           <EntitySetMapping Name="Narudzbe">
             <EntityTypeMapping TypeName="MyPizzaModel1.Narudzbe">
               <MappingFragment StoreEntitySet="Narudzbe">
+                <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
                 <ScalarProperty Name="AdresaZaDostavu" ColumnName="AdresaZaDostavu" />
                 <ScalarProperty Name="NarudzbaId" ColumnName="NarudzbaId" />
                 <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
@@ -1480,6 +1533,10 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="myPizza_GetSastojciForVrsta" FunctionName="MyPizzaModel1.Store.myPizza_GetSastojciForVrsta">
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="MyPizza_Narudzbe_Insert" FunctionName="MyPizzaModel1.Store.MyPizza_Narudzbe_Insert" />
+          <FunctionImportMapping FunctionImportName="myPizza_NarudzbePizze_Insert" FunctionName="MyPizzaModel1.Store.myPizza_NarudzbePizze_Insert" />
+          <FunctionImportMapping FunctionImportName="myPizza_DodatniSastojci_Insert" FunctionName="MyPizzaModel1.Store.myPizza_DodatniSastojci_Insert" />
+          <FunctionImportMapping FunctionImportName="myPizza_Racun_Insert" FunctionName="MyPizzaModel1.Store.myPizza_Racun_Insert" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

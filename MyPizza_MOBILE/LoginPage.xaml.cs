@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using MyPizza_PCL.Util;
 using MyPizza_PCL.Model;
@@ -56,7 +46,7 @@ namespace MyPizza_MOBILE
                     if (UIHelper.GenerateHash(lozinkaInput.Password, k.LozinkaSalt) == k.LozinkaHash)
                     {
                         Global.prijavljeniKorisnik = k;
-                        Frame.Navigate(typeof(MainPage));
+                        Frame.Navigate(typeof(AllProductsPage));
 
                         MessageDialog msg = new MessageDialog("Dobro došli " + k.Ime + " " + k.Prezime + "!");
                         await msg.ShowAsync();

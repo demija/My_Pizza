@@ -317,6 +317,119 @@ public partial class MyPizzaEntities1 : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Sastojci>("myPizza_GetSastojciForVrsta", mergeOption, vrstaIdParameter);
     }
 
+
+    public virtual ObjectResult<Nullable<decimal>> MyPizza_Narudzbe_Insert(Nullable<int> korisnikId, Nullable<int> statusNarudzbeId, Nullable<System.DateTime> datumNarudzbe, Nullable<bool> otkazanaNarudzba, string adresaZaDosavu, string brojTelefona)
+    {
+
+        var korisnikIdParameter = korisnikId.HasValue ?
+            new ObjectParameter("korisnikId", korisnikId) :
+            new ObjectParameter("korisnikId", typeof(int));
+
+
+        var statusNarudzbeIdParameter = statusNarudzbeId.HasValue ?
+            new ObjectParameter("statusNarudzbeId", statusNarudzbeId) :
+            new ObjectParameter("statusNarudzbeId", typeof(int));
+
+
+        var datumNarudzbeParameter = datumNarudzbe.HasValue ?
+            new ObjectParameter("datumNarudzbe", datumNarudzbe) :
+            new ObjectParameter("datumNarudzbe", typeof(System.DateTime));
+
+
+        var otkazanaNarudzbaParameter = otkazanaNarudzba.HasValue ?
+            new ObjectParameter("otkazanaNarudzba", otkazanaNarudzba) :
+            new ObjectParameter("otkazanaNarudzba", typeof(bool));
+
+
+        var adresaZaDosavuParameter = adresaZaDosavu != null ?
+            new ObjectParameter("adresaZaDosavu", adresaZaDosavu) :
+            new ObjectParameter("adresaZaDosavu", typeof(string));
+
+
+        var brojTelefonaParameter = brojTelefona != null ?
+            new ObjectParameter("brojTelefona", brojTelefona) :
+            new ObjectParameter("brojTelefona", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("MyPizza_Narudzbe_Insert", korisnikIdParameter, statusNarudzbeIdParameter, datumNarudzbeParameter, otkazanaNarudzbaParameter, adresaZaDosavuParameter, brojTelefonaParameter);
+    }
+
+
+    public virtual ObjectResult<Nullable<decimal>> myPizza_NarudzbePizze_Insert(Nullable<int> narudzbaId, Nullable<int> pizzaId, Nullable<int> kolicina, Nullable<decimal> cijena)
+    {
+
+        var narudzbaIdParameter = narudzbaId.HasValue ?
+            new ObjectParameter("narudzbaId", narudzbaId) :
+            new ObjectParameter("narudzbaId", typeof(int));
+
+
+        var pizzaIdParameter = pizzaId.HasValue ?
+            new ObjectParameter("pizzaId", pizzaId) :
+            new ObjectParameter("pizzaId", typeof(int));
+
+
+        var kolicinaParameter = kolicina.HasValue ?
+            new ObjectParameter("kolicina", kolicina) :
+            new ObjectParameter("kolicina", typeof(int));
+
+
+        var cijenaParameter = cijena.HasValue ?
+            new ObjectParameter("cijena", cijena) :
+            new ObjectParameter("cijena", typeof(decimal));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("myPizza_NarudzbePizze_Insert", narudzbaIdParameter, pizzaIdParameter, kolicinaParameter, cijenaParameter);
+    }
+
+
+    public virtual int myPizza_DodatniSastojci_Insert(Nullable<int> narudzbaPizzaId, Nullable<int> sastojakId)
+    {
+
+        var narudzbaPizzaIdParameter = narudzbaPizzaId.HasValue ?
+            new ObjectParameter("narudzbaPizzaId", narudzbaPizzaId) :
+            new ObjectParameter("narudzbaPizzaId", typeof(int));
+
+
+        var sastojakIdParameter = sastojakId.HasValue ?
+            new ObjectParameter("sastojakId", sastojakId) :
+            new ObjectParameter("sastojakId", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("myPizza_DodatniSastojci_Insert", narudzbaPizzaIdParameter, sastojakIdParameter);
+    }
+
+
+    public virtual int myPizza_Racun_Insert(Nullable<System.DateTime> datum, Nullable<int> narudzbaId, Nullable<int> korisnikId, Nullable<decimal> cijenaSaPdv, Nullable<decimal> cijenaBezPdv)
+    {
+
+        var datumParameter = datum.HasValue ?
+            new ObjectParameter("datum", datum) :
+            new ObjectParameter("datum", typeof(System.DateTime));
+
+
+        var narudzbaIdParameter = narudzbaId.HasValue ?
+            new ObjectParameter("narudzbaId", narudzbaId) :
+            new ObjectParameter("narudzbaId", typeof(int));
+
+
+        var korisnikIdParameter = korisnikId.HasValue ?
+            new ObjectParameter("korisnikId", korisnikId) :
+            new ObjectParameter("korisnikId", typeof(int));
+
+
+        var cijenaSaPdvParameter = cijenaSaPdv.HasValue ?
+            new ObjectParameter("cijenaSaPdv", cijenaSaPdv) :
+            new ObjectParameter("cijenaSaPdv", typeof(decimal));
+
+
+        var cijenaBezPdvParameter = cijenaBezPdv.HasValue ?
+            new ObjectParameter("cijenaBezPdv", cijenaBezPdv) :
+            new ObjectParameter("cijenaBezPdv", typeof(decimal));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("myPizza_Racun_Insert", datumParameter, narudzbaIdParameter, korisnikIdParameter, cijenaSaPdvParameter, cijenaBezPdvParameter);
+    }
+
 }
 
 }

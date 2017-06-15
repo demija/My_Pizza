@@ -33,9 +33,9 @@ public partial class Sastojci
 
     public string Sastojak { get; set; }
 
-    public double BaznaCijena { get; set; }
+    public decimal BaznaCijena { get; set; }
 
-    public double DodatnaCijena { get; set; }
+    public decimal DodatnaCijena { get; set; }
 
 
 

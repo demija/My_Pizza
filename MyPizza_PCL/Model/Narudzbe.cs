@@ -10,16 +10,10 @@
 namespace MyPizza_PCL.Model
 {
     using System;
-    using System.Collections.Generic;
-    
+
     public partial class Narudzbe
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        /*public Narudzbe()
-        {
-            //this.NarudzbePizze = new HashSet<NarudzbePizze>();
-            //this.Racuni = new HashSet<Racuni>();
-        }*/
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
     
         public int NarudzbaId { get; set; }
         public int KorisnikId { get; set; }
@@ -27,12 +21,6 @@ namespace MyPizza_PCL.Model
         public System.DateTime DatumNarudzbe { get; set; }
         public Nullable<bool> OtkazanaNarudzba { get; set; }
         public string AdresaZaDostavu { get; set; }
-    
-        /*public virtual Korisnici Korisnici { get; set; }
-        public virtual StatusiNarudzbi StatusiNarudzbi { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NarudzbePizze> NarudzbePizze { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Racuni> Racuni { get; set; }*/
+        public string BrojTelefona { get; set; }
     }
 }

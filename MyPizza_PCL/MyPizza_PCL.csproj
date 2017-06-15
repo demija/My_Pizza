@@ -40,6 +40,7 @@
     <Compile Include="Model\Narudzbe.cs" />
     <Compile Include="Model\NarudzbePizze.cs" />
     <Compile Include="Model\Ocjene.cs" />
+    <Compile Include="Model\Racuni.cs" />
     <Compile Include="Model\Sastojci.cs" />
     <Compile Include="Model\UlogeKorisnika.cs" />
     <Compile Include="Model\VelPizza.cs" />

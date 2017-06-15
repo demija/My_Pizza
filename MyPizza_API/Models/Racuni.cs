@@ -26,9 +26,9 @@ public partial class Racuni
 
     public int KorisnikId { get; set; }
 
-    public double CijenaSaPDV { get; set; }
+    public decimal CijenaSaPDV { get; set; }
 
-    public double CijenaBezPDV { get; set; }
+    public decimal CijenaBezPDV { get; set; }
 
 
 

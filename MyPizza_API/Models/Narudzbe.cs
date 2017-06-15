@@ -37,9 +37,11 @@ public partial class Narudzbe
 
     public System.DateTime DatumNarudzbe { get; set; }
 
-    public Nullable<bool> OtkazanaNarudzba { get; set; }
+    public bool OtkazanaNarudzba { get; set; }
 
     public string AdresaZaDostavu { get; set; }
+
+    public string BrojTelefona { get; set; }
 
 
 

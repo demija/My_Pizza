@@ -5,8 +5,10 @@ Assets\StoreLogo.scale-240.png
 Assets\WideLogo.scale-240.png
 App.xbf
 LoginPage.xbf
-MainPage.xbf
 MyPizza_MOBILE.xr.xml
 Products\AllProductsPage.xbf
+Products\OrdersPage.xbf
 Products\ProductDetailsPage.xbf
+Products\RecommendedProductsPage.xbf
+Products\ShoppingCartPage.xbf
 RegistrationPage.xbf

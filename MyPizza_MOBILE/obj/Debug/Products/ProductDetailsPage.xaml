@@ -56,7 +56,6 @@
                 <Button x:ConnectionId='2' Name="dodajUKorpuButton" Content="Dodaj u korpu" HorizontalAlignment="Left"                                />
                 <Button x:ConnectionId='3' Name="zavrsiKupovinuButton" Content="Zavrsi kupovinu" HorizontalAlignment="Right"                                   />
             </Grid>
-            <TextBlock Name="selectedindeks"></TextBlock>
         </StackPanel>
     </ScrollViewer>
 </Page>

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyPizza_PCL.Model
+﻿namespace MyPizza_PCL.Model
 {
     public class VelPizza
     {
@@ -12,6 +6,6 @@ namespace MyPizza_PCL.Model
         public int PizzaId { get; set; }
         public string Velicina { get; set; }
         public string Promjer { get; set; }
-        public float Cijena { get; set; }
+        public decimal Cijena { get; set; }
     }
 }

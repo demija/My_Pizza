@@ -5,7 +5,7 @@
       <PropertyRef Name="CijenaPizzeId" />
     </Key>
     <Property Name="CijenaPizzeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Cijena" Type="Double" Nullable="false" />
+    <Property Name="Cijena" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
     <Property Name="Opis" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="DatumIzmjene" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Pizze" Relationship="Self.FK_Pizze_CijenePizza" FromRole="CijenePizza" ToRole="Pizze" />
@@ -70,12 +70,13 @@
     <Property Name="KorisnikId" Type="Int32" Nullable="false" />
     <Property Name="StatusNarudzbeId" Type="Int32" Nullable="false" />
     <Property Name="DatumNarudzbe" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="OtkazanaNarudzba" Type="Boolean" />
+    <Property Name="OtkazanaNarudzba" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Korisnici" Relationship="Self.FK_Narudzbe_Korisnici" FromRole="Narudzbe" ToRole="Korisnici" />
     <NavigationProperty Name="StatusiNarudzbi" Relationship="Self.FK_Narudzbe_StatusiNarudzbi" FromRole="Narudzbe" ToRole="StatusiNarudzbi" />
     <NavigationProperty Name="NarudzbePizze" Relationship="Self.FK_NarudzbePizze_Narudzbe" FromRole="Narudzbe" ToRole="NarudzbePizze" />
     <NavigationProperty Name="Racuni" Relationship="Self.FK_Racuni_Narudzbe" FromRole="Narudzbe" ToRole="Racuni" />
     <Property Name="AdresaZaDostavu" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BrojTelefona" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="NarudzbePizze">
     <Key>
@@ -85,7 +86,7 @@
     <Property Name="NarudzbaId" Type="Int32" Nullable="false" />
     <Property Name="PizzaId" Type="Int32" Nullable="false" />
     <Property Name="Kolicina" Type="Int32" Nullable="false" />
-    <Property Name="Cijena" Type="Double" />
+    <Property Name="Cijena" Type="Decimal" Precision="18" Scale="2" />
     <NavigationProperty Name="DodatniSastojci" Relationship="Self.FK_DodatniSastojci_NarudzbePizze" FromRole="NarudzbePizze" ToRole="DodatniSastojci" />
     <NavigationProperty Name="Narudzbe" Relationship="Self.FK_NarudzbePizze_Narudzbe" FromRole="NarudzbePizze" ToRole="Narudzbe" />
     <NavigationProperty Name="Pizze" Relationship="Self.FK_NarudzbePizze_Pizze" FromRole="NarudzbePizze" ToRole="Pizze" />
@@ -127,8 +128,8 @@
     <Property Name="Datum" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="NarudzbaId" Type="Int32" Nullable="false" />
     <Property Name="KorisnikId" Type="Int32" Nullable="false" />
-    <Property Name="CijenaSaPDV" Type="Double" Nullable="false" />
-    <Property Name="CijenaBezPDV" Type="Double" Nullable="false" />
+    <Property Name="CijenaSaPDV" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CijenaBezPDV" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
     <NavigationProperty Name="Korisnici" Relationship="Self.FK_Racuni_Korisnici" FromRole="Racuni" ToRole="Korisnici" />
     <NavigationProperty Name="Narudzbe" Relationship="Self.FK_Racuni_Narudzbe" FromRole="Racuni" ToRole="Narudzbe" />
   </EntityType>
@@ -138,8 +139,8 @@
     </Key>
     <Property Name="SastojakId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Sastojak" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="BaznaCijena" Type="Double" Nullable="false" />
-    <Property Name="DodatnaCijena" Type="Double" Nullable="false" />
+    <Property Name="BaznaCijena" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="DodatnaCijena" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
     <NavigationProperty Name="DodatniSastojci" Relationship="Self.FK_DodatniSastojci_Sastojci" FromRole="Sastojci" ToRole="DodatniSastojci" />
     <NavigationProperty Name="VrsteSastojci" Relationship="Self.FK_VrsteSastojci_Sastojci" FromRole="Sastojci" ToRole="VrsteSastojci" />
   </EntityType>
@@ -601,6 +602,31 @@
     <FunctionImport Name="myPizza_GetSastojciForVrsta" EntitySet="Sastojci" ReturnType="Collection(MyPizzaModel1.Sastojci)">
       <Parameter Name="vrstaId" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="MyPizza_Narudzbe_Insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="korisnikId" Mode="In" Type="Int32" />
+      <Parameter Name="statusNarudzbeId" Mode="In" Type="Int32" />
+      <Parameter Name="datumNarudzbe" Mode="In" Type="DateTime" />
+      <Parameter Name="otkazanaNarudzba" Mode="In" Type="Boolean" />
+      <Parameter Name="adresaZaDosavu" Mode="In" Type="String" />
+      <Parameter Name="brojTelefona" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="myPizza_NarudzbePizze_Insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="narudzbaId" Mode="In" Type="Int32" />
+      <Parameter Name="pizzaId" Mode="In" Type="Int32" />
+      <Parameter Name="kolicina" Mode="In" Type="Int32" />
+      <Parameter Name="cijena" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="myPizza_DodatniSastojci_Insert">
+      <Parameter Name="narudzbaPizzaId" Mode="In" Type="Int32" />
+      <Parameter Name="sastojakId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="myPizza_Racun_Insert">
+      <Parameter Name="datum" Mode="In" Type="DateTime" />
+      <Parameter Name="narudzbaId" Mode="In" Type="Int32" />
+      <Parameter Name="korisnikId" Mode="In" Type="Int32" />
+      <Parameter Name="cijenaSaPdv" Mode="In" Type="Decimal" />
+      <Parameter Name="cijenaBezPdv" Mode="In" Type="Decimal" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="myPizza_Korisnici_SelectByImePrezime_Result">
     <Property Type="Int32" Name="KorisnikId" Nullable="false" />
@@ -619,7 +645,7 @@
     <Property Type="Int32" Name="VelicinaPizzeId" Nullable="false" />
     <Property Type="String" Name="Velicina" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Promjer" Nullable="false" MaxLength="50" />
-    <Property Type="Double" Name="Cijena" Nullable="false" />
+    <Property Type="Decimal" Name="Cijena" Nullable="false" Precision="18" Scale="2" />
     <Property Type="Int32" Name="PizzaId" Nullable="false" />
   </ComplexType>
   <Association Name="FK_Ocjene_VrstePizza1">

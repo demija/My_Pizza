@@ -57,8 +57,8 @@ namespace MyPizza_GUI
                 }
 
                 temp.Sastojak = sastojakTextBox.Text;
-                temp.BaznaCijena = double.Parse(baznaCijenaTextBox.Text.Replace(".", ","));
-                temp.DodatnaCijena = double.Parse(dodatnaCijenaTextBox.Text.Replace(".", ","));
+                temp.BaznaCijena = decimal.Parse(baznaCijenaTextBox.Text.Replace(".", ","));
+                temp.DodatnaCijena = decimal.Parse(dodatnaCijenaTextBox.Text.Replace(".", ","));
 
                 HttpResponseMessage response;
 

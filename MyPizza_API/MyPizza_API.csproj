@@ -136,10 +136,14 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CijenePizzaController.cs" />
+    <Compile Include="Controllers\DodatniSastojciController.cs" />
     <Compile Include="Controllers\GradoviController.cs" />
     <Compile Include="Controllers\KorisniciController.cs" />
+    <Compile Include="Controllers\NarudzbeController.cs" />
+    <Compile Include="Controllers\NarudzbePizzeController.cs" />
     <Compile Include="Controllers\OcjeneController.cs" />
     <Compile Include="Controllers\PizzeController.cs" />
+    <Compile Include="Controllers\RacuniController.cs" />
     <Compile Include="Controllers\SastojciController.cs" />
     <Compile Include="Controllers\StatusiPizzaController.cs" />
     <Compile Include="Controllers\UlogeKorisnikaController.cs" />

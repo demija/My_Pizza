@@ -124,27 +124,31 @@ namespace MyPizza_MOBILE.MyPizza_MOBILE_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[9];
+            _typeNameTable = new string[11];
             _typeNameTable[0] = "MyPizza_MOBILE.LoginPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "MyPizza_MOBILE.MainPage";
-            _typeNameTable[4] = "MyPizza_MOBILE.Products.ImageConverter";
-            _typeNameTable[5] = "Object";
-            _typeNameTable[6] = "MyPizza_MOBILE.Products.AllProductsPage";
+            _typeNameTable[3] = "MyPizza_MOBILE.Products.ImageConverter";
+            _typeNameTable[4] = "Object";
+            _typeNameTable[5] = "MyPizza_MOBILE.Products.AllProductsPage";
+            _typeNameTable[6] = "MyPizza_MOBILE.Products.OrdersPage";
             _typeNameTable[7] = "MyPizza_MOBILE.Products.ProductDetailsPage";
-            _typeNameTable[8] = "MyPizza_MOBILE.RegistrationPage";
+            _typeNameTable[8] = "MyPizza_MOBILE.Products.RecommendedProductsPage";
+            _typeNameTable[9] = "MyPizza_MOBILE.Products.ShoppingCartPage";
+            _typeNameTable[10] = "MyPizza_MOBILE.RegistrationPage";
 
-            _typeTable = new global::System.Type[9];
+            _typeTable = new global::System.Type[11];
             _typeTable[0] = typeof(global::MyPizza_MOBILE.LoginPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::MyPizza_MOBILE.MainPage);
-            _typeTable[4] = typeof(global::MyPizza_MOBILE.Products.ImageConverter);
-            _typeTable[5] = typeof(global::System.Object);
-            _typeTable[6] = typeof(global::MyPizza_MOBILE.Products.AllProductsPage);
+            _typeTable[3] = typeof(global::MyPizza_MOBILE.Products.ImageConverter);
+            _typeTable[4] = typeof(global::System.Object);
+            _typeTable[5] = typeof(global::MyPizza_MOBILE.Products.AllProductsPage);
+            _typeTable[6] = typeof(global::MyPizza_MOBILE.Products.OrdersPage);
             _typeTable[7] = typeof(global::MyPizza_MOBILE.Products.ProductDetailsPage);
-            _typeTable[8] = typeof(global::MyPizza_MOBILE.RegistrationPage);
+            _typeTable[8] = typeof(global::MyPizza_MOBILE.Products.RecommendedProductsPage);
+            _typeTable[9] = typeof(global::MyPizza_MOBILE.Products.ShoppingCartPage);
+            _typeTable[10] = typeof(global::MyPizza_MOBILE.RegistrationPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -180,11 +184,13 @@ namespace MyPizza_MOBILE.MyPizza_MOBILE_XamlTypeInfo
         }
 
         private object Activate_0_LoginPage() { return new global::MyPizza_MOBILE.LoginPage(); }
-        private object Activate_3_MainPage() { return new global::MyPizza_MOBILE.MainPage(); }
-        private object Activate_4_ImageConverter() { return new global::MyPizza_MOBILE.Products.ImageConverter(); }
-        private object Activate_6_AllProductsPage() { return new global::MyPizza_MOBILE.Products.AllProductsPage(); }
+        private object Activate_3_ImageConverter() { return new global::MyPizza_MOBILE.Products.ImageConverter(); }
+        private object Activate_5_AllProductsPage() { return new global::MyPizza_MOBILE.Products.AllProductsPage(); }
+        private object Activate_6_OrdersPage() { return new global::MyPizza_MOBILE.Products.OrdersPage(); }
         private object Activate_7_ProductDetailsPage() { return new global::MyPizza_MOBILE.Products.ProductDetailsPage(); }
-        private object Activate_8_RegistrationPage() { return new global::MyPizza_MOBILE.RegistrationPage(); }
+        private object Activate_8_RecommendedProductsPage() { return new global::MyPizza_MOBILE.Products.RecommendedProductsPage(); }
+        private object Activate_9_ShoppingCartPage() { return new global::MyPizza_MOBILE.Products.ShoppingCartPage(); }
+        private object Activate_10_RegistrationPage() { return new global::MyPizza_MOBILE.RegistrationPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -211,27 +217,27 @@ namespace MyPizza_MOBILE.MyPizza_MOBILE_XamlTypeInfo
                 xamlType = new global::MyPizza_MOBILE.MyPizza_MOBILE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  MyPizza_MOBILE.MainPage
-                userType = new global::MyPizza_MOBILE.MyPizza_MOBILE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_MainPage;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 4:   //  MyPizza_MOBILE.Products.ImageConverter
+            case 3:   //  MyPizza_MOBILE.Products.ImageConverter
                 userType = new global::MyPizza_MOBILE.MyPizza_MOBILE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_4_ImageConverter;
+                userType.Activator = Activate_3_ImageConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 5:   //  Object
+            case 4:   //  Object
                 xamlType = new global::MyPizza_MOBILE.MyPizza_MOBILE_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 6:   //  MyPizza_MOBILE.Products.AllProductsPage
+            case 5:   //  MyPizza_MOBILE.Products.AllProductsPage
                 userType = new global::MyPizza_MOBILE.MyPizza_MOBILE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_AllProductsPage;
+                userType.Activator = Activate_5_AllProductsPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 6:   //  MyPizza_MOBILE.Products.OrdersPage
+                userType = new global::MyPizza_MOBILE.MyPizza_MOBILE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_6_OrdersPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -243,9 +249,23 @@ namespace MyPizza_MOBILE.MyPizza_MOBILE_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 8:   //  MyPizza_MOBILE.RegistrationPage
+            case 8:   //  MyPizza_MOBILE.Products.RecommendedProductsPage
                 userType = new global::MyPizza_MOBILE.MyPizza_MOBILE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_8_RegistrationPage;
+                userType.Activator = Activate_8_RecommendedProductsPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 9:   //  MyPizza_MOBILE.Products.ShoppingCartPage
+                userType = new global::MyPizza_MOBILE.MyPizza_MOBILE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_9_ShoppingCartPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 10:   //  MyPizza_MOBILE.RegistrationPage
+                userType = new global::MyPizza_MOBILE.MyPizza_MOBILE_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_10_RegistrationPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

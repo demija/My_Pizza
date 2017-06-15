@@ -35,7 +35,7 @@ public partial class NarudzbePizze
 
     public int Kolicina { get; set; }
 
-    public Nullable<double> Cijena { get; set; }
+    public Nullable<decimal> Cijena { get; set; }
 
 
 

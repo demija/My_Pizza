@@ -8,28 +8,13 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Margin="10,0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-
-        <StackPanel Grid.Row="0">
-            <TextBlock Text="My Pizza" FontSize="34" HorizontalAlignment="Center"></TextBlock>
-        </StackPanel>
-
-        <TextBlock Grid.Row="1" Text="Korisničko ime:" FontSize="22"></TextBlock>
-        <TextBox Grid.Row="2" Name="korisnickoImeInput"></TextBox>
-
-        <TextBlock Grid.Row="3" Text="Lozinka:" FontSize="22"></TextBlock>
-        <PasswordBox Grid.Row="4" Name="lozinkaInput"></PasswordBox>
-
-        <Button Grid.Row="5" Name="prijavaButton" Content="Prijava" HorizontalAlignment="Left" Click="prijavaButton_Click"></Button>
-        <Button Grid.Row="5" Name="registracijaButton" Content="Registracija" HorizontalAlignment="Right" Click="registracijaButton_Click"></Button>
-    </Grid>
+    <StackPanel Margin="10,5">
+        <TextBlock Text="My Pizza" FontSize="34" HorizontalAlignment="Center" Margin="0,25"></TextBlock>
+        <TextBox Header="Korisničko ime:" Name="korisnickoImeInput"></TextBox>
+        <PasswordBox Header="Lozinka:" Name="lozinkaInput"></PasswordBox>
+        <Grid>
+            <Button Name="prijavaButton" Content="Prijava" HorizontalAlignment="Left" Click="prijavaButton_Click"></Button>
+            <Button Name="registracijaButton" Content="Registracija" HorizontalAlignment="Right" Click="registracijaButton_Click"></Button>
+        </Grid>
+    </StackPanel>
 </Page>

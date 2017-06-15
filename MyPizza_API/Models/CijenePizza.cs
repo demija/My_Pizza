@@ -29,7 +29,7 @@ public partial class CijenePizza
 
     public int CijenaPizzeId { get; set; }
 
-    public double Cijena { get; set; }
+    public decimal Cijena { get; set; }
 
     public string Opis { get; set; }
 

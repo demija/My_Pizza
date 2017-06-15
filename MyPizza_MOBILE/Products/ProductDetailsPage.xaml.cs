@@ -3,18 +3,10 @@ using MyPizza_PCL.Util;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
@@ -39,14 +31,11 @@ namespace MyPizza_MOBILE.Products
         VrstePizza v;
         Ocjene o;
         Korisnici k = Global.prijavljeniKorisnik;
+        NarudzbePizze naPizza = new NarudzbePizze();
 
-        //float cijena = 0;
         int kolicinaPizza = 1;
         int likesNumber = 0;
         int dislikeNumber = 0;
-
-        //
-        NarudzbePizze naPizza = new NarudzbePizze();
 
         public ProductDetailsPage()
         {
@@ -176,22 +165,21 @@ namespace MyPizza_MOBILE.Products
             {
                 VelPizza velPizza = (VelPizza)velicinaComboBox.SelectedItem;
 
-                //cijena = velPizza.Cijena;
-
-                //selectedindeks.Text = velicinaComboBox.SelectedIndex.ToString();                                      /////////////////////////////////////////
+                decimal cijena = velPizza.Cijena;
+                naPizza.Cijena = cijena;
 
                 naPizza.PizzaId = velPizza.PizzaId;
-                naPizza.Cijena = velPizza.Cijena;
+                naPizza.Velicina = velPizza.Velicina;
 
                 if (odabraniSastojci.Count > 0)
                 {
                     for (int i = 0; i < odabraniSastojci.Count; i++)
                     {
-                        naPizza.Cijena += (float)odabraniSastojci[i].DodatnaCijena;
+                        cijena += (decimal)odabraniSastojci[i].DodatnaCijena;
                     }
                 }
-                
-                CijenaIznos.Text = (naPizza.Cijena * kolicinaPizza).ToString() + " KM";
+
+                CijenaIznos.Text = (cijena * kolicinaPizza).ToString() + " KM";
             }
         }
 
@@ -260,7 +248,7 @@ namespace MyPizza_MOBILE.Products
             else
             {
                 PizzaUKorpu();
-                Frame.Navigate(typeof(AllProductsPage));               //navigate to korpa !!!
+                Frame.Navigate(typeof(ShoppingCartPage));
             }
         }
 
@@ -273,6 +261,12 @@ namespace MyPizza_MOBILE.Products
 
             naPizza.Kolicina = kolicinaPizza;
             naPizza.DodatniSastojci = odabraniSastojci;
+            naPizza.Vrsta = v.Vrsta;
+
+            for (int i = 0; i < odabraniSastojci.Count; i++)
+            {
+                naPizza.dodajtniSastojciOpis += odabraniSastojci[i].Sastojak + ", ";
+            }
 
             Global.narudzbePizze.Add(naPizza);
         }
@@ -317,8 +311,6 @@ namespace MyPizza_MOBILE.Products
                 }
 
                 FormirajCijenu();
-
-                selectedindeks.Text = odabraniSastojci.Count.ToString();
             }
         }
     }

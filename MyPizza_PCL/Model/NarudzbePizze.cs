@@ -14,23 +14,17 @@ namespace MyPizza_PCL.Model
     
     public partial class NarudzbePizze
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        /*public NarudzbePizze()
-        {
-            //this.DodatniSastojci = new HashSet<DodatniSastojci>();
-        }*/
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
     
         public int NarudzbaPizzaId { get; set; }
         public int NarudzbaId { get; set; }
         public int PizzaId { get; set; }
         public int Kolicina { get; set; }
-        public Nullable<double> Cijena { get; set; }
-        
+        public Nullable<decimal> Cijena { get; set; }
         public List<Sastojci> DodatniSastojci { get; set; }
-
-        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        //public virtual ICollection<DodatniSastojci> DodatniSastojci { get; set; }
+        public string Vrsta { get; set; }
+        public string Velicina { get; set; }
+        public string dodajtniSastojciOpis { get; set; }
         public virtual Narudzbe Narudzbe { get; set; }
-        //public virtual Pizze Pizze { get; set; }
     }
 }

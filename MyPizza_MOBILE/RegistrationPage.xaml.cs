@@ -2,19 +2,10 @@
 using MyPizza_PCL.Util;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
@@ -61,6 +52,9 @@ namespace MyPizza_MOBILE
             {
                 if (lozinkaInput.Password == potvrdaLozinkeInput.Password)
                 {
+                    UlogeKorisnika u = new UlogeKorisnika();
+                    u.UlogaKorisnikaId = 2;
+
                     Korisnici k = new Korisnici();
                     k.Ime = imeInput.Text;
                     k.Prezime = prezimeInput.Text;
@@ -69,11 +63,13 @@ namespace MyPizza_MOBILE
                     k.KorisnickoIme = korisnickoImeInput.Text;
                     k.LozinkaSalt = UIHelper.GenerateSalt();
                     k.LozinkaHash = UIHelper.GenerateHash(lozinkaInput.Password, k.LozinkaSalt);
+                    k.Ulica = ulicaInput.Text;
                     k.GradId = ((Gradovi)gradComboBox.SelectedValue).GradId;
                     k.StatusKorisnikaId = Convert.ToInt32("1");
                     k.DatumRegistracije = DateTime.Now;
 
-                    //k.Uloge = ulogeCheckedListBox.CheckedItems.Cast<UlogeKorisnika>().ToList();                                       //novom korisniku dodati ulogu "Korisnik"
+                    k.Uloge = new List<UlogeKorisnika>();
+                    k.Uloge.Add(u);
 
                     HttpResponseMessage response = korisniciService.PostResponse(k);
 

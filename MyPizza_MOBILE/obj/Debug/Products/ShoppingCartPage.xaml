@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="MyPizza_MOBILE.Products.ShoppingCartPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyPizza_MOBILE.Products"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer Margin="10,5">
+        <StackPanel>
+            <TextBlock Text="Korpa" Style="{StaticResource MessageDialogTitleStyle}" />
+            <ListView Name="naruceno" />
+            <ListView x:ConnectionId='1' Name="narucenePizzeListView" Margin="10,5" IsItemClickEnabled="True"                                             >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"></ColumnDefinition>
+                                <ColumnDefinition Width="60"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel>
+                                <TextBlock Style="{StaticResource ListViewItemContentTextBlockStyle}">
+                                    <Run Text="Vrsta: "></Run>
+                                    <Run Text="{Binding Vrsta, Mode=TwoWay}"></Run>
+                                </TextBlock>
+                                <TextBlock Grid.Column="1" >
+                                    <Run Text="Dodatni sastojci: "></Run>
+                                    <Run Text="{Binding dodajtniSastojciOpis, Mode=TwoWay}"></Run>
+                                </TextBlock>
+                                <TextBlock >
+                                    <Run Text="Veličina: "></Run>
+                                    <Run Text="{Binding Velicina, Mode=TwoWay}"></Run>
+                                </TextBlock>
+                                <TextBlock >
+                                    <Run Text="Količina: "></Run>
+                                    <Run Text="{Binding Kolicina, Mode=TwoWay}"></Run>
+                                </TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid>
+                <TextBlock Name="ukupnaCijenaLabel" Text="Ukupno:" HorizontalAlignment="Left" Style="{StaticResource MessageDialogTitleStyle}" />
+                <TextBlock Name="ukupnaCijenaIznos" HorizontalAlignment="Right" Style="{StaticResource MessageDialogTitleStyle}" />
+            </Grid>
+            <TextBox Header="Adresa za dostavu:" Name="adresaZaDostavu" />
+            <TextBox Header="Kontakt telefon:" Name="kontaktTelefon" InputScope="Number" />
+            <Button x:ConnectionId='2' Name="zavrsiNarudzbu" Content="Završi narudžbu"                              />
+        </StackPanel>
+    </ScrollViewer>
+</Page>
+

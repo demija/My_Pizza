@@ -12,8 +12,7 @@
         <StackPanel Margin="10,0">
             <Grid>
                 <TextBlock Text="My Pizza" FontSize="34" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,0,15"></TextBlock>
-                <TextBlock Text="0" Name="narudzbePizzaLabel" HorizontalAlignment="Center"></TextBlock>
-                <AppBarButton Name="korpaButton" Icon="Shop" HorizontalAlignment="Right" Margin="0,0,60,0"/>
+                <AppBarButton Name="korpaButton" Icon="Shop" HorizontalAlignment="Right" Margin="0,0,60,0" Click="korpaButton_Click"/>
                 <AppBarButton Name="menuButton" Icon="More" HorizontalAlignment="Right">
                     <AppBarButton.Flyout>
                         <Flyout>

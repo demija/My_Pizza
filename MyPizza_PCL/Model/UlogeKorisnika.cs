@@ -9,22 +9,10 @@
 
 namespace MyPizza_PCL.Model
 {
-    using System;
-    using System.Collections.Generic;
-    
     public class UlogeKorisnika
-    {
-        /*[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UlogeKorisnika()
-        {
-            this.KorisnickeUloge = new HashSet<KorisnickeUloge>();
-        }*/
-    
+    {    
         public int UlogaKorisnikaId { get; set; }
         public string Uloga { get; set; }
         public string Opis { get; set; }
-    
-        /*[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KorisnickeUloge> KorisnickeUloge { get; set; }*/
     }
 }

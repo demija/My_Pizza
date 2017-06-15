@@ -1,14 +1,17 @@
 ﻿<Page
-    x:Class="MyPizza_MOBILE.MainPage"
+    x:Class="MyPizza_MOBILE.Products.OrdersPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MyPizza_MOBILE"
+    xmlns:local="using:MyPizza_MOBILE.Products"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <Button Content="Poizvodi" Click="Button_Click" />
-    </Grid>
+    <ScrollViewer Margin="10,5">
+        <StackPanel>
+            <TextBlock Text="Narudžbe" Style="{StaticResource MessageDialogTitleStyle}" />
+        </StackPanel>
+    </ScrollViewer>
 </Page>
+

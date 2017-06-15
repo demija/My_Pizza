@@ -18,10 +18,10 @@
             <PasswordBox Name="potvrdaLozinkeInput" Header="Potvrda lozinke:"></PasswordBox>
             <TextBox Name="emailInput" InputScope="EmailSmtpAddress" Header="E-mail:"></TextBox>
             <TextBox Name="brojTelefonaInput" InputScope="TelephoneNumber" Header="Broj telefona:"></TextBox>
+            <TextBox Name="ulicaInput" Header="Ulica:"></TextBox>
             <ComboBox Name="gradComboBox" Header="Grad" PlaceholderText="Odaberi grad" />
             <Button x:ConnectionId='1' Name="registracijaButton" Content="Registruj se"                                 ></Button>
         </StackPanel>
     </ScrollViewer>
-
 </Page>
 
