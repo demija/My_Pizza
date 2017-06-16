@@ -459,6 +459,12 @@
     <Parameter Name="ulogaKorisnikaId" Type="int" Mode="In" />
     <Parameter Name="datumIzmjene" Type="datetime" Mode="In" />
   </Function>
+  <Function Name="myPizza_NarudzbaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="narudzbaId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="myPizza_Narudzbe_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="narudzbaId" Type="int" Mode="In" />
+  </Function>
   <Function Name="MyPizza_Narudzbe_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="korisnikId" Type="int" Mode="In" />
     <Parameter Name="statusNarudzbeId" Type="int" Mode="In" />
@@ -467,6 +473,7 @@
     <Parameter Name="adresaZaDosavu" Type="nvarchar" Mode="In" />
     <Parameter Name="brojTelefona" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="myPizza_Narudzbe_SelectAktivne" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="myPizza_NarudzbePizze_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="narudzbaId" Type="int" Mode="In" />
     <Parameter Name="pizzaId" Type="int" Mode="In" />
@@ -479,6 +486,9 @@
     <Parameter Name="datumOcjnene" Type="datetime" Mode="In" />
     <Parameter Name="svidja" Type="bit" Mode="In" />
     <Parameter Name="neSvidja" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="myPizza_Racun_GetForKorisnik" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="korisnikId" Type="int" Mode="In" />
   </Function>
   <Function Name="myPizza_Racun_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="datum" Type="datetime" Mode="In" />

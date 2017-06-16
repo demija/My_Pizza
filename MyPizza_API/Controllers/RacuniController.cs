@@ -79,8 +79,10 @@ namespace MyPizza_API.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Racuni.Add(racuni);
-            db.SaveChanges();
+            db.myPizza_Racun_Insert(racuni.Datum, racuni.NarudzbaId, racuni.KorisnikId, racuni.CijenaSaPDV, racuni.CijenaBezPDV);
+
+            //db.Racuni.Add(racuni);
+            //db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = racuni.RacunId }, racuni);
         }

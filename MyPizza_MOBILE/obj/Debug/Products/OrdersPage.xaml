@@ -10,7 +10,7 @@
 
     <ScrollViewer Margin="10,5">
         <StackPanel>
-            <TextBlock Text="Narudžbe" Style="{StaticResource MessageDialogTitleStyle}" />
+            <TextBlock Text="Pregled narudžbi" Style="{StaticResource MessageDialogTitleStyle}" />
         </StackPanel>
     </ScrollViewer>
 </Page>

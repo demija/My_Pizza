@@ -12,9 +12,7 @@ namespace MyPizza_PCL.Model
     using System;
 
     public partial class Narudzbe
-    {
-        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    
+    {    
         public int NarudzbaId { get; set; }
         public int KorisnikId { get; set; }
         public int StatusNarudzbeId { get; set; }

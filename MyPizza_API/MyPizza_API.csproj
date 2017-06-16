@@ -145,6 +145,7 @@
     <Compile Include="Controllers\PizzeController.cs" />
     <Compile Include="Controllers\RacuniController.cs" />
     <Compile Include="Controllers\SastojciController.cs" />
+    <Compile Include="Controllers\StatusiNarudzbiController.cs" />
     <Compile Include="Controllers\StatusiPizzaController.cs" />
     <Compile Include="Controllers\UlogeKorisnikaController.cs" />
     <Compile Include="Controllers\VelicinePizzaController.cs" />
@@ -190,6 +191,15 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\myPizza_Korisnici_SelectByImePrezime_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\myPizza_Narudzbe_Details_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\myPizza_Narudzbe_SelectAktivne_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\myPizza_Racun_GetForKorisnik_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Narudzbe.cs">

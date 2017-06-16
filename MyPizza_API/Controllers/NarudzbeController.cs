@@ -37,6 +37,34 @@ namespace MyPizza_API.Controllers
             return Ok(narudzbe);
         }
 
+        [HttpGet]
+        [Route("api/Narudzbe/GetBrojAktivnihNarudzbi")]
+        public int GetBrojAktivnihNarudzbi()
+        {
+            return db.Narudzbe.Where(x => x.StatusNarudzbeId == 1).Count();
+        }
+
+        [HttpGet]
+        [Route("api/Narudzbe/GetAktivneNarudzbe")]
+        public List<myPizza_Narudzbe_SelectAktivne_Result> GetAktivneNarudzbe()
+        {
+            return db.myPizza_Narudzbe_SelectAktivne().ToList();
+        }
+
+        [HttpGet]
+        [Route("api/Narudzbe/GetNarudzbeDetails/{id}")]
+        public List<myPizza_Narudzbe_Details_Result> GetNarudzbeDetails(int id)
+        {
+            return db.myPizza_Narudzbe_Details(id).ToList();
+        }
+
+        [HttpGet]
+        [Route("api/Narudzbe/UpdateNarudzbe/{id}")]
+        public void UpdateNarudzbe(int id)
+        {
+            db.myPizza_NarudzbaUpdate(id);
+        }
+
         // PUT: api/Narudzbe/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutNarudzbe(int id, Narudzbe narudzbe)
@@ -88,12 +116,8 @@ namespace MyPizza_API.Controllers
             }
             catch (EntityException ex)
             {
-                //throw new NotImplementedException();
                 throw CreateHttpResponseException(Util.ExceptionHandler.HandleException(ex), HttpStatusCode.Conflict);
             }
-
-            //db.Narudzbe.Add(narudzbe);
-            //db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = narudzbe.NarudzbaId }, narudzbe);
         }

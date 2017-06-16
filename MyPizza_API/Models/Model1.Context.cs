@@ -430,6 +430,49 @@ public partial class MyPizzaEntities1 : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("myPizza_Racun_Insert", datumParameter, narudzbaIdParameter, korisnikIdParameter, cijenaSaPdvParameter, cijenaBezPdvParameter);
     }
 
+
+    public virtual ObjectResult<myPizza_Racun_GetForKorisnik_Result> myPizza_Racun_GetForKorisnik(Nullable<int> korisnikId)
+    {
+
+        var korisnikIdParameter = korisnikId.HasValue ?
+            new ObjectParameter("korisnikId", korisnikId) :
+            new ObjectParameter("korisnikId", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_Racun_GetForKorisnik_Result>("myPizza_Racun_GetForKorisnik", korisnikIdParameter);
+    }
+
+
+    public virtual ObjectResult<myPizza_Narudzbe_SelectAktivne_Result> myPizza_Narudzbe_SelectAktivne()
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_Narudzbe_SelectAktivne_Result>("myPizza_Narudzbe_SelectAktivne");
+    }
+
+
+    public virtual ObjectResult<myPizza_Narudzbe_Details_Result> myPizza_Narudzbe_Details(Nullable<int> narudzbaId)
+    {
+
+        var narudzbaIdParameter = narudzbaId.HasValue ?
+            new ObjectParameter("narudzbaId", narudzbaId) :
+            new ObjectParameter("narudzbaId", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_Narudzbe_Details_Result>("myPizza_Narudzbe_Details", narudzbaIdParameter);
+    }
+
+
+    public virtual int myPizza_NarudzbaUpdate(Nullable<int> narudzbaId)
+    {
+
+        var narudzbaIdParameter = narudzbaId.HasValue ?
+            new ObjectParameter("narudzbaId", narudzbaId) :
+            new ObjectParameter("narudzbaId", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("myPizza_NarudzbaUpdate", narudzbaIdParameter);
+    }
+
 }
 
 }

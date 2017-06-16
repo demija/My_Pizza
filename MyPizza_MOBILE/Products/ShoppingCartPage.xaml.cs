@@ -22,7 +22,6 @@ namespace MyPizza_MOBILE.Products
         WebAPIHelper narudzbeService = new WebAPIHelper("http://localhost:50337/", "api/Narudzbe");
         WebAPIHelper narudzbePizzeService = new WebAPIHelper("http://localhost:50337/", "api/NarudzbePizze");
         WebAPIHelper dodatniSastojciPizzeService = new WebAPIHelper("http://localhost:50337/", "api/DodatniSastojci");
-        WebAPIHelper racuniService = new WebAPIHelper("http://localhost:50337/", "api/Racuni");
 
         List<NarudzbePizze> narPizze;
         decimal cijenaSaPdv;
@@ -142,16 +141,6 @@ namespace MyPizza_MOBILE.Products
                             }
                         }
                     }
-
-                    Racuni r = new Racuni();
-
-                    r.Datum = DateTime.Now;
-                    r.NarudzbaId = narudzbaId;
-                    r.KorisnikId = Global.prijavljeniKorisnik.KorisnikId;
-                    r.CijenaSaPDV = cijenaSaPdv;
-                    r.CijenaBezPDV = cijenaSaPdv - 10; //oduzeti 17% od cijene
-
-                    HttpResponseMessage responser = racuniService.PostResponse(r);
 
                     MessageDialog msg = new MessageDialog("Narudžba uspješno kompletirana!");
                     msg.ShowAsync();

@@ -54,7 +54,7 @@
             </Grid>
             <Grid Margin="10,5">
                 <Button Name="dodajUKorpuButton" Content="Dodaj u korpu" HorizontalAlignment="Left" Click="dodajUKorpuButton_Click"/>
-                <Button Name="zavrsiKupovinuButton" Content="Zavrsi kupovinu" HorizontalAlignment="Right" Click="zavrsiKupovinuButton_Click"/>
+                <Button Name="zavrsiKupovinuButton" Content="Završi kupovinu" HorizontalAlignment="Right" Click="zavrsiKupovinuButton_Click"/>
             </Grid>
         </StackPanel>
     </ScrollViewer>

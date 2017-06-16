@@ -55,11 +55,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AktivneNarudzbeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AktivneNarudzbeForm.Designer.cs">
+      <DependentUpon>AktivneNarudzbeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CijenePizzaForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CijenePizzaForm.Designer.cs">
       <DependentUpon>CijenePizzaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetaljiNarudzbeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetaljiNarudzbeForm.Designer.cs">
+      <DependentUpon>DetaljiNarudzbeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DodavanjeKorisnikaForm.cs">
       <SubType>Form</SubType>
@@ -131,8 +143,14 @@
     <Compile Include="VrstePizzaForm.Designer.cs">
       <DependentUpon>VrstePizzaForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AktivneNarudzbeForm.resx">
+      <DependentUpon>AktivneNarudzbeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CijenePizzaForm.resx">
       <DependentUpon>CijenePizzaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetaljiNarudzbeForm.resx">
+      <DependentUpon>DetaljiNarudzbeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DodavanjeKorisnikaForm.resx">
       <DependentUpon>DodavanjeKorisnikaForm.cs</DependentUpon>

@@ -14,8 +14,6 @@ namespace MyPizza_PCL.Model
     
     public partial class NarudzbePizze
     {
-        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    
         public int NarudzbaPizzaId { get; set; }
         public int NarudzbaId { get; set; }
         public int PizzaId { get; set; }

@@ -9,8 +9,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MyPizza_GUI
@@ -27,7 +25,6 @@ namespace MyPizza_GUI
             InitializeComponent();
             this.AutoValidate = AutoValidate.Disable;
             vrstePizzaDataGridView.AutoGenerateColumns = false;
-            //vrstePizzaDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void VrstePizzaForm_Load(object sender, EventArgs e)
@@ -73,11 +70,6 @@ namespace MyPizza_GUI
                         vrstaPizze.SlikaThumb = ms.ToArray();
 
                         vrstaPizzePictureBox.Image = croppedImage;
-                    }
-                    else
-                    {
-                        //minimalne dimenzije slike ako je slika manja!!!
-                        //sve staviti u try catch blok ako uploadan file nije slika
                     }
                 }
             }
