@@ -1,5 +1,4 @@
-﻿using System;
-using MyPizza_PCL.Util;
+﻿using MyPizza_PCL.Util;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using MyPizza_PCL.Model;

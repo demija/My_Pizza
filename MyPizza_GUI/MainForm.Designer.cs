@@ -43,6 +43,8 @@
             this.statusiPizzaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cijeneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.korisniciToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajKorisnikaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.upravljanjeKorisnicimaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prodajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.narudžbeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,11 +52,12 @@
             this.pregledSvihNarudžbiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pregledOdbijenihNarudđbiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.izvještajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pregledProdajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.najprodavanijiProizvodiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.najprodavanijiDodatniSastojciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.prijavljeniKorisnikLabel = new System.Windows.Forms.Label();
-            this.dodajKorisnikaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.pregledProdajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topKorisniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,7 +109,7 @@
             this.statusiPizzaToolStripMenuItem,
             this.cijeneToolStripMenuItem});
             this.pizzeToolStripMenuItem.Name = "pizzeToolStripMenuItem";
-            this.pizzeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pizzeToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.pizzeToolStripMenuItem.Text = "Pizze";
             // 
             // novaPizzaToolStripMenuItem
@@ -163,8 +166,20 @@
             this.toolStripSeparator1,
             this.upravljanjeKorisnicimaToolStripMenuItem});
             this.korisniciToolStripMenuItem1.Name = "korisniciToolStripMenuItem1";
-            this.korisniciToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.korisniciToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
             this.korisniciToolStripMenuItem1.Text = "Korisnici";
+            // 
+            // dodajKorisnikaToolStripMenuItem
+            // 
+            this.dodajKorisnikaToolStripMenuItem.Name = "dodajKorisnikaToolStripMenuItem";
+            this.dodajKorisnikaToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.dodajKorisnikaToolStripMenuItem.Text = "Novi korisnik";
+            this.dodajKorisnikaToolStripMenuItem.Click += new System.EventHandler(this.dodajKorisnikaToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(161, 6);
             // 
             // upravljanjeKorisnicimaToolStripMenuItem
             // 
@@ -215,10 +230,34 @@
             // izvještajToolStripMenuItem
             // 
             this.izvještajToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pregledProdajeToolStripMenuItem});
+            this.pregledProdajeToolStripMenuItem,
+            this.topKorisniciToolStripMenuItem,
+            this.najprodavanijiProizvodiToolStripMenuItem,
+            this.najprodavanijiDodatniSastojciToolStripMenuItem});
             this.izvještajToolStripMenuItem.Name = "izvještajToolStripMenuItem";
             this.izvještajToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.izvještajToolStripMenuItem.Text = "Izvještaji";
+            // 
+            // pregledProdajeToolStripMenuItem
+            // 
+            this.pregledProdajeToolStripMenuItem.Name = "pregledProdajeToolStripMenuItem";
+            this.pregledProdajeToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.pregledProdajeToolStripMenuItem.Text = "Pregled prodaje";
+            this.pregledProdajeToolStripMenuItem.Click += new System.EventHandler(this.pregledProdajeToolStripMenuItem_Click);
+            // 
+            // najprodavanijiProizvodiToolStripMenuItem
+            // 
+            this.najprodavanijiProizvodiToolStripMenuItem.Name = "najprodavanijiProizvodiToolStripMenuItem";
+            this.najprodavanijiProizvodiToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.najprodavanijiProizvodiToolStripMenuItem.Text = "Najprodavaniji proizvodi";
+            this.najprodavanijiProizvodiToolStripMenuItem.Click += new System.EventHandler(this.najprodavanijiProizvodiToolStripMenuItem_Click);
+            // 
+            // najprodavanijiDodatniSastojciToolStripMenuItem
+            // 
+            this.najprodavanijiDodatniSastojciToolStripMenuItem.Name = "najprodavanijiDodatniSastojciToolStripMenuItem";
+            this.najprodavanijiDodatniSastojciToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.najprodavanijiDodatniSastojciToolStripMenuItem.Text = "Najprodavaniji dodatni sastojci";
+            this.najprodavanijiDodatniSastojciToolStripMenuItem.Click += new System.EventHandler(this.najprodavanijiDodatniSastojciToolStripMenuItem_Click);
             // 
             // notifyIcon1
             // 
@@ -236,24 +275,12 @@
             this.prijavljeniKorisnikLabel.TabIndex = 3;
             this.prijavljeniKorisnikLabel.Text = "label1";
             // 
-            // dodajKorisnikaToolStripMenuItem
+            // topKorisniciToolStripMenuItem
             // 
-            this.dodajKorisnikaToolStripMenuItem.Name = "dodajKorisnikaToolStripMenuItem";
-            this.dodajKorisnikaToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.dodajKorisnikaToolStripMenuItem.Text = "Novi korisnik";
-            this.dodajKorisnikaToolStripMenuItem.Click += new System.EventHandler(this.dodajKorisnikaToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(161, 6);
-            // 
-            // pregledProdajeToolStripMenuItem
-            // 
-            this.pregledProdajeToolStripMenuItem.Name = "pregledProdajeToolStripMenuItem";
-            this.pregledProdajeToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.pregledProdajeToolStripMenuItem.Text = "Pregled prodaje";
-            this.pregledProdajeToolStripMenuItem.Click += new System.EventHandler(this.pregledProdajeToolStripMenuItem_Click);
+            this.topKorisniciToolStripMenuItem.Name = "topKorisniciToolStripMenuItem";
+            this.topKorisniciToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.topKorisniciToolStripMenuItem.Text = "Top korisnici";
+            this.topKorisniciToolStripMenuItem.Click += new System.EventHandler(this.topKorisniciToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -304,5 +331,8 @@
         private System.Windows.Forms.ToolStripMenuItem dodajKorisnikaToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem pregledProdajeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem najprodavanijiProizvodiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem najprodavanijiDodatniSastojciToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topKorisniciToolStripMenuItem;
     }
 }

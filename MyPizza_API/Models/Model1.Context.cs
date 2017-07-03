@@ -569,6 +569,41 @@ public partial class MyPizzaEntities1 : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Racuni>("myPizza_Racun_GetByUserId", mergeOption, korisnikIdParameter);
     }
 
+
+    public virtual ObjectResult<myPizza_Vrste_SelectTop_Result> myPizza_Vrste_SelectTop()
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_Vrste_SelectTop_Result>("myPizza_Vrste_SelectTop");
+    }
+
+
+    public virtual ObjectResult<myPizza_DodatniSastojciTop_Result> myPizza_DodatniSastojciTop()
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_DodatniSastojciTop_Result>("myPizza_DodatniSastojciTop");
+    }
+
+
+    public virtual ObjectResult<myPizza_Korisnici_SelectTop_Result> myPizza_Korisnici_SelectTop()
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_Korisnici_SelectTop_Result>("myPizza_Korisnici_SelectTop");
+    }
+
+
+    public virtual ObjectResult<myPizza_Narudzbe_SelectAll_Result> myPizza_Narudzbe_SelectAll()
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_Narudzbe_SelectAll_Result>("myPizza_Narudzbe_SelectAll");
+    }
+
+
+    public virtual ObjectResult<myPizza_Korisnici_ImePrezimeId_Result> myPizza_Korisnici_ImePrezimeId()
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_Korisnici_ImePrezimeId_Result>("myPizza_Korisnici_ImePrezimeId");
+    }
+
 }
 
 }

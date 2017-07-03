@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -36,6 +35,13 @@ namespace MyPizza_API.Controllers
         public List<myPizza_GetVelPizza_Result> VelPizze(int vrstaPizzeId)
         {
             return db.myPizza_GetVelPizza(vrstaPizzeId).ToList();
+        }
+
+        [HttpGet]
+        [Route("api/VrstePizza/SelectTop")]
+        public List<myPizza_Vrste_SelectTop_Result> SelectTop()
+        {
+            return db.myPizza_Vrste_SelectTop().ToList();
         }
 
         /*

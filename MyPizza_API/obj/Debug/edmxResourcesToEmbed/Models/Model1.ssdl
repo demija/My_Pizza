@@ -429,6 +429,7 @@
     <Parameter Name="narudzbaPizzaId" Type="int" Mode="In" />
     <Parameter Name="sastojakId" Type="int" Mode="In" />
   </Function>
+  <Function Name="myPizza_DodatniSastojciTop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="myPizza_GetAktivnePizze" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="myPizza_GetOcjeneForVrsta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="vrstaPizzeId" Type="int" Mode="In" />
@@ -439,6 +440,7 @@
   <Function Name="myPizza_GetVelPizza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="vrstaPizzeID" Type="int" Mode="In" />
   </Function>
+  <Function Name="myPizza_Korisnici_ImePrezimeId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="myPizza_Korisnici_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ime" Type="nvarchar" Mode="In" />
     <Parameter Name="prezime" Type="nvarchar" Mode="In" />
@@ -455,6 +457,7 @@
   <Function Name="myPizza_Korisnici_SelectByImePrezime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="imePrezime" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="myPizza_Korisnici_SelectTop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="myPizza_KorisnickeUloge_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="korisnikId" Type="int" Mode="In" />
     <Parameter Name="ulogaKorisnikaId" Type="int" Mode="In" />
@@ -475,10 +478,7 @@
     <Parameter Name="brojTelefona" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="myPizza_Narudzbe_SelectAktivne" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="myPizza_Narudzbe_SelectByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="d1" Type="datetime" Mode="In" />
-    <Parameter Name="d2" Type="datetime" Mode="In" />
-  </Function>
+  <Function Name="myPizza_Narudzbe_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="myPizza_Narudzbe_SelectByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="KorisnikId" Type="int" Mode="In" />
   </Function>
@@ -511,6 +511,7 @@
     <Parameter Name="cijenaSaPdv" Type="decimal" Mode="In" />
     <Parameter Name="cijenaBezPdv" Type="decimal" Mode="In" />
   </Function>
+  <Function Name="myPizza_Vrste_SelectTop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="myPizza_VrstePizza_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="vrsta" Type="nvarchar" Mode="In" />
     <Parameter Name="opis" Type="nvarchar" Mode="In" />

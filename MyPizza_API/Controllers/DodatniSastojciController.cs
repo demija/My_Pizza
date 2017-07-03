@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using MyPizza_API.Models;
@@ -33,6 +30,13 @@ namespace MyPizza_API.Controllers
             }
 
             return Ok(dodatniSastojci);
+        }
+
+        [HttpGet]
+        [Route("api/DodatniSastojci/SelectTop")]
+        public List<myPizza_DodatniSastojciTop_Result> SelectTop()
+        {
+            return db.myPizza_DodatniSastojciTop().ToList();
         }
 
         // PUT: api/DodatniSastojci/5
@@ -80,9 +84,6 @@ namespace MyPizza_API.Controllers
             }
 
             db.myPizza_DodatniSastojci_Insert(dodatniSastojci.NarudzbaPizzaId, dodatniSastojci.SastojakId);
-
-            //db.DodatniSastojci.Add(dodatniSastojci);
-            //db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = dodatniSastojci.DodatniSastojakId }, dodatniSastojci);
         }

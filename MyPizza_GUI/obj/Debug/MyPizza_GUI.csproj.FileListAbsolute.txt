@@ -138,3 +138,6 @@ C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\obj\Debug\MyPizza_
 C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\obj\Debug\MyPizza_GUI.Narudzbe.ObradjeneNarudzbeForm.resources
 C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\obj\Debug\MyPizza_GUI.Narudzbe.OdbijeneNarudzbeForm.resources
 C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\obj\Debug\MyPizza_GUI.Izvjestaji.PregledProdajeForm.resources
+C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\obj\Debug\MyPizza_GUI.Izvjestaji.NajprodavanijiProizvodiForm.resources
+C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\obj\Debug\MyPizza_GUI.Izvjestaji.NajprodavanijiDodatniSastojciForm.resources
+C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\obj\Debug\MyPizza_GUI.Izvjestaji.TopKorisniciForm.resources

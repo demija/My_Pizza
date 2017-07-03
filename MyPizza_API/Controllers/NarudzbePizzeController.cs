@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -88,12 +86,8 @@ namespace MyPizza_API.Controllers
             }
             catch (EntityException ex)
             {
-                //throw new NotImplementedException();
                 throw CreateHttpResponseException(Util.ExceptionHandler.HandleException(ex), HttpStatusCode.Conflict);
             }
-
-            //db.NarudzbePizze.Add(narudzbePizze);
-            //db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = narudzbePizze.NarudzbaPizzaId }, narudzbePizze);
         }

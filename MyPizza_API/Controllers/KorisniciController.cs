@@ -57,6 +57,20 @@ namespace MyPizza_API.Controllers
             return Ok(korisnik);
         }
 
+        [HttpGet]
+        [Route("api/Korisnici/SelectTop")]
+        public List<myPizza_Korisnici_SelectTop_Result> SelectTop()
+        {
+            return db.myPizza_Korisnici_SelectTop().ToList();
+        }
+
+        [HttpGet]
+        [Route("api/Korisnici/SelectImeId")]
+        public List<myPizza_Korisnici_ImePrezimeId_Result> SelectImeId()
+        {
+            return db.myPizza_Korisnici_ImePrezimeId().ToList();
+        }
+
         // PUT: api/Korisnici/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutKorisnici(int id, Korisnici korisnici)

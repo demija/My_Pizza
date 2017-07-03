@@ -109,5 +109,23 @@ namespace MyPizza_GUI
             PregledProdajeForm f = new PregledProdajeForm();
             f.ShowDialog();
         }
+
+        private void najprodavanijiProizvodiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NajprodavanijiProizvodiForm f = new NajprodavanijiProizvodiForm();
+            f.ShowDialog();
+        }
+
+        private void najprodavanijiDodatniSastojciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NajprodavanijiDodatniSastojciForm f = new NajprodavanijiDodatniSastojciForm();
+            f.ShowDialog();
+        }
+
+        private void topKorisniciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TopKorisniciForm f = new TopKorisniciForm();
+            f.ShowDialog();
+        }
     }
 }

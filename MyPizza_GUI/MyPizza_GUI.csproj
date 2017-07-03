@@ -55,11 +55,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Izvjestaji\NajprodavanijiDodatniSastojciForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvjestaji\NajprodavanijiDodatniSastojciForm.Designer.cs">
+      <DependentUpon>NajprodavanijiDodatniSastojciForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Izvjestaji\NajprodavanijiProizvodiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvjestaji\NajprodavanijiProizvodiForm.Designer.cs">
+      <DependentUpon>NajprodavanijiProizvodiForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Izvjestaji\PregledProdajeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Izvjestaji\PregledProdajeForm.Designer.cs">
       <DependentUpon>PregledProdajeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Izvjestaji\TopKorisniciForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvjestaji\TopKorisniciForm.Designer.cs">
+      <DependentUpon>TopKorisniciForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Narudzbe\AktivneNarudzbeForm.cs">
       <SubType>Form</SubType>
@@ -161,8 +179,17 @@
     <Compile Include="Pizze\VrstePizzaForm.Designer.cs">
       <DependentUpon>VrstePizzaForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Izvjestaji\NajprodavanijiDodatniSastojciForm.resx">
+      <DependentUpon>NajprodavanijiDodatniSastojciForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izvjestaji\NajprodavanijiProizvodiForm.resx">
+      <DependentUpon>NajprodavanijiProizvodiForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Izvjestaji\PregledProdajeForm.resx">
       <DependentUpon>PregledProdajeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Izvjestaji\TopKorisniciForm.resx">
+      <DependentUpon>TopKorisniciForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Narudzbe\AktivneNarudzbeForm.resx">
       <DependentUpon>AktivneNarudzbeForm.cs</DependentUpon>

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Core;
+﻿using System.Data.Entity.Core;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 
 namespace MyPizza_API.Util
 {
@@ -15,7 +11,7 @@ namespace MyPizza_API.Util
 
             switch (error.Number)
             {
-                case 2627: return GetConstraintExceptioMessage(error); //uniqueConstraint
+                case 2627: return GetConstraintExceptioMessage(error);
             }
 
             return error.Message + "(" + error.Number + ")";
@@ -31,11 +27,6 @@ namespace MyPizza_API.Util
             if (pocetak > 0 && kraj > 0)
             {
                 string nazivOgranicenja = msg.Substring(pocetak + 1, kraj - pocetak - 1);
-
-                /*if(nazivOgranicenja == "CS_Email")
-                {
-                    msg = "email_con";
-                }*/
 
                 msg = nazivOgranicenja;
             }
