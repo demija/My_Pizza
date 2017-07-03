@@ -69,6 +69,7 @@
             this.lozinkaTextBox.Size = new System.Drawing.Size(170, 20);
             this.lozinkaTextBox.TabIndex = 2;
             this.lozinkaTextBox.UseSystemPasswordChar = true;
+            this.lozinkaTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lozinkaTextBox_KeyDown);
             // 
             // odustaniButton
             // 
@@ -94,7 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 121);
+            this.ClientSize = new System.Drawing.Size(313, 115);
             this.Controls.Add(this.prijavaButton);
             this.Controls.Add(this.odustaniButton);
             this.Controls.Add(this.lozinkaTextBox);

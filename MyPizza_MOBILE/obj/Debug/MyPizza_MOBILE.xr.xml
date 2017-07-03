@@ -6,6 +6,10 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Opis" />
     <RootPropertyPathName Name="Vrsta" />
+    <RootPropertyPathName Name="CijenaSaPDV" />
+    <RootPropertyPathName Name="CijenaBezPDV" />
+    <RootPropertyPathName Name="Datum" />
+    <RootPropertyPathName Name="NarudzbaId" />
     <RootPropertyPathName Name="Kolicina" />
     <RootPropertyPathName Name="Velicina" />
     <RootPropertyPathName Name="dodajtniSastojciOpis" />
@@ -30,8 +34,9 @@
       <RootProperty Name="Style" />
       <RootProperty Name="RenderTransform" />
       <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Name" />
+      <RootProperty Name="FontFamily" />
       <RootProperty Name="Inlines" />
+      <RootProperty Name="Name" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Name" />
@@ -118,6 +123,10 @@
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="MyPizza_MOBILE.Products.AllProductsPage" />
+    <RootType FullName="Windows.UI.Xaml.Documents.Run">
+      <RootProperty Name="Text" />
+      <RootProperty Name="FontFamily" />
+    </RootType>
     <RootType FullName="MyPizza_MOBILE.Products.OrdersPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="Name" />
@@ -136,9 +145,6 @@
     <RootType FullName="MyPizza_MOBILE.Products.RecommendedProductsPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Documents.Run">
-      <RootProperty Name="Text" />
     </RootType>
     <RootType FullName="MyPizza_MOBILE.Products.ShoppingCartPage" />
     <RootType FullName="MyPizza_MOBILE.RegistrationPage" />

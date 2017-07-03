@@ -83,6 +83,7 @@
     <EntitySetMapping Name="Ocjene">
       <EntityTypeMapping TypeName="MyPizzaModel1.Ocjene">
         <MappingFragment StoreEntitySet="Ocjene">
+          <ScalarProperty Name="Ocjena" ColumnName="Ocjena" />
           <ScalarProperty Name="VrstaPizzeId" ColumnName="VrstaPizzeId" />
           <ScalarProperty Name="NeSvidjaSe" ColumnName="NeSvidjaSe" />
           <ScalarProperty Name="SvidjaSe" ColumnName="SvidjaSe" />
@@ -294,9 +295,81 @@
           <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
           <ScalarProperty Name="Cijena" ColumnName="Cijena" />
           <ScalarProperty Name="DodatniSastojciCjena" ColumnName="DodatniSastojciCjena" />
+          <ScalarProperty Name="NarudzbaPizzaId" ColumnName="NarudzbaPizzaId" />
+          <ScalarProperty Name="PizzaId" ColumnName="PizzaId" />
+          <ScalarProperty Name="Promjer" ColumnName="Promjer" />
+          <ScalarProperty Name="Sastojci" ColumnName="Sastojci" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="myPizza_NarudzbaUpdate" FunctionName="MyPizzaModel1.Store.myPizza_NarudzbaUpdate" />
+    <FunctionImportMapping FunctionImportName="myPizza_Narudzbe_SelectObradjene" FunctionName="MyPizzaModel1.Store.myPizza_Narudzbe_SelectObradjene">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MyPizzaModel1.myPizza_Narudzbe_SelectObradjene_Result">
+          <ScalarProperty Name="NarudzbaId" ColumnName="NarudzbaId" />
+          <ScalarProperty Name="Korisnik" ColumnName="Korisnik" />
+          <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
+          <ScalarProperty Name="DatumNarudzbe" ColumnName="DatumNarudzbe" />
+          <ScalarProperty Name="StatusNarudzbe" ColumnName="StatusNarudzbe" />
+          <ScalarProperty Name="StatusNarudzbeId" ColumnName="StatusNarudzbeId" />
+          <ScalarProperty Name="AdresaZaDostavu" ColumnName="AdresaZaDostavu" />
+          <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
+          <ScalarProperty Name="OtkazanaNarudzba" ColumnName="OtkazanaNarudzba" />
+          <ScalarProperty Name="UkupnaCijena" ColumnName="UkupnaCijena" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="myPizza_Narudzbe_SelectOdbijene" FunctionName="MyPizzaModel1.Store.myPizza_Narudzbe_SelectOdbijene">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MyPizzaModel1.myPizza_Narudzbe_SelectOdbijene_Result">
+          <ScalarProperty Name="NarudzbaId" ColumnName="NarudzbaId" />
+          <ScalarProperty Name="Korisnik" ColumnName="Korisnik" />
+          <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
+          <ScalarProperty Name="DatumNarudzbe" ColumnName="DatumNarudzbe" />
+          <ScalarProperty Name="StatusNarudzbe" ColumnName="StatusNarudzbe" />
+          <ScalarProperty Name="StatusNarudzbeId" ColumnName="StatusNarudzbeId" />
+          <ScalarProperty Name="AdresaZaDostavu" ColumnName="AdresaZaDostavu" />
+          <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
+          <ScalarProperty Name="OtkazanaNarudzba" ColumnName="OtkazanaNarudzba" />
+          <ScalarProperty Name="UkupnaCijena" ColumnName="UkupnaCijena" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="myPizza_Narudzbe_SelectByDate" FunctionName="MyPizzaModel1.Store.myPizza_Narudzbe_SelectByDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MyPizzaModel1.myPizza_Narudzbe_SelectByDate_Result">
+          <ScalarProperty Name="NarudzbaId" ColumnName="NarudzbaId" />
+          <ScalarProperty Name="Korisnik" ColumnName="Korisnik" />
+          <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
+          <ScalarProperty Name="DatumNarudzbe" ColumnName="DatumNarudzbe" />
+          <ScalarProperty Name="StatusNarudzbe" ColumnName="StatusNarudzbe" />
+          <ScalarProperty Name="StatusNarudzbeId" ColumnName="StatusNarudzbeId" />
+          <ScalarProperty Name="AdresaZaDostavu" ColumnName="AdresaZaDostavu" />
+          <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
+          <ScalarProperty Name="OtkazanaNarudzba" ColumnName="OtkazanaNarudzba" />
+          <ScalarProperty Name="UkupnaCijena" ColumnName="UkupnaCijena" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="myPizza_VrstePizza_SelectById" FunctionName="MyPizzaModel1.Store.myPizza_VrstePizza_SelectById" />
+    <FunctionImportMapping FunctionImportName="myPizza_Narudzbe_SelectByUserId" FunctionName="MyPizzaModel1.Store.myPizza_Narudzbe_SelectByUserId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MyPizzaModel1.myPizza_Narudzbe_SelectByUserId_Result">
+          <ScalarProperty Name="NarudzbaId" ColumnName="NarudzbaId" />
+          <ScalarProperty Name="NarudzbaPizzaId" ColumnName="NarudzbaPizzaId" />
+          <ScalarProperty Name="PizzaId" ColumnName="PizzaId" />
+          <ScalarProperty Name="Vrsta" ColumnName="Vrsta" />
+          <ScalarProperty Name="Velicina" ColumnName="Velicina" />
+          <ScalarProperty Name="Promjer" ColumnName="Promjer" />
+          <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
+          <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+          <ScalarProperty Name="AdresaZaDostavu" ColumnName="AdresaZaDostavu" />
+          <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
+          <ScalarProperty Name="DodatniSastojciCjena" ColumnName="DodatniSastojciCjena" />
+          <ScalarProperty Name="Sastojci" ColumnName="Sastojci" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="myPizza_Racun_GetByUserId" FunctionName="MyPizzaModel1.Store.myPizza_Racun_GetByUserId" />
   </EntityContainerMapping>
 </Mapping>

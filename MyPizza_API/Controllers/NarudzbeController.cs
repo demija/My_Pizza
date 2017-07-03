@@ -52,6 +52,27 @@ namespace MyPizza_API.Controllers
         }
 
         [HttpGet]
+        [Route("api/Narudzbe/GetObradjeneNarudzbe")]
+        public List<myPizza_Narudzbe_SelectObradjene_Result> GetObradjeneNarudzbe()
+        {
+            return db.myPizza_Narudzbe_SelectObradjene().ToList();
+        }
+
+        [HttpGet]
+        [Route("api/Narudzbe/GetOdbijeneNarudzbe")]
+        public List<myPizza_Narudzbe_SelectOdbijene_Result> GetOdbijeneNarudzbe()
+        {
+            return db.myPizza_Narudzbe_SelectOdbijene().ToList();
+        }
+
+        [HttpGet]
+        [Route("api/Narudzbe/GetNarudzbeByDate")]
+        public List<myPizza_Narudzbe_SelectByDate_Result> GetNarudzbeByDate(DateTime d1, DateTime d2)
+        {
+            return db.myPizza_Narudzbe_SelectByDate(d1, d2).ToList();
+        }
+
+        [HttpGet]
         [Route("api/Narudzbe/GetNarudzbeDetails/{id}")]
         public List<myPizza_Narudzbe_Details_Result> GetNarudzbeDetails(int id)
         {

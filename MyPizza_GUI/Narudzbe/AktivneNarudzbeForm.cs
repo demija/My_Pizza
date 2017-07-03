@@ -30,9 +30,11 @@ namespace MyPizza_GUI
             {
                 aktivneNarudzbe = response.Content.ReadAsAsync<List<myPizza_Narudzbe_SelectAktivne_Result>>().Result;
 
+                aktivneNarudzbeDataGridView.AutoGenerateColumns = false;
                 aktivneNarudzbeDataGridView.DataSource = aktivneNarudzbe;
-
                 aktivneNarudzbeDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+                ukupnnoLabel.Text = "Ukupno: " + aktivneNarudzbe.Count.ToString();
             }
         }
 
@@ -40,6 +42,11 @@ namespace MyPizza_GUI
         {
             DetaljiNarudzbeForm detaljiNarudzbe = new DetaljiNarudzbeForm(aktivneNarudzbe[e.RowIndex]);
             detaljiNarudzbe.ShowDialog();
+        }
+
+        private void odustaniButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

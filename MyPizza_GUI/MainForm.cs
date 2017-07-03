@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using MyPizza_GUI.Util;
 using System.Net.Http;
+using MyPizza_GUI.Narudzbe;
+using MyPizza_GUI.Izvjestaji;
 
 namespace MyPizza_GUI
 {
@@ -12,6 +14,7 @@ namespace MyPizza_GUI
         public MainForm()
         {
             InitializeComponent();
+            prijavljeniKorisnikLabel.Text = Global.prijavljeniKorisnik.Ime + " " + Global.prijavljeniKorisnik.Prezime;
         }
 
         private void vrstePizzaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -57,6 +60,12 @@ namespace MyPizza_GUI
             f.Show();
         }
 
+        private void dodajKorisnikaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DodavanjeKorisnikaForm f = new DodavanjeKorisnikaForm();
+            f.ShowDialog();
+        }
+
         private void izlazToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -77,9 +86,27 @@ namespace MyPizza_GUI
             }
         }
 
-        private void aktivneNaruToolStripMenuItem_Click(object sender, EventArgs e)
+        private void pregledAktivnihNarudžbiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AktivneNarudzbeForm f = new AktivneNarudzbeForm();
+            f.ShowDialog();
+        }
+
+        private void pregledSvihNarudžbiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ObradjeneNarudzbeForm f = new ObradjeneNarudzbeForm();
+            f.ShowDialog();
+        }
+
+        private void pregledOdbijenihNarudđbiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OdbijeneNarudzbeForm f = new OdbijeneNarudzbeForm();
+            f.ShowDialog();
+        }
+
+        private void pregledProdajeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PregledProdajeForm f = new PregledProdajeForm();
             f.ShowDialog();
         }
     }

@@ -86,10 +86,7 @@ namespace MyPizza_API.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.myPizza_Ocjene_LikeDislike(ocjene.VrstaPizzeId, ocjene.KorisnikId, ocjene.DatumOcjene, ocjene.SvidjaSe, ocjene.NeSvidjaSe);
-
-            //db.Ocjene.Add(ocjene);
-            //db.SaveChanges();
+            db.myPizza_Ocjene_LikeDislike(ocjene.VrstaPizzeId, ocjene.KorisnikId, ocjene.DatumOcjene, ocjene.SvidjaSe, ocjene.NeSvidjaSe, ocjene.Ocjena);
 
             return CreatedAtRoute("DefaultApi", new { id = ocjene.OcjenaId }, ocjene);
         }

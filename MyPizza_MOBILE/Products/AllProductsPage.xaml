@@ -53,11 +53,9 @@
                             <Grid.Resources>
                                 <local:ImageConverter x:Key="ImageConverter"></local:ImageConverter>
                             </Grid.Resources>
-
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="150"></RowDefinition>
                             </Grid.RowDefinitions>
-
                             <Image Source="{Binding Converter={StaticResource ImageConverter}}" Grid.Row="0" Stretch="UniformToFill"></Image>
                             <StackPanel>
                                 <Grid>

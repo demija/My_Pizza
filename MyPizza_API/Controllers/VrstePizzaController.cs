@@ -16,7 +16,6 @@ namespace MyPizza_API.Controllers
 {
     public class VrstePizzaController : ApiController
     {
-        //private MyPizzaEntities db = new MyPizzaEntities();
         private MyPizzaEntities1 db = new MyPizzaEntities1();
 
         // GET: api/VrstePizza
@@ -38,6 +37,16 @@ namespace MyPizza_API.Controllers
         {
             return db.myPizza_GetVelPizza(vrstaPizzeId).ToList();
         }
+
+        /*
+        [HttpGet]
+        [Route("api/VrstePizza/RecommendProduct/{vrstaPizzeId}")]
+        public List<VrstePizza> RecommendProduct(int vrstaPizzeId)
+        {
+            Recommender r = new Recommender();
+            return r.GetSlicneProizvode(vrstaPizzeId);
+        }
+        */
 
         // GET: api/VrstePizza/5
         [ResponseType(typeof(VrstePizza))]

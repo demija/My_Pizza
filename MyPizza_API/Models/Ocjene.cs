@@ -30,6 +30,8 @@ public partial class Ocjene
 
     public int VrstaPizzeId { get; set; }
 
+    public int Ocjena { get; set; }
+
 
 
     public virtual Korisnici Korisnici { get; set; }

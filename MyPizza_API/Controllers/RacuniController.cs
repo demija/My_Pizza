@@ -35,6 +35,13 @@ namespace MyPizza_API.Controllers
             return Ok(racuni);
         }
 
+        [HttpGet]
+        [Route("api/Racuni/GetRacuniByUser/{id}")]
+        public List<Racuni> GetRacuniByUser(int id)
+        {
+            return db.myPizza_Racun_GetByUserId(id).ToList();
+        }
+
         // PUT: api/Racuni/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutRacuni(int id, Racuni racuni)

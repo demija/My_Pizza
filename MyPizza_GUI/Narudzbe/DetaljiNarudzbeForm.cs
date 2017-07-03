@@ -13,6 +13,8 @@ namespace MyPizza_GUI
         WebAPIHelper statusiNarudzbiService = new WebAPIHelper("http://localhost:50337/", "api/StatusiNarudzbi");
         WebAPIHelper racuniService = new WebAPIHelper("http://localhost:50337/", "api/Racuni");
         public myPizza_Narudzbe_SelectAktivne_Result narudzba { get; set; }
+        public myPizza_Narudzbe_SelectObradjene_Result obradjenaNarudzba { get; set; }
+        public myPizza_Narudzbe_SelectOdbijene_Result odbijenaNarudzba { get; set; }
 
         public DetaljiNarudzbeForm(myPizza_Narudzbe_SelectAktivne_Result narudzba)
         {
@@ -22,8 +24,50 @@ namespace MyPizza_GUI
             {
                 this.narudzba = narudzba;
 
-                BindNarudzbeDetails();
+                BindNarudzbeDetails(narudzba.NarudzbaId.ToString());
                 BindSatusiNarudzbi();
+            }
+        }
+
+        public DetaljiNarudzbeForm(myPizza_Narudzbe_SelectObradjene_Result obradjenaNarudzba)
+        {
+            InitializeComponent();
+
+            if (obradjenaNarudzba != null)
+            {
+                this.obradjenaNarudzba = obradjenaNarudzba;
+
+                statusNarudzbeComboBox.Enabled = false;
+                procesirajButton.Enabled = false;
+
+                BindNarudzbeDetails(obradjenaNarudzba.NarudzbaId.ToString());
+            }
+        }
+
+        public DetaljiNarudzbeForm(myPizza_Narudzbe_SelectOdbijene_Result odbijenaNarudzba)
+        {
+            InitializeComponent();
+
+            if (odbijenaNarudzba != null)
+            {
+                this.odbijenaNarudzba = odbijenaNarudzba;
+
+                statusNarudzbeComboBox.Enabled = false;
+                procesirajButton.Enabled = false;
+
+                BindNarudzbeDetails(odbijenaNarudzba.NarudzbaId.ToString());
+            }
+        }
+
+        private void BindNarudzbeDetails(string v)
+        {
+            HttpResponseMessage response = narudzbeService.GetActionResponse("GetNarudzbeDetails", v);
+
+            if (response.IsSuccessStatusCode)
+            {
+                narudzbaDetailsDataGridView.AutoGenerateColumns = false;
+                narudzbaDetailsDataGridView.DataSource = response.Content.ReadAsAsync<List<myPizza_Narudzbe_Details_Result>>().Result;
+                narudzbaDetailsDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             }
         }
 
@@ -44,23 +88,25 @@ namespace MyPizza_GUI
             }
         }
 
-        private void BindNarudzbeDetails()
+        private void DetaljiNarudzbeForm_Load(object sender, EventArgs e)
         {
-            HttpResponseMessage response = narudzbeService.GetActionResponse("GetNarudzbeDetails", narudzba.NarudzbaId.ToString());
-
-            if (response.IsSuccessStatusCode)
+            if (narudzba != null)
             {
-                narudzbaDetailsDataGridView.DataSource = response.Content.ReadAsAsync<List<myPizza_Narudzbe_Details_Result>>().Result;
-                narudzbaDetailsDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                BindForm(narudzba);
+            }
+
+            if (obradjenaNarudzba != null)
+            {
+                BindObradjenaForm(obradjenaNarudzba);
+            }
+
+            if (odbijenaNarudzba != null)
+            {
+                BindOdbijenaForm(odbijenaNarudzba);
             }
         }
 
-        private void DetaljiNarudzbeForm_Load(object sender, EventArgs e)
-        {
-            BindForm();
-        }
-
-        private void BindForm()
+        private void BindForm(myPizza_Narudzbe_SelectAktivne_Result narudzba)
         {
             brojNarudzbeValue.Text = narudzba.NarudzbaId.ToString();
             datumValue.Text = narudzba.DatumNarudzbe.ToString();
@@ -68,6 +114,26 @@ namespace MyPizza_GUI
             kupacValue.Text = narudzba.Korisnik;
             iznosValue.Text = narudzba.UkupnaCijena.ToString();
             kontaktTelValue.Text = narudzba.BrojTelefona;
+        }
+
+        private void BindObradjenaForm(myPizza_Narudzbe_SelectObradjene_Result obradjenaNarudzba)
+        {
+            brojNarudzbeValue.Text = obradjenaNarudzba.NarudzbaId.ToString();
+            datumValue.Text = obradjenaNarudzba.DatumNarudzbe.ToString();
+            adresaZaDostavuValue.Text = obradjenaNarudzba.AdresaZaDostavu;
+            kupacValue.Text = obradjenaNarudzba.Korisnik;
+            iznosValue.Text = obradjenaNarudzba.UkupnaCijena.ToString();
+            kontaktTelValue.Text = obradjenaNarudzba.BrojTelefona;
+        }
+
+        private void BindOdbijenaForm(myPizza_Narudzbe_SelectOdbijene_Result odbijenaNarudzba)
+        {
+            brojNarudzbeValue.Text = odbijenaNarudzba.NarudzbaId.ToString();
+            datumValue.Text = odbijenaNarudzba.DatumNarudzbe.ToString();
+            adresaZaDostavuValue.Text = odbijenaNarudzba.AdresaZaDostavu;
+            kupacValue.Text = odbijenaNarudzba.Korisnik;
+            iznosValue.Text = odbijenaNarudzba.UkupnaCijena.ToString();
+            kontaktTelValue.Text = odbijenaNarudzba.BrojTelefona;
         }
 
         private void procesirajButton_Click(object sender, EventArgs e)
@@ -82,7 +148,7 @@ namespace MyPizza_GUI
 
                 r.Datum = DateTime.Now;
                 r.NarudzbaId = narudzba.NarudzbaId;
-                r.KorisnikId = Global.prijavljeniKorisnik.KorisnikId;
+                r.KorisnikId = narudzba.KorisnikId;
                 r.CijenaSaPDV = (decimal)narudzba.UkupnaCijena;
                 r.CijenaBezPDV = (decimal)narudzba.UkupnaCijena / (decimal)1.17;
 

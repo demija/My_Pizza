@@ -103,6 +103,7 @@
     <Property Name="NeSvidjaSe" Type="Boolean" Nullable="false" />
     <Property Name="VrstaPizzeId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="VrstePizza" Relationship="MyPizzaModel1.FK_Ocjene_VrstePizza1" FromRole="Ocjene" ToRole="VrstePizza" />
+    <Property Name="Ocjena" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Pizze">
     <Key>
@@ -591,6 +592,7 @@
       <Parameter Name="datumOcjnene" Mode="In" Type="DateTime" />
       <Parameter Name="svidja" Mode="In" Type="Boolean" />
       <Parameter Name="neSvidja" Mode="In" Type="Boolean" />
+      <Parameter Name="ocjena" Mode="In" Type="Int32" />
     </FunctionImport>
     <AssociationSet Name="FK_Ocjene_VrstePizza1" Association="MyPizzaModel1.FK_Ocjene_VrstePizza1">
       <End Role="VrstePizza" EntitySet="VrstePizza" />
@@ -636,6 +638,21 @@
     </FunctionImport>
     <FunctionImport Name="myPizza_NarudzbaUpdate">
       <Parameter Name="narudzbaId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="myPizza_Narudzbe_SelectObradjene" ReturnType="Collection(MyPizzaModel1.myPizza_Narudzbe_SelectObradjene_Result)" />
+    <FunctionImport Name="myPizza_Narudzbe_SelectOdbijene" ReturnType="Collection(MyPizzaModel1.myPizza_Narudzbe_SelectOdbijene_Result)" />
+    <FunctionImport Name="myPizza_Narudzbe_SelectByDate" ReturnType="Collection(MyPizzaModel1.myPizza_Narudzbe_SelectByDate_Result)">
+      <Parameter Name="d1" Mode="In" Type="DateTime" />
+      <Parameter Name="d2" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="myPizza_VrstePizza_SelectById" EntitySet="VrstePizza" ReturnType="Collection(MyPizzaModel1.VrstePizza)">
+      <Parameter Name="vrstaPizzeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="myPizza_Narudzbe_SelectByUserId" ReturnType="Collection(MyPizzaModel1.myPizza_Narudzbe_SelectByUserId_Result)">
+      <Parameter Name="KorisnikId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="myPizza_Racun_GetByUserId" EntitySet="Racuni" ReturnType="Collection(MyPizzaModel1.Racuni)">
+      <Parameter Name="korisnikId" Mode="In" Type="Int32" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="myPizza_Korisnici_SelectByImePrezime_Result">
@@ -707,5 +724,59 @@
     <Property Type="Int32" Name="Kolicina" Nullable="false" />
     <Property Type="Decimal" Name="Cijena" Nullable="true" Precision="18" Scale="2" />
     <Property Type="Decimal" Name="DodatniSastojciCjena" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Int32" Name="NarudzbaPizzaId" Nullable="false" />
+    <Property Type="Int32" Name="PizzaId" Nullable="false" />
+    <Property Type="String" Name="Promjer" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Sastojci" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="myPizza_Narudzbe_SelectObradjene_Result">
+    <Property Type="Int32" Name="NarudzbaId" Nullable="false" />
+    <Property Type="String" Name="Korisnik" Nullable="false" MaxLength="101" />
+    <Property Type="Int32" Name="KorisnikId" Nullable="false" />
+    <Property Type="DateTime" Name="DatumNarudzbe" Nullable="false" Precision="23" />
+    <Property Type="String" Name="StatusNarudzbe" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="StatusNarudzbeId" Nullable="false" />
+    <Property Type="String" Name="AdresaZaDostavu" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="BrojTelefona" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="OtkazanaNarudzba" Nullable="false" />
+    <Property Type="Decimal" Name="UkupnaCijena" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="myPizza_Narudzbe_SelectOdbijene_Result">
+    <Property Type="Int32" Name="NarudzbaId" Nullable="false" />
+    <Property Type="String" Name="Korisnik" Nullable="false" MaxLength="101" />
+    <Property Type="Int32" Name="KorisnikId" Nullable="false" />
+    <Property Type="DateTime" Name="DatumNarudzbe" Nullable="false" Precision="23" />
+    <Property Type="String" Name="StatusNarudzbe" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="StatusNarudzbeId" Nullable="false" />
+    <Property Type="String" Name="AdresaZaDostavu" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="BrojTelefona" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="OtkazanaNarudzba" Nullable="false" />
+    <Property Type="Decimal" Name="UkupnaCijena" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="myPizza_Narudzbe_SelectByDate_Result">
+    <Property Type="Int32" Name="NarudzbaId" Nullable="false" />
+    <Property Type="String" Name="Korisnik" Nullable="false" MaxLength="101" />
+    <Property Type="Int32" Name="KorisnikId" Nullable="false" />
+    <Property Type="DateTime" Name="DatumNarudzbe" Nullable="false" Precision="23" />
+    <Property Type="String" Name="StatusNarudzbe" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="StatusNarudzbeId" Nullable="false" />
+    <Property Type="String" Name="AdresaZaDostavu" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="BrojTelefona" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="OtkazanaNarudzba" Nullable="false" />
+    <Property Type="Decimal" Name="UkupnaCijena" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="myPizza_Narudzbe_SelectByUserId_Result">
+    <Property Type="Int32" Name="NarudzbaId" Nullable="false" />
+    <Property Type="Int32" Name="NarudzbaPizzaId" Nullable="false" />
+    <Property Type="Int32" Name="PizzaId" Nullable="false" />
+    <Property Type="String" Name="Vrsta" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Velicina" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Promjer" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Kolicina" Nullable="false" />
+    <Property Type="Decimal" Name="Cijena" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="AdresaZaDostavu" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="BrojTelefona" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="DodatniSastojciCjena" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="String" Name="Sastojci" Nullable="true" />
   </ComplexType>
 </Schema>

@@ -42,6 +42,8 @@ namespace MyPizza_MOBILE.Products
             this.InitializeComponent();
 
             PrikaziOcjene();
+
+            ocjenaButton.Visibility = Visibility.Collapsed;
         }
 
         private void PrikaziOcjene()
@@ -195,14 +197,19 @@ namespace MyPizza_MOBILE.Products
             if (likeButton.IsChecked == true)
             {
                 o.SvidjaSe = true;
+                o.Ocjena = 5;
                 ++likesNumber;
                 LikeCount.Text = likesNumber.ToString();
+                ocijenaLabel.Text = "5";
+                ocjenaButton.Visibility = Visibility.Visible;
             }
             else
             {
                 o.SvidjaSe = false;
                 --likesNumber;
                 LikeCount.Text = likesNumber.ToString();
+                ocijenaLabel.Text = "";
+                ocjenaButton.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -213,14 +220,19 @@ namespace MyPizza_MOBILE.Products
             if (dislikeButton.IsChecked == true)
             {
                 o.NeSvidjaSe = true;
+                o.Ocjena = 1;
                 ++dislikeNumber;
                 DislikeCount.Text = dislikeNumber.ToString();
+                ocijenaLabel.Text = "1";
+                ocjenaButton.Visibility = Visibility.Visible;
             }
             else
             {
                 o.NeSvidjaSe = false;
                 --dislikeNumber;
                 DislikeCount.Text = dislikeNumber.ToString();
+                ocijenaLabel.Text = "";
+                ocjenaButton.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -311,6 +323,35 @@ namespace MyPizza_MOBILE.Products
                 }
 
                 FormirajCijenu();
+            }
+        }
+
+        private void ocjeneListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ocjeneListView.SelectedIndex == 0)
+            {
+                o.Ocjena = 5;
+                ocijenaLabel.Text = "5";
+            }
+            else if (ocjeneListView.SelectedIndex == 1)
+            {
+                o.Ocjena = 4;
+                ocijenaLabel.Text = "4";
+            }
+            else if (ocjeneListView.SelectedIndex == 2)
+            {
+                o.Ocjena = 3;
+                ocijenaLabel.Text = "3";
+            }
+            else if (ocjeneListView.SelectedIndex == 3)
+            {
+                o.Ocjena = 2;
+                ocijenaLabel.Text = "2";
+            }
+            else if (ocjeneListView.SelectedIndex == 4)
+            {
+                o.Ocjena = 1;
+                ocijenaLabel.Text = "1";
             }
         }
     }

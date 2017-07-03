@@ -11,6 +11,30 @@
     <ScrollViewer Margin="10,5">
         <StackPanel>
             <TextBlock Text="Pregled narudžbi" Style="{StaticResource MessageDialogTitleStyle}" />
+            <ListView Name="narucenePizzeListView" Margin="10,5" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="0,0,0,10">
+                            <TextBlock Style="{StaticResource ListViewItemContentTextBlockStyle}" FontFamily="Global User Interface">
+                                <Run Text="Narudžba Id: " FontFamily="Global User Interface"></Run>
+                                <Run Text="{Binding NarudzbaId, Mode=TwoWay}"/>
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource ListViewItemContentTextBlockStyle}" FontFamily="Global User Interface" HorizontalAlignment="Left">
+                                <Run Text="Datum: " FontFamily="Global User Interface"></Run>
+                                <Run Text="{Binding Datum, Mode=TwoWay}" FontFamily="Global User Interface"/>
+                            </TextBlock>
+                            <TextBlock FontFamily="Global User Interface" >
+                                <Run Text="Cijena bez PDV-a: "/>
+                                <Run Text="{Binding CijenaBezPDV, Mode=TwoWay}"/>
+                            </TextBlock>
+                            <TextBlock FontFamily="Global User Interface" >
+                                <Run Text="Cijena sa PDV-a: " FontFamily="Global User Interface"/>
+                                <Run Text="{Binding CijenaSaPDV, Mode=TwoWay}"/>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
     </ScrollViewer>
 </Page>

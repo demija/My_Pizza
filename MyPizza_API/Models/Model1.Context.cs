@@ -250,7 +250,7 @@ public partial class MyPizzaEntities1 : DbContext
     }
 
 
-    public virtual int myPizza_Ocjene_LikeDislike(Nullable<int> vrstaPizzaId, Nullable<int> korisnikId, Nullable<System.DateTime> datumOcjnene, Nullable<bool> svidja, Nullable<bool> neSvidja)
+    public virtual int myPizza_Ocjene_LikeDislike(Nullable<int> vrstaPizzaId, Nullable<int> korisnikId, Nullable<System.DateTime> datumOcjnene, Nullable<bool> svidja, Nullable<bool> neSvidja, Nullable<int> ocjena)
     {
 
         var vrstaPizzaIdParameter = vrstaPizzaId.HasValue ?
@@ -278,7 +278,12 @@ public partial class MyPizzaEntities1 : DbContext
             new ObjectParameter("neSvidja", typeof(bool));
 
 
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("myPizza_Ocjene_LikeDislike", vrstaPizzaIdParameter, korisnikIdParameter, datumOcjneneParameter, svidjaParameter, neSvidjaParameter);
+        var ocjenaParameter = ocjena.HasValue ?
+            new ObjectParameter("ocjena", ocjena) :
+            new ObjectParameter("ocjena", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("myPizza_Ocjene_LikeDislike", vrstaPizzaIdParameter, korisnikIdParameter, datumOcjneneParameter, svidjaParameter, neSvidjaParameter, ocjenaParameter);
     }
 
 
@@ -471,6 +476,97 @@ public partial class MyPizzaEntities1 : DbContext
 
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("myPizza_NarudzbaUpdate", narudzbaIdParameter);
+    }
+
+
+    public virtual ObjectResult<myPizza_Narudzbe_SelectObradjene_Result> myPizza_Narudzbe_SelectObradjene()
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_Narudzbe_SelectObradjene_Result>("myPizza_Narudzbe_SelectObradjene");
+    }
+
+
+    public virtual ObjectResult<myPizza_Narudzbe_SelectOdbijene_Result> myPizza_Narudzbe_SelectOdbijene()
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_Narudzbe_SelectOdbijene_Result>("myPizza_Narudzbe_SelectOdbijene");
+    }
+
+
+    public virtual ObjectResult<myPizza_Narudzbe_SelectByDate_Result> myPizza_Narudzbe_SelectByDate(Nullable<System.DateTime> d1, Nullable<System.DateTime> d2)
+    {
+
+        var d1Parameter = d1.HasValue ?
+            new ObjectParameter("d1", d1) :
+            new ObjectParameter("d1", typeof(System.DateTime));
+
+
+        var d2Parameter = d2.HasValue ?
+            new ObjectParameter("d2", d2) :
+            new ObjectParameter("d2", typeof(System.DateTime));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_Narudzbe_SelectByDate_Result>("myPizza_Narudzbe_SelectByDate", d1Parameter, d2Parameter);
+    }
+
+
+    public virtual ObjectResult<VrstePizza> myPizza_VrstePizza_SelectById(Nullable<int> vrstaPizzeId)
+    {
+
+        var vrstaPizzeIdParameter = vrstaPizzeId.HasValue ?
+            new ObjectParameter("vrstaPizzeId", vrstaPizzeId) :
+            new ObjectParameter("vrstaPizzeId", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VrstePizza>("myPizza_VrstePizza_SelectById", vrstaPizzeIdParameter);
+    }
+
+
+    public virtual ObjectResult<VrstePizza> myPizza_VrstePizza_SelectById(Nullable<int> vrstaPizzeId, MergeOption mergeOption)
+    {
+
+        var vrstaPizzeIdParameter = vrstaPizzeId.HasValue ?
+            new ObjectParameter("vrstaPizzeId", vrstaPizzeId) :
+            new ObjectParameter("vrstaPizzeId", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VrstePizza>("myPizza_VrstePizza_SelectById", mergeOption, vrstaPizzeIdParameter);
+    }
+
+
+    public virtual ObjectResult<myPizza_Narudzbe_SelectByUserId_Result> myPizza_Narudzbe_SelectByUserId(Nullable<int> korisnikId)
+    {
+
+        var korisnikIdParameter = korisnikId.HasValue ?
+            new ObjectParameter("KorisnikId", korisnikId) :
+            new ObjectParameter("KorisnikId", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_Narudzbe_SelectByUserId_Result>("myPizza_Narudzbe_SelectByUserId", korisnikIdParameter);
+    }
+
+
+    public virtual ObjectResult<Racuni> myPizza_Racun_GetByUserId(Nullable<int> korisnikId)
+    {
+
+        var korisnikIdParameter = korisnikId.HasValue ?
+            new ObjectParameter("korisnikId", korisnikId) :
+            new ObjectParameter("korisnikId", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Racuni>("myPizza_Racun_GetByUserId", korisnikIdParameter);
+    }
+
+
+    public virtual ObjectResult<Racuni> myPizza_Racun_GetByUserId(Nullable<int> korisnikId, MergeOption mergeOption)
+    {
+
+        var korisnikIdParameter = korisnikId.HasValue ?
+            new ObjectParameter("korisnikId", korisnikId) :
+            new ObjectParameter("korisnikId", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Racuni>("myPizza_Racun_GetByUserId", mergeOption, korisnikIdParameter);
     }
 
 }

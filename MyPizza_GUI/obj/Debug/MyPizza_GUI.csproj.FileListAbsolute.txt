@@ -135,3 +135,6 @@ C:\Users\gabel\Downloads\My_Pizza-master\My_Pizza-master\MyPizza_GUI\obj\Debug\M
 C:\Users\gabel\Downloads\My_Pizza-master\My_Pizza-master\MyPizza_GUI\obj\Debug\MyPizza_GUI.csproj.GenerateResource.Cache
 C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\obj\Debug\MyPizza_GUI.AktivneNarudzbeForm.resources
 C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\obj\Debug\MyPizza_GUI.DetaljiNarudzbeForm.resources
+C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\obj\Debug\MyPizza_GUI.Narudzbe.ObradjeneNarudzbeForm.resources
+C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\obj\Debug\MyPizza_GUI.Narudzbe.OdbijeneNarudzbeForm.resources
+C:\Users\gabel\OneDrive\Documents\GitHub\My_Pizza\MyPizza_GUI\obj\Debug\MyPizza_GUI.Izvjestaji.PregledProdajeForm.resources

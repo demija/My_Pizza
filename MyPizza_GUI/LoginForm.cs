@@ -40,6 +40,14 @@ namespace MyPizza_GUI
             }
         }
 
+        private void lozinkaTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                prijavaButton_Click(this, new EventArgs());
+            }
+        }
+
         private void odustaniButton_Click(object sender, EventArgs e)
         {
             this.Close();

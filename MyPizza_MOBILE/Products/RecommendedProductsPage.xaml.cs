@@ -1,5 +1,10 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using System;
+using MyPizza_PCL.Util;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using System.Net.Http;
+using MyPizza_PCL.Model;
+using System.Collections.Generic;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -10,6 +15,8 @@ namespace MyPizza_MOBILE.Products
     /// </summary>
     public sealed partial class RecommendedProductsPage : Page
     {
+        WebAPIHelper vrstePizzaService = new WebAPIHelper("http://localhost:50337/", "api/VrstePizza");
+
         public RecommendedProductsPage()
         {
             this.InitializeComponent();

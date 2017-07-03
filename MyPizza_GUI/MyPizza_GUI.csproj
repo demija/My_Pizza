@@ -55,41 +55,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AktivneNarudzbeForm.cs">
+    <Compile Include="Izvjestaji\PregledProdajeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AktivneNarudzbeForm.Designer.cs">
+    <Compile Include="Izvjestaji\PregledProdajeForm.Designer.cs">
+      <DependentUpon>PregledProdajeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Narudzbe\AktivneNarudzbeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Narudzbe\AktivneNarudzbeForm.Designer.cs">
       <DependentUpon>AktivneNarudzbeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CijenePizzaForm.cs">
+    <Compile Include="Pizze\CijenePizzaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CijenePizzaForm.Designer.cs">
+    <Compile Include="Pizze\CijenePizzaForm.Designer.cs">
       <DependentUpon>CijenePizzaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DetaljiNarudzbeForm.cs">
+    <Compile Include="Narudzbe\DetaljiNarudzbeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DetaljiNarudzbeForm.Designer.cs">
+    <Compile Include="Narudzbe\DetaljiNarudzbeForm.Designer.cs">
       <DependentUpon>DetaljiNarudzbeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DodavanjeKorisnikaForm.cs">
+    <Compile Include="Korisnici\DodavanjeKorisnikaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DodavanjeKorisnikaForm.Designer.cs">
+    <Compile Include="Korisnici\DodavanjeKorisnikaForm.Designer.cs">
       <DependentUpon>DodavanjeKorisnikaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DodavanjeProizvodaForm.cs">
+    <Compile Include="Pizze\DodavanjeProizvodaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DodavanjeProizvodaForm.Designer.cs">
+    <Compile Include="Pizze\DodavanjeProizvodaForm.Designer.cs">
       <DependentUpon>DodavanjeProizvodaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
-    <Compile Include="KorisnickaForma.cs">
+    <Compile Include="Korisnici\KorisnickaForma.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KorisnickaForma.Designer.cs">
+    <Compile Include="Korisnici\KorisnickaForma.Designer.cs">
       <DependentUpon>KorisnickaForma.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
@@ -109,12 +115,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Messages.resx</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SastojciForm.cs">
+    <Compile Include="Narudzbe\ObradjeneNarudzbeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SastojciForm.Designer.cs">
+    <Compile Include="Narudzbe\ObradjeneNarudzbeForm.Designer.cs">
+      <DependentUpon>ObradjeneNarudzbeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Narudzbe\OdbijeneNarudzbeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Narudzbe\OdbijeneNarudzbeForm.Designer.cs">
+      <DependentUpon>OdbijeneNarudzbeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pizze\SastojciForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pizze\SastojciForm.Designer.cs">
       <DependentUpon>SastojciForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SplashScreenForm.cs">
@@ -123,42 +141,45 @@
     <Compile Include="SplashScreenForm.Designer.cs">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StatusiPizzaForm.cs">
+    <Compile Include="Pizze\StatusiPizzaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StatusiPizzaForm.Designer.cs">
+    <Compile Include="Pizze\StatusiPizzaForm.Designer.cs">
       <DependentUpon>StatusiPizzaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\UIHelper.cs" />
     <Compile Include="Util\WebAPIHelper.cs" />
-    <Compile Include="VelicinePizzaForm.cs">
+    <Compile Include="Pizze\VelicinePizzaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VelicinePizzaForm.Designer.cs">
+    <Compile Include="Pizze\VelicinePizzaForm.Designer.cs">
       <DependentUpon>VelicinePizzaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="VrstePizzaForm.cs">
+    <Compile Include="Pizze\VrstePizzaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VrstePizzaForm.Designer.cs">
+    <Compile Include="Pizze\VrstePizzaForm.Designer.cs">
       <DependentUpon>VrstePizzaForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AktivneNarudzbeForm.resx">
+    <EmbeddedResource Include="Izvjestaji\PregledProdajeForm.resx">
+      <DependentUpon>PregledProdajeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Narudzbe\AktivneNarudzbeForm.resx">
       <DependentUpon>AktivneNarudzbeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CijenePizzaForm.resx">
+    <EmbeddedResource Include="Pizze\CijenePizzaForm.resx">
       <DependentUpon>CijenePizzaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DetaljiNarudzbeForm.resx">
+    <EmbeddedResource Include="Narudzbe\DetaljiNarudzbeForm.resx">
       <DependentUpon>DetaljiNarudzbeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DodavanjeKorisnikaForm.resx">
+    <EmbeddedResource Include="Korisnici\DodavanjeKorisnikaForm.resx">
       <DependentUpon>DodavanjeKorisnikaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DodavanjeProizvodaForm.resx">
+    <EmbeddedResource Include="Pizze\DodavanjeProizvodaForm.resx">
       <DependentUpon>DodavanjeProizvodaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KorisnickaForma.resx">
+    <EmbeddedResource Include="Korisnici\KorisnickaForma.resx">
       <DependentUpon>KorisnickaForma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
@@ -171,6 +192,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Narudzbe\ObradjeneNarudzbeForm.resx">
+      <DependentUpon>ObradjeneNarudzbeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Narudzbe\OdbijeneNarudzbeForm.resx">
+      <DependentUpon>OdbijeneNarudzbeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -180,19 +207,19 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SastojciForm.resx">
+    <EmbeddedResource Include="Pizze\SastojciForm.resx">
       <DependentUpon>SastojciForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreenForm.resx">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StatusiPizzaForm.resx">
+    <EmbeddedResource Include="Pizze\StatusiPizzaForm.resx">
       <DependentUpon>StatusiPizzaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VelicinePizzaForm.resx">
+    <EmbeddedResource Include="Pizze\VelicinePizzaForm.resx">
       <DependentUpon>VelicinePizzaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VrstePizzaForm.resx">
+    <EmbeddedResource Include="Pizze\VrstePizzaForm.resx">
       <DependentUpon>VrstePizzaForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

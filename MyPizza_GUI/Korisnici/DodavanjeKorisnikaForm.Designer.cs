@@ -51,8 +51,8 @@
             this.gradComboBox = new System.Windows.Forms.ComboBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.noviKorisnikGroupBox = new System.Windows.Forms.GroupBox();
-            this.ulicaTextBox = new System.Windows.Forms.TextBox();
             this.ulicaLabel = new System.Windows.Forms.Label();
+            this.ulicaTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.noviKorisnikGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -207,7 +207,7 @@
             // 
             // odustaniButton
             // 
-            this.odustaniButton.Location = new System.Drawing.Point(192, 357);
+            this.odustaniButton.Location = new System.Drawing.Point(224, 382);
             this.odustaniButton.Name = "odustaniButton";
             this.odustaniButton.Size = new System.Drawing.Size(75, 23);
             this.odustaniButton.TabIndex = 11;
@@ -217,7 +217,7 @@
             // 
             // dodajButton
             // 
-            this.dodajButton.Location = new System.Drawing.Point(107, 357);
+            this.dodajButton.Location = new System.Drawing.Point(143, 382);
             this.dodajButton.Name = "dodajButton";
             this.dodajButton.Size = new System.Drawing.Size(75, 23);
             this.dodajButton.TabIndex = 10;
@@ -245,9 +245,7 @@
             this.noviKorisnikGroupBox.Controls.Add(this.imeLabel);
             this.noviKorisnikGroupBox.Controls.Add(this.gradComboBox);
             this.noviKorisnikGroupBox.Controls.Add(this.imeTextBox);
-            this.noviKorisnikGroupBox.Controls.Add(this.dodajButton);
             this.noviKorisnikGroupBox.Controls.Add(this.prezimeLabel);
-            this.noviKorisnikGroupBox.Controls.Add(this.odustaniButton);
             this.noviKorisnikGroupBox.Controls.Add(this.prezimeTextBox);
             this.noviKorisnikGroupBox.Controls.Add(this.ulogeCheckedListBox);
             this.noviKorisnikGroupBox.Controls.Add(this.korisnickoImeLabel);
@@ -264,18 +262,10 @@
             this.noviKorisnikGroupBox.Controls.Add(this.emailLabel);
             this.noviKorisnikGroupBox.Location = new System.Drawing.Point(12, 12);
             this.noviKorisnikGroupBox.Name = "noviKorisnikGroupBox";
-            this.noviKorisnikGroupBox.Size = new System.Drawing.Size(287, 392);
+            this.noviKorisnikGroupBox.Size = new System.Drawing.Size(287, 364);
             this.noviKorisnikGroupBox.TabIndex = 12;
             this.noviKorisnikGroupBox.TabStop = false;
             this.noviKorisnikGroupBox.Text = "Novi korisnik";
-            // 
-            // ulicaTextBox
-            // 
-            this.ulicaTextBox.Location = new System.Drawing.Point(107, 231);
-            this.ulicaTextBox.Name = "ulicaTextBox";
-            this.ulicaTextBox.Size = new System.Drawing.Size(160, 20);
-            this.ulicaTextBox.TabIndex = 12;
-            this.ulicaTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ulicaTextBox_Validating);
             // 
             // ulicaLabel
             // 
@@ -286,12 +276,22 @@
             this.ulicaLabel.TabIndex = 13;
             this.ulicaLabel.Text = "Ulica:";
             // 
+            // ulicaTextBox
+            // 
+            this.ulicaTextBox.Location = new System.Drawing.Point(107, 231);
+            this.ulicaTextBox.Name = "ulicaTextBox";
+            this.ulicaTextBox.Size = new System.Drawing.Size(160, 20);
+            this.ulicaTextBox.TabIndex = 12;
+            this.ulicaTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ulicaTextBox_Validating);
+            // 
             // DodavanjeKorisnikaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 413);
+            this.ClientSize = new System.Drawing.Size(311, 415);
             this.Controls.Add(this.noviKorisnikGroupBox);
+            this.Controls.Add(this.dodajButton);
+            this.Controls.Add(this.odustaniButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

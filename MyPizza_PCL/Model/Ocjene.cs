@@ -7,5 +7,6 @@
         public System.DateTime DatumOcjene { get; set; }
         public bool SvidjaSe { get; set; }
         public bool NeSvidjaSe { get; set; }
+        public int Ocjena { get; set; }
     }
 }

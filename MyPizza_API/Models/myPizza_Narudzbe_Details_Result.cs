@@ -29,6 +29,14 @@ public partial class myPizza_Narudzbe_Details_Result
 
     public Nullable<decimal> DodatniSastojciCjena { get; set; }
 
+    public int NarudzbaPizzaId { get; set; }
+
+    public int PizzaId { get; set; }
+
+    public string Promjer { get; set; }
+
+    public string Sastojci { get; set; }
+
 }
 
 }
