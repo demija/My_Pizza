@@ -73,6 +73,12 @@
     <Compile Include="Izvjestaji\PregledProdajeForm.Designer.cs">
       <DependentUpon>PregledProdajeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Izvjestaji\PregledProdajePoDatumuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvjestaji\PregledProdajePoDatumuForm.Designer.cs">
+      <DependentUpon>PregledProdajePoDatumuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Izvjestaji\TopKorisniciForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     <EmbeddedResource Include="Izvjestaji\PregledProdajeForm.resx">
       <DependentUpon>PregledProdajeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Izvjestaji\PregledProdajePoDatumuForm.resx">
+      <DependentUpon>PregledProdajePoDatumuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Izvjestaji\TopKorisniciForm.resx">
       <DependentUpon>TopKorisniciForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +242,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Pizze\SastojciForm.resx">
       <DependentUpon>SastojciForm.cs</DependentUpon>
@@ -268,6 +278,12 @@
       <Project>{b1800fb7-1284-4b90-a4dc-b28dda7ab25f}</Project>
       <Name>MyPizza_API</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pizza-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pizza-logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

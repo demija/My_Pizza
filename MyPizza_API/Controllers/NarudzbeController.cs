@@ -11,6 +11,7 @@ using System.Web.Http.Description;
 using MyPizza_API.Models;
 using System.Data.Entity.Core;
 using MyPizza_API.Util;
+using System.Globalization;
 
 namespace MyPizza_API.Controllers
 {
@@ -84,6 +85,17 @@ namespace MyPizza_API.Controllers
         public void UpdateNarudzbe(int id)
         {
             db.myPizza_NarudzbaUpdate(id);
+        }
+
+        [HttpGet]
+        [Route("api/Narudzbe/GetNarudzbeByDate/{datumOd}/{datumDo}/")]
+        public List<myPizza_Narudzbe_ByDate_Result> GetNarudzbeByDate(string datumOd, string datumDo)
+        {
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            DateTime dtmOd = DateTime.ParseExact(datumOd, "yyyy-MM-dd", provider);
+            DateTime dtmDo = DateTime.ParseExact(datumDo, "yyyy-MM-dd", provider);
+
+            return db.myPizza_Narudzbe_ByDate(dtmOd, dtmDo).ToList();
         }
 
         // PUT: api/Narudzbe/5

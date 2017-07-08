@@ -10,8 +10,8 @@
 
     <ScrollViewer Margin="10,5">
         <StackPanel>
-            <TextBlock Text="Pregled narudžbi" Style="{StaticResource MessageDialogTitleStyle}" />
-            <ListView Name="narucenePizzeListView" Margin="10,5" >
+            <TextBlock Text="Pregled obrađenih narudžbi" Style="{StaticResource MessageDialogTitleStyle}" />
+            <ListView Name="narucenePizzeListView" IsItemClickEnabled="True" ItemClick="narucenePizzeListView_ItemClick" Margin="10,5" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="0,0,0,10">

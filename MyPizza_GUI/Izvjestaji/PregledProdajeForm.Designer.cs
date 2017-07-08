@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.odbijeneRadioButton = new System.Windows.Forms.RadioButton();
+            this.obradjeneRadioButton = new System.Windows.Forms.RadioButton();
+            this.aktivneRadioButton = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.sveRadioButton = new System.Windows.Forms.RadioButton();
             this.korisniciComboBox = new System.Windows.Forms.ComboBox();
             this.traziButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ukupnoLabel = new System.Windows.Forms.Label();
             this.rezultatDataGridView = new System.Windows.Forms.DataGridView();
-            this.odustaniButton = new System.Windows.Forms.Button();
-            this.aktivneRadioButton = new System.Windows.Forms.RadioButton();
-            this.obradjeneRadioButton = new System.Windows.Forms.RadioButton();
-            this.odbijeneRadioButton = new System.Windows.Forms.RadioButton();
             this.NarudzbaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Korisnik = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KorisnikId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,7 +48,7 @@
             this.AdresaZaDostavu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrojTelefona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UkupnaCijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ukupnoLabel = new System.Windows.Forms.Label();
+            this.odustaniButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rezultatDataGridView)).BeginInit();
@@ -70,6 +70,36 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pretraga";
+            // 
+            // odbijeneRadioButton
+            // 
+            this.odbijeneRadioButton.AutoSize = true;
+            this.odbijeneRadioButton.Location = new System.Drawing.Point(295, 46);
+            this.odbijeneRadioButton.Name = "odbijeneRadioButton";
+            this.odbijeneRadioButton.Size = new System.Drawing.Size(67, 17);
+            this.odbijeneRadioButton.TabIndex = 8;
+            this.odbijeneRadioButton.Text = "Odbijene";
+            this.odbijeneRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // obradjeneRadioButton
+            // 
+            this.obradjeneRadioButton.AutoSize = true;
+            this.obradjeneRadioButton.Location = new System.Drawing.Point(216, 46);
+            this.obradjeneRadioButton.Name = "obradjeneRadioButton";
+            this.obradjeneRadioButton.Size = new System.Drawing.Size(73, 17);
+            this.obradjeneRadioButton.TabIndex = 7;
+            this.obradjeneRadioButton.Text = "Obrađene";
+            this.obradjeneRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // aktivneRadioButton
+            // 
+            this.aktivneRadioButton.AutoSize = true;
+            this.aktivneRadioButton.Location = new System.Drawing.Point(149, 46);
+            this.aktivneRadioButton.Name = "aktivneRadioButton";
+            this.aktivneRadioButton.Size = new System.Drawing.Size(61, 17);
+            this.aktivneRadioButton.TabIndex = 6;
+            this.aktivneRadioButton.Text = "Aktivne";
+            this.aktivneRadioButton.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -130,6 +160,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Rezultat pretrage";
             // 
+            // ukupnoLabel
+            // 
+            this.ukupnoLabel.AutoSize = true;
+            this.ukupnoLabel.Location = new System.Drawing.Point(6, 16);
+            this.ukupnoLabel.Name = "ukupnoLabel";
+            this.ukupnoLabel.Size = new System.Drawing.Size(35, 13);
+            this.ukupnoLabel.TabIndex = 1;
+            this.ukupnoLabel.Text = "label3";
+            // 
             // rezultatDataGridView
             // 
             this.rezultatDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -149,47 +188,6 @@
             this.rezultatDataGridView.Name = "rezultatDataGridView";
             this.rezultatDataGridView.Size = new System.Drawing.Size(846, 557);
             this.rezultatDataGridView.TabIndex = 0;
-            // 
-            // odustaniButton
-            // 
-            this.odustaniButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.odustaniButton.Location = new System.Drawing.Point(795, 694);
-            this.odustaniButton.Name = "odustaniButton";
-            this.odustaniButton.Size = new System.Drawing.Size(75, 23);
-            this.odustaniButton.TabIndex = 4;
-            this.odustaniButton.Text = "Odustani";
-            this.odustaniButton.UseVisualStyleBackColor = true;
-            this.odustaniButton.Click += new System.EventHandler(this.odustaniButton_Click);
-            // 
-            // aktivneRadioButton
-            // 
-            this.aktivneRadioButton.AutoSize = true;
-            this.aktivneRadioButton.Location = new System.Drawing.Point(149, 46);
-            this.aktivneRadioButton.Name = "aktivneRadioButton";
-            this.aktivneRadioButton.Size = new System.Drawing.Size(61, 17);
-            this.aktivneRadioButton.TabIndex = 6;
-            this.aktivneRadioButton.Text = "Aktivne";
-            this.aktivneRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // obradjeneRadioButton
-            // 
-            this.obradjeneRadioButton.AutoSize = true;
-            this.obradjeneRadioButton.Location = new System.Drawing.Point(216, 46);
-            this.obradjeneRadioButton.Name = "obradjeneRadioButton";
-            this.obradjeneRadioButton.Size = new System.Drawing.Size(73, 17);
-            this.obradjeneRadioButton.TabIndex = 7;
-            this.obradjeneRadioButton.Text = "Obrađene";
-            this.obradjeneRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // odbijeneRadioButton
-            // 
-            this.odbijeneRadioButton.AutoSize = true;
-            this.odbijeneRadioButton.Location = new System.Drawing.Point(295, 46);
-            this.odbijeneRadioButton.Name = "odbijeneRadioButton";
-            this.odbijeneRadioButton.Size = new System.Drawing.Size(67, 17);
-            this.odbijeneRadioButton.TabIndex = 8;
-            this.odbijeneRadioButton.Text = "Odbijene";
-            this.odbijeneRadioButton.UseVisualStyleBackColor = true;
             // 
             // NarudzbaId
             // 
@@ -239,14 +237,16 @@
             this.UkupnaCijena.HeaderText = "Ukupna Cijena";
             this.UkupnaCijena.Name = "UkupnaCijena";
             // 
-            // ukupnoLabel
+            // odustaniButton
             // 
-            this.ukupnoLabel.AutoSize = true;
-            this.ukupnoLabel.Location = new System.Drawing.Point(6, 16);
-            this.ukupnoLabel.Name = "ukupnoLabel";
-            this.ukupnoLabel.Size = new System.Drawing.Size(35, 13);
-            this.ukupnoLabel.TabIndex = 1;
-            this.ukupnoLabel.Text = "label3";
+            this.odustaniButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.odustaniButton.Location = new System.Drawing.Point(795, 694);
+            this.odustaniButton.Name = "odustaniButton";
+            this.odustaniButton.Size = new System.Drawing.Size(75, 23);
+            this.odustaniButton.TabIndex = 4;
+            this.odustaniButton.Text = "Odustani";
+            this.odustaniButton.UseVisualStyleBackColor = true;
+            this.odustaniButton.Click += new System.EventHandler(this.odustaniButton_Click);
             // 
             // PregledProdajeForm
             // 
@@ -261,7 +261,7 @@
             this.MinimizeBox = false;
             this.Name = "PregledProdajeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pregled Prodaje";
+            this.Text = "Pretraga Prodaje";
             this.Load += new System.EventHandler(this.PregledProdajeForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

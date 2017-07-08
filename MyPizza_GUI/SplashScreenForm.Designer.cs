@@ -35,12 +35,12 @@
             // 
             // splashPictureBox
             // 
-            this.splashPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splashPictureBox.ErrorImage = ((System.Drawing.Image)(resources.GetObject("splashPictureBox.ErrorImage")));
-            this.splashPictureBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("splashPictureBox.InitialImage")));
-            this.splashPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.splashPictureBox.ErrorImage = null;
+            this.splashPictureBox.Image = global::MyPizza_GUI.Properties.Resources.pizza_logo;
+            this.splashPictureBox.InitialImage = null;
+            this.splashPictureBox.Location = new System.Drawing.Point(12, 12);
             this.splashPictureBox.Name = "splashPictureBox";
-            this.splashPictureBox.Size = new System.Drawing.Size(505, 505);
+            this.splashPictureBox.Size = new System.Drawing.Size(800, 602);
             this.splashPictureBox.TabIndex = 0;
             this.splashPictureBox.TabStop = false;
             // 
@@ -48,7 +48,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 505);
+            this.ClientSize = new System.Drawing.Size(824, 626);
             this.ControlBox = false;
             this.Controls.Add(this.splashPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -58,7 +58,6 @@
             this.Name = "SplashScreenForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SplashScreenForm";
-            this.Load += new System.EventHandler(this.SplashScreenForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.splashPictureBox)).EndInit();
             this.ResumeLayout(false);
 

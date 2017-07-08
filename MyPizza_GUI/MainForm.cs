@@ -127,5 +127,11 @@ namespace MyPizza_GUI
             TopKorisniciForm f = new TopKorisniciForm();
             f.ShowDialog();
         }
+
+        private void pregledProdajeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PregledProdajePoDatumuForm f = new PregledProdajePoDatumuForm();
+            f.ShowDialog();
+        }
     }
 }

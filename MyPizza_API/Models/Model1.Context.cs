@@ -493,23 +493,6 @@ public partial class MyPizzaEntities1 : DbContext
     }
 
 
-    public virtual ObjectResult<myPizza_Narudzbe_SelectByDate_Result> myPizza_Narudzbe_SelectByDate(Nullable<System.DateTime> d1, Nullable<System.DateTime> d2)
-    {
-
-        var d1Parameter = d1.HasValue ?
-            new ObjectParameter("d1", d1) :
-            new ObjectParameter("d1", typeof(System.DateTime));
-
-
-        var d2Parameter = d2.HasValue ?
-            new ObjectParameter("d2", d2) :
-            new ObjectParameter("d2", typeof(System.DateTime));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_Narudzbe_SelectByDate_Result>("myPizza_Narudzbe_SelectByDate", d1Parameter, d2Parameter);
-    }
-
-
     public virtual ObjectResult<VrstePizza> myPizza_VrstePizza_SelectById(Nullable<int> vrstaPizzeId)
     {
 
@@ -602,6 +585,23 @@ public partial class MyPizzaEntities1 : DbContext
     {
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_Korisnici_ImePrezimeId_Result>("myPizza_Korisnici_ImePrezimeId");
+    }
+
+
+    public virtual ObjectResult<myPizza_Narudzbe_ByDate_Result> myPizza_Narudzbe_ByDate(Nullable<System.DateTime> datumOdNarudzbe, Nullable<System.DateTime> datumDoNarudzbe)
+    {
+
+        var datumOdNarudzbeParameter = datumOdNarudzbe.HasValue ?
+            new ObjectParameter("datumOdNarudzbe", datumOdNarudzbe) :
+            new ObjectParameter("datumOdNarudzbe", typeof(System.DateTime));
+
+
+        var datumDoNarudzbeParameter = datumDoNarudzbe.HasValue ?
+            new ObjectParameter("datumDoNarudzbe", datumDoNarudzbe) :
+            new ObjectParameter("datumDoNarudzbe", typeof(System.DateTime));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<myPizza_Narudzbe_ByDate_Result>("myPizza_Narudzbe_ByDate", datumOdNarudzbeParameter, datumDoNarudzbeParameter);
     }
 
 }

@@ -14,7 +14,7 @@ namespace MyPizza_API.Models
 
 using System;
     
-public partial class myPizza_Narudzbe_SelectByDate_Result
+public partial class myPizza_Narudzbe_ByDate_Result
 {
 
     public int NarudzbaId { get; set; }

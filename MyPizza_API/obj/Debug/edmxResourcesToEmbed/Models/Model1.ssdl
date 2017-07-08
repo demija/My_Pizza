@@ -466,6 +466,10 @@
   <Function Name="myPizza_NarudzbaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="narudzbaId" Type="int" Mode="In" />
   </Function>
+  <Function Name="myPizza_Narudzbe_ByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="datumOdNarudzbe" Type="datetime" Mode="In" />
+    <Parameter Name="datumDoNarudzbe" Type="datetime" Mode="In" />
+  </Function>
   <Function Name="myPizza_Narudzbe_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="narudzbaId" Type="int" Mode="In" />
   </Function>

@@ -416,5 +416,21 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="myPizza_Narudzbe_ByDate" FunctionName="MyPizzaModel1.Store.myPizza_Narudzbe_ByDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MyPizzaModel1.myPizza_Narudzbe_ByDate_Result">
+          <ScalarProperty Name="NarudzbaId" ColumnName="NarudzbaId" />
+          <ScalarProperty Name="Korisnik" ColumnName="Korisnik" />
+          <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
+          <ScalarProperty Name="DatumNarudzbe" ColumnName="DatumNarudzbe" />
+          <ScalarProperty Name="StatusNarudzbe" ColumnName="StatusNarudzbe" />
+          <ScalarProperty Name="StatusNarudzbeId" ColumnName="StatusNarudzbeId" />
+          <ScalarProperty Name="AdresaZaDostavu" ColumnName="AdresaZaDostavu" />
+          <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
+          <ScalarProperty Name="OtkazanaNarudzba" ColumnName="OtkazanaNarudzba" />
+          <ScalarProperty Name="UkupnaCijena" ColumnName="UkupnaCijena" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

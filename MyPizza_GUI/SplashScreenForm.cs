@@ -22,11 +22,5 @@ namespace MyPizza_GUI
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
-
-        private void SplashScreenForm_Load(object sender, EventArgs e)
-        {
-            splashPictureBox.ImageLocation = "../splash.jpg";
-            splashPictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
-        }
     }
 }

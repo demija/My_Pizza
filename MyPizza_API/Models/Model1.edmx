@@ -471,6 +471,10 @@
         <Function Name="myPizza_NarudzbaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="narudzbaId" Type="int" Mode="In" />
         </Function>
+        <Function Name="myPizza_Narudzbe_ByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="datumOdNarudzbe" Type="datetime" Mode="In" />
+          <Parameter Name="datumDoNarudzbe" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="myPizza_Narudzbe_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="narudzbaId" Type="int" Mode="In" />
         </Function>
@@ -1278,10 +1282,6 @@
           </FunctionImport>
           <FunctionImport Name="myPizza_Narudzbe_SelectObradjene" ReturnType="Collection(MyPizzaModel1.myPizza_Narudzbe_SelectObradjene_Result)" />
           <FunctionImport Name="myPizza_Narudzbe_SelectOdbijene" ReturnType="Collection(MyPizzaModel1.myPizza_Narudzbe_SelectOdbijene_Result)" />
-          <FunctionImport Name="myPizza_Narudzbe_SelectByDate" ReturnType="Collection(MyPizzaModel1.myPizza_Narudzbe_SelectByDate_Result)">
-            <Parameter Name="d1" Mode="In" Type="DateTime" />
-            <Parameter Name="d2" Mode="In" Type="DateTime" />
-          </FunctionImport>
           <FunctionImport Name="myPizza_VrstePizza_SelectById" EntitySet="VrstePizza" ReturnType="Collection(MyPizzaModel1.VrstePizza)">
           <Parameter Name="vrstaPizzeId" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1296,6 +1296,10 @@
           <FunctionImport Name="myPizza_Korisnici_SelectTop" ReturnType="Collection(MyPizzaModel1.myPizza_Korisnici_SelectTop_Result)" />
           <FunctionImport Name="myPizza_Narudzbe_SelectAll" ReturnType="Collection(MyPizzaModel1.myPizza_Narudzbe_SelectAll_Result)" />
           <FunctionImport Name="myPizza_Korisnici_ImePrezimeId" ReturnType="Collection(MyPizzaModel1.myPizza_Korisnici_ImePrezimeId_Result)" />
+          <FunctionImport Name="myPizza_Narudzbe_ByDate" ReturnType="Collection(MyPizzaModel1.myPizza_Narudzbe_ByDate_Result)">
+            <Parameter Name="datumOdNarudzbe" Mode="In" Type="DateTime" />
+            <Parameter Name="datumDoNarudzbe" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="myPizza_Korisnici_SelectByImePrezime_Result">
           <Property Type="Int32" Name="KorisnikId" Nullable="false" />
@@ -1395,18 +1399,6 @@
           <Property Type="Boolean" Name="OtkazanaNarudzba" Nullable="false" />
           <Property Type="Decimal" Name="UkupnaCijena" Nullable="true" Precision="38" Scale="2" />
         </ComplexType>
-        <ComplexType Name="myPizza_Narudzbe_SelectByDate_Result">
-          <Property Type="Int32" Name="NarudzbaId" Nullable="false" />
-          <Property Type="String" Name="Korisnik" Nullable="false" MaxLength="101" />
-          <Property Type="Int32" Name="KorisnikId" Nullable="false" />
-          <Property Type="DateTime" Name="DatumNarudzbe" Nullable="false" Precision="23" />
-          <Property Type="String" Name="StatusNarudzbe" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="StatusNarudzbeId" Nullable="false" />
-          <Property Type="String" Name="AdresaZaDostavu" Nullable="false" MaxLength="500" />
-          <Property Type="String" Name="BrojTelefona" Nullable="false" MaxLength="50" />
-          <Property Type="Boolean" Name="OtkazanaNarudzba" Nullable="false" />
-          <Property Type="Decimal" Name="UkupnaCijena" Nullable="true" Precision="38" Scale="2" />
-        </ComplexType>
         <ComplexType Name="myPizza_Narudzbe_SelectByUserId_Result">
           <Property Type="Int32" Name="NarudzbaId" Nullable="false" />
           <Property Type="Int32" Name="NarudzbaPizzaId" Nullable="false" />
@@ -1461,6 +1453,18 @@
         <ComplexType Name="myPizza_Korisnici_ImePrezimeId_Result">
           <Property Type="Int32" Name="KorisnikId" Nullable="false" />
           <Property Type="String" Name="ImePrezime" Nullable="false" MaxLength="101" />
+        </ComplexType>
+        <ComplexType Name="myPizza_Narudzbe_ByDate_Result">
+          <Property Type="Int32" Name="NarudzbaId" Nullable="false" />
+          <Property Type="String" Name="Korisnik" Nullable="false" MaxLength="101" />
+          <Property Type="Int32" Name="KorisnikId" Nullable="false" />
+          <Property Type="DateTime" Name="DatumNarudzbe" Nullable="false" Precision="23" />
+          <Property Type="String" Name="StatusNarudzbe" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="StatusNarudzbeId" Nullable="false" />
+          <Property Type="String" Name="AdresaZaDostavu" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="BrojTelefona" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="OtkazanaNarudzba" Nullable="false" />
+          <Property Type="Decimal" Name="UkupnaCijena" Nullable="true" Precision="38" Scale="2" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1884,6 +1888,22 @@
               <ComplexTypeMapping TypeName="MyPizzaModel1.myPizza_Korisnici_ImePrezimeId_Result">
                 <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
                 <ScalarProperty Name="ImePrezime" ColumnName="ImePrezime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="myPizza_Narudzbe_ByDate" FunctionName="MyPizzaModel1.Store.myPizza_Narudzbe_ByDate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyPizzaModel1.myPizza_Narudzbe_ByDate_Result">
+                <ScalarProperty Name="NarudzbaId" ColumnName="NarudzbaId" />
+                <ScalarProperty Name="Korisnik" ColumnName="Korisnik" />
+                <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
+                <ScalarProperty Name="DatumNarudzbe" ColumnName="DatumNarudzbe" />
+                <ScalarProperty Name="StatusNarudzbe" ColumnName="StatusNarudzbe" />
+                <ScalarProperty Name="StatusNarudzbeId" ColumnName="StatusNarudzbeId" />
+                <ScalarProperty Name="AdresaZaDostavu" ColumnName="AdresaZaDostavu" />
+                <ScalarProperty Name="BrojTelefona" ColumnName="BrojTelefona" />
+                <ScalarProperty Name="OtkazanaNarudzba" ColumnName="OtkazanaNarudzba" />
+                <ScalarProperty Name="UkupnaCijena" ColumnName="UkupnaCijena" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

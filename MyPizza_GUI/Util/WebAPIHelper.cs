@@ -31,6 +31,11 @@ namespace MyPizza_GUI.Util
             return client.GetAsync(route + "/" + action + "/" + parameter).Result;
         }
 
+        public HttpResponseMessage GetActionResponse2(string action, string parameter1 = "", string parameter2 = "")
+        {
+            return client.GetAsync(route + "/" + action + "/" + parameter1 + "/" + parameter2).Result;
+        }
+
         public HttpResponseMessage PostResponse(Object k)
         {
             return client.PostAsJsonAsync(route, k).Result;

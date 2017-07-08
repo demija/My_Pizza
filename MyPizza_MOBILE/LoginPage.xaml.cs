@@ -7,6 +7,7 @@ using MyPizza_PCL.Model;
 using System.Net.Http;
 using Windows.UI.Popups;
 using MyPizza_MOBILE.Products;
+using Windows.UI.Xaml.Media.Imaging;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -31,6 +32,7 @@ namespace MyPizza_MOBILE
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            appLogo.Source = new BitmapImage(new Uri("ms-appx:///Assets/SmallLogo.scale-240.png", UriKind.Absolute));
         }
 
         private async void prijavaButton_Click(object sender, RoutedEventArgs e)

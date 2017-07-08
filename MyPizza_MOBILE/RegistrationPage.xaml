@@ -19,7 +19,7 @@
             <TextBox Name="emailInput" InputScope="EmailSmtpAddress" Header="E-mail:"></TextBox>
             <TextBox Name="brojTelefonaInput" InputScope="TelephoneNumber" Header="Broj telefona:"></TextBox>
             <TextBox Name="ulicaInput" Header="Ulica:"></TextBox>
-            <ComboBox Name="gradComboBox" Header="Grad" PlaceholderText="Odaberi grad" />
+            <ComboBox Name="gradComboBox" Header="Grad" PickerFlyoutBase.Title="Odaberi grad" PlaceholderText="Odaberi grad" />
             <Button Name="registracijaButton" Content="Registruj se" Click="registracijaButton_Click"></Button>
         </StackPanel>
     </ScrollViewer>

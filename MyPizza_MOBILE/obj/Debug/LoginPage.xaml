@@ -10,6 +10,7 @@
 
     <StackPanel Margin="10,5">
         <TextBlock Text="My Pizza" FontSize="34" HorizontalAlignment="Center" Margin="0,25"></TextBlock>
+        <Image Name="appLogo" Width="120" Height="100" />
         <TextBox Header="Korisničko ime:" Name="korisnickoImeInput"></TextBox>
         <PasswordBox Header="Lozinka:" Name="lozinkaInput"></PasswordBox>
         <Grid>

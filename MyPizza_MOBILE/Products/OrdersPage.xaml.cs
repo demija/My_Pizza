@@ -49,5 +49,10 @@ namespace MyPizza_MOBILE.Products
                 narucenePizzeListView.ItemsSource = obsPizze;
             }
         }
+
+        private void narucenePizzeListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Frame.Navigate(typeof(OrderDetailsPage), ((Racuni)e.ClickedItem));
+        }
     }
 }

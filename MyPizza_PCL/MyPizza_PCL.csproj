@@ -38,6 +38,7 @@
     <Compile Include="Model\Gradovi.cs" />
     <Compile Include="Model\Korisnici.cs" />
     <Compile Include="Model\Narudzbe.cs" />
+    <Compile Include="Model\NarudzbeDetalji.cs" />
     <Compile Include="Model\NarudzbeKorisnika.cs" />
     <Compile Include="Model\NarudzbePizze.cs" />
     <Compile Include="Model\Ocjene.cs" />
